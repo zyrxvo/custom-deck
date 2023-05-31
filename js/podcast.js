@@ -8,7 +8,7 @@
     RSS Feed Parsing
 */
 
-const CUSTOMDECK = "__customdeck__";
+const CUSTOM_DECK = "__customdeck__";
 
 const INTIAL_STATS = {time_listened: 0, percent_completed: 0, playhead: 0, acomplete: false, gcomplete: false, scomplete: false, softcomplete: false, duration: 1};
 function initialize_stats(name, duration) {
@@ -47,7 +47,7 @@ async function parseRSS(feed) {
             const mp3 = `${episode}/${podcast}${episode}.mp3`;
             
             // Check if visitor has stored playback values and generate defaults if null.
-            const id = `${CUSTOMDECK}${podcast}${episode}`;
+            const id = `${CUSTOM_DECK}${podcast}${episode}`;
             const storedPlaybackValues = JSON.parse(localStorage.getItem(id));
             if (storedPlaybackValues === null) {
                 initialize_stats(id, calculateDurationInSeconds(duration));
@@ -141,7 +141,7 @@ async function getEpisode(feed, episodeNumber, chapters){
         var podcastTitle = channel.querySelector("title").innerHTML;
         const podcast = normalizeString(podcastTitle);
 
-        const id = `${CUSTOMDECK}${podcast}${episodeNumber}`;
+        const id = `${CUSTOM_DECK}${podcast}${episodeNumber}`;
 
         let chapter_html = await loadChapters(chapters, podcast, episodeNumber);
 
@@ -184,7 +184,7 @@ async function getEpisode(feed, episodeNumber, chapters){
                     <h2>${title}</h2>
                     <p><i>${pubDate} - ${calculateDurationInMinutes(duration)} minutes</i></p>
                     <p>${subtitle}</p>
-                    <h3>Play or <a href="/${podcast}/${episode}/${mp3}" download>download</a> this episode (${fileSize} MB)</h3>
+                    <h3>Play or <a href="${mp3}" download>download</a> this episode (${fileSize} MB)</h3>
                     <audio id="${id}" controls preload="auto" class="centred" oncanplay=setTime("${id}") onplay="pressedPlay('${id}', '${name}')" ontimeupdate="trackTime('${id}', '${name}')" onended="completed('${id}', '${name}')">
                         <source src="${enclosureURL}" type="audio/mpeg">
                         <source src="${mp3}" type="audio/mpeg">
@@ -208,7 +208,7 @@ function escapeQuotes(str) {
 
 async function loadChapters(url, podcast, episodeNumber) {
     try {
-        const id = `${CUSTOMDECK}${podcast}${episodeNumber}`;
+        const id = `${CUSTOM_DECK}${podcast}${episodeNumber}`;
         const response = await fetch(url);
         const markdown = await response.text();
         const html = markdown
@@ -240,17 +240,6 @@ function setTime(id) {
 }
 
 function gotoChapter(id, playhead, name) {
-    // // Get the current URL
-    // var url = window.location.href;
-
-    // // Check if the URL contains a query string
-    // if (url.indexOf('#') !== -1) {
-    //     // Remove the query string from the URL
-    //     var cleanUrl = url.split('#')[0];
-
-    //     // Update the URL without the query string
-    //     window.history.replaceState(null, null, cleanUrl);
-    // }
     var audio = document.getElementById(id);
     var obj = JSON.parse(localStorage.getItem(id));
     if (obj == null) { initialize_stats(id, audio.duration); }
