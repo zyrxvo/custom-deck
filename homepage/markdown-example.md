@@ -21,6 +21,8 @@ Basic emphasis is available using asterisks or underscores around words or phras
 
 With markdown you can easily make links using closing square brackets `[]` followed immediately by closing round parentheses `()`. For example, `[this is a link]``(README.md)` and links to an image or file and renders as: [this is a link](README.md) , `[another page]``(blog)` renders as a link to [another page](blog) on the site, and `[an external URL]``(https://www.example.com)` is [an external URL](https://www.example.com).
 
+**The most important consideration with relative links is that the link will be make with respect to where the markdown page will be rendered *not* where it is saved!**
+
 With an exclamation point at the start, you can `![Embed an image]``(homepage/images/landscape.jpeg)` to embed an image with alt-text "Embed an image":
 ![Embed image](homepage/images/landscape.jpeg)
 

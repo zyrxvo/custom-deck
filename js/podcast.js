@@ -153,8 +153,11 @@ async function getEpisode(feed, episodeNumber, chapters){
         var episode = parseInt(episodeNumber);
 
 
-        var index = N-episode;
-        let thisEpisode = items.item(index);
+        var thisEpisode = null;
+        items.forEach((item, index) => {
+            let epNum = parseInt(item.querySelector("episode").innerHTML);
+            if (epNum == episode) { thisEpisode = item; }
+        });
 
         const title = thisEpisode.querySelector("title").innerHTML;
         const subtitle = thisEpisode.querySelector("subtitle").innerHTML;

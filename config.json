@@ -13,7 +13,8 @@
         "title": "Custom-Deck | Blog",
         "herotext": "Blog",
         "heroquote": "Here are some short blog entries related to things that I've done and places I've been.",
-        "heroimage": "images/hero.jpeg"
+        "heroimage": "images/hero.jpeg",
+        "blogPostList": "posts/list.txt"
     },
     "podcast": {
         "title": "Custom-Deck | Podcast",

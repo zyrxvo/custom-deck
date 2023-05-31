@@ -7,31 +7,32 @@
     Config replacements
 */
 
-// document.addEventListener('DOMContentLoaded', () => {
+const PLACEHOLDER_ID_KEY = 'customdeck-placeholder';
+const CONFIG_KEY = '__customdeck__config';
+const EXPIRATION_TIME = 3600 * 1000; // 1 hour in milliseconds
 function loadConfig() {
-    getConfig()
-        .then(config => {
-        const placeholders = document.querySelectorAll('[customdeck-placeholder]');
-        placeholders.forEach(placeholder => {
-                const placeholderKey = placeholder.getAttribute('customdeck-placeholder');
-                const placeholderValue = getValueFromKey(config, placeholderKey);
+  getConfig()
+  .then(config => {
+    const placeholders = document.querySelectorAll(`[${PLACEHOLDER_ID_KEY}]`);
+    placeholders.forEach(placeholder => {
+      const placeholderKey = placeholder.getAttribute(PLACEHOLDER_ID_KEY);
+      const placeholderValue = getValueFromKey(config, placeholderKey);
 
-                if (placeholderValue) {
-                    if (placeholder.tagName === 'IMG') {
-                        placeholder.src = placeholderValue;
-                    } 
-                    else if (placeholder.id == "email") {
-                        placeholder.innerHTML = `<a href="mailto:${placeholderValue}">${placeholderValue}</a>`;
-                    }
-                    else {
-                        placeholder.innerHTML = placeholderValue; 
-                    }
-                }
-                placeholder.removeAttribute('customdeck-placeholder');
-            });
-        });
+      if (placeholderValue) {
+        if (placeholder.tagName === 'IMG') {
+            placeholder.src = placeholderValue;
+        } 
+        else if (placeholder.id == "email") {
+            placeholder.innerHTML = `<a href="mailto:${placeholderValue}">${placeholderValue}</a>`;
+        }
+        else {
+            placeholder.innerHTML = placeholderValue; 
+        }
+      }
+      placeholder.removeAttribute(PLACEHOLDER_ID_KEY);
+    });
+  });
 }
-// });
 
 // Helper function to retrieve nested values from config.json based on dot notation key
 function getValueFromKey(object, key) {
@@ -53,20 +54,44 @@ function fetchConfig() {
   return fetch(relativePathPrefix + 'config.json')
     .then(response => response.json())
     .then(config => {
-      sessionStorage.setItem('__customdeck__config', JSON.stringify(config));
-      return config;
+      const configWithTimestamp = {
+        "config": config,
+        "timestamp": Date.now()
+      };
+      sessionStorage.setItem(CONFIG_KEY, JSON.stringify(configWithTimestamp));
+      // sessionStorage.setItem(CONFIG_KEY, JSON.stringify(config));
+      return Promise.resolve(config);
     });
 }
   
 // JavaScript code to retrieve config from sessionStorage or fetch if not available
-function getConfig() {
-  const config = sessionStorage.getItem('__customdeck__config');
-  if (config) {
-    return Promise.resolve(JSON.parse(config));
-  } else {
-    return fetchConfig();
+async function getConfig() {
+  await checkAndUpdateConfig()
+  const savedConfig = sessionStorage.getItem(CONFIG_KEY);
+  if (savedConfig) { 
+    const { config, timestamp } = JSON.parse(savedConfig);
+    const currentTime = Date.now();
+    if (currentTime - timestamp < EXPIRATION_TIME) {
+      // Config is still valid, return it
+      return Promise.resolve(config);
+    }
+  }
+  else { return fetchConfig(); }
+}
+
+// JavaScript code to periodically check and update the saved config preferences in sessionStorage
+async function checkAndUpdateConfig() {
+  const savedConfig = sessionStorage.getItem(CONFIG_KEY);
+  if (savedConfig) {
+    const { config, timestamp } = JSON.parse(savedConfig);
+    const currentTime = Date.now();
+    if (currentTime - timestamp >= EXPIRATION_TIME) {
+      // Config has expired, update it
+      await fetchConfig();
+    }
   }
 }
+
   
 
 /*
@@ -199,10 +224,6 @@ function fetchHTML(file) {
     });
 }
   
-function insertHTMLIntoElement(element, html) {
-  element.innerHTML = html;
-}
-  
 function includeHTML(page) {
   const elements = document.querySelectorAll('[customdeck-include-html]');
   const promises = [];
@@ -213,7 +234,7 @@ function includeHTML(page) {
 
     const promise = fetchHTML(file)
       .then(html => {
-        insertHTMLIntoElement(element, html);
+        element.innerHTML = html;
 
         if (isNavFile) {
           setActivePage(page);
@@ -222,7 +243,7 @@ function includeHTML(page) {
         }
       })
       .catch(error => {
-        insertHTMLIntoElement(element, 'Page not found.');
+        element.innerHTML = 'Page not found.';
         console.error('Error fetching HTML:', error);
       });
 
@@ -236,7 +257,6 @@ function includeHTML(page) {
 function getRelativePathPrefix(){
   const INITIALDEPTH = 1;
   var currentPagePath = window.location.pathname;
-  console.log(currentPagePath);
   var relativePathPrefix = "";
   
   // Calculate relative path prefix based on the current page's location
@@ -244,17 +264,21 @@ function getRelativePathPrefix(){
   for (var i = 1; i < pathSegments.length - 1 - INITIALDEPTH; i++) {
     relativePathPrefix += "../";
   }
-  console.log(relativePathPrefix);
   return relativePathPrefix;
 }
 
 function updateNavLinks() {
-  var navLinks = document.querySelectorAll("#navbar a");
   let relativePathPrefix = getRelativePathPrefix();
   // Update href attributes of navigation links
+  var navLinks = document.querySelectorAll("#navbar a");
   for (var i = 0; i < navLinks.length; i++) {
     var href = navLinks[i].getAttribute("href");
     navLinks[i].setAttribute("href", relativePathPrefix + href);
+  }
+  var dropdownLinks = document.querySelectorAll("#dropdown a");
+  for (var i = 0; i < dropdownLinks.length; i++) {
+    var href = dropdownLinks[i].getAttribute("href");
+    dropdownLinks[i].setAttribute("href", relativePathPrefix + href);
   }
 }
 

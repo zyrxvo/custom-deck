@@ -31,7 +31,19 @@ function setBlogPostStructure(blogPosts) {
     }
 }
 
-function loadPosts() {
+async function fetchCSVFile(url) {
+    try {
+        const response = await fetch(url);
+        const data = await response.text();
+        const lines = data.split('\n');
+        return lines;
+    } catch (error) {
+        console.error('Error fetching CSV file:', error);
+        return null;
+    }
+}
+
+async function loadPosts() {
     // Check if AJAX request was previously made.
     // Check if the dynamic content exists in localStorage
     var storedContent = localStorage.getItem("__customdeck__blogPosts");
@@ -41,40 +53,28 @@ function loadPosts() {
         // Rebuild the page using the stored data
         loadAllPosts();
     } else {
-        // Try making an AJAX request to the server to get the directory listing
-        const xhr = new XMLHttpRequest();
-        const folder = "posts/"
-        xhr.open('GET', folder, true);
+        // Get the list of filenames from the directory listing
+        const config = await getConfig();
+        const filenames = await fetchCSVFile(config.blog.blogPostList);
+        console.log(filenames);
 
-        xhr.onload = function() {
-            // Parse the response as HTML using a DOMParser
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(xhr.responseText, 'text/html');
+        // Filter the filenames to include only those with the .md extension
+        var blogPosts = [];
+        for (const filename of filenames) {
+            blogPosts.push({date: filename.split('.')[0], entry: ''});
+        }
 
-            // Get the list of filenames from the directory listing
-            const filenames = htmlDoc.querySelectorAll('ul li a');
+        // Sort the JSON array by the 'date' parameter in reverse chronological order.
+        blogPosts.sort(function(a, b) {
+            var dateA = new Date(a.date);
+            var dateB = new Date(b.date);
+            return dateA - dateB;
+        });
+        blogPosts.sort().reverse();
+        console.log(blogPosts);
 
-            // Filter the filenames to include only those with the .md extension
-            var blogPosts = [];
-            for (const filename of filenames) {
-                if (filename.href.endsWith('.md')) {
-                    blogPosts.push({date: (filename.innerText).split(".")[0], entry: ''});
-                }
-            }
-
-            // Sort the JSON array by the 'date' parameter in reverse chronological order.
-            blogPosts.sort(function(a, b) {
-                var dateA = new Date(a.date);
-                var dateB = new Date(b.date);
-                return dateA - dateB;
-            });
-            blogPosts.sort().reverse();
-
-            localStorage.setItem("__customdeck__blogPosts", JSON.stringify(blogPosts));
-            loadAllPosts();
-        };
-
-        xhr.send();
+        localStorage.setItem("__customdeck__blogPosts", JSON.stringify(blogPosts));
+        loadAllPosts();
     }
 }
 
@@ -82,8 +82,9 @@ function loadAllPosts() {
     var blogPosts = JSON.parse(localStorage.getItem("__customdeck__blogPosts"));
     var files = []
     for (i=0; i < blogPosts.length; i++) {
-        files.push(`/blog/posts/${blogPosts[i].date}.md`);
+        files.push(`posts/${blogPosts[i].date}.md`);
     }
+    console.log(files);
 
     // Create an array of promises for each file
     const promises = files.map((filename, index) => {
