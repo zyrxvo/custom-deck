@@ -17,7 +17,6 @@ function setBlogPostStructure(blogPosts) {
 
         const numberOfColors = 5; // Number of Card Colors defined in CSS file.
         const thisColor = Math.abs(parseInt(i%(2*numberOfColors) - (numberOfColors-1)));
-        console.log(thisColor);
         const classDescription = `card color${thisColor} padded margins`;
         // Alternate which side the image is on.
         if (i%2) {
