@@ -57,9 +57,9 @@ async function parseRSS(feed) {
             let audioHTML = "";
             if (index === 0) {
                 audioHTML = `
-                    <audio id="${id}" style="width: 85%" controls preload="auto" oncanplay="setTime('${id}')" onplay="pressedPlay('${id}', '')" ontimeupdate="trackTime('${id}', '')" onended="completed('${id}', '')">
-                        <source src="${mp3}" type="audio/mpeg">
+                    <audio id="${id}" style="width: 85%" controls preload="metadata" oncanplay="setTime('${id}')" onplay="pressedPlay('${id}', '')" ontimeupdate="trackTime('${id}', '')" onended="completed('${id}', '')">
                         <source src="${enclosureURL}" type="audio/mpeg">
+                        <source src="${mp3}" type="audio/mpeg">
                     </audio>
                 `;
             }
@@ -180,13 +180,14 @@ async function getEpisode(feed, episodeNumber, chapters){
         if (matches && matches.length > 1) { description = matches[1]; } 
         else { console.log("No Show Notes content found."); }
 
-        html += `<h2>${title}</h2>
+        html += `<h1>${podcastTitle}</h1>
+                    <h2>${title}</h2>
                     <p><i>${pubDate} - ${calculateDurationInMinutes(duration)} minutes</i></p>
                     <p>${subtitle}</p>
                     <h3>Play or <a href="/${podcast}/${episode}/${mp3}" download>download</a> this episode (${fileSize} MB)</h3>
                     <audio id="${id}" controls preload="auto" class="centred" oncanplay=setTime("${id}") onplay="pressedPlay('${id}', '${name}')" ontimeupdate="trackTime('${id}', '${name}')" onended="completed('${id}', '${name}')">
-                        <source src="${mp3}" type="audio/mpeg">
                         <source src="${enclosureURL}" type="audio/mpeg">
+                        <source src="${mp3}" type="audio/mpeg">
                     </audio>
                 ${chapter_html}
                 <p>${description}</p><br>`;

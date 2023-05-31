@@ -80,7 +80,7 @@
         }
         else {
             // Handle the case where the media element is not found
-            console.log('No audio or video element found.');
+            console.log('No audio or video element found, or it is still loading.');
 
             // Pause for a moment and rerun the function
             setTimeout(timeJump, 125); // Delay of 125 milliseconds (1/8 second)

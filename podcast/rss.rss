@@ -29,10 +29,10 @@
 <enclosure
 length="1480105"
 type="audio/mpeg"
-url="https://example.com/podcast/podcast5.mp3"
+url="https://archive.org/download/customdeckpodcast/podcast6.mp3"
 />
 <guid isPermaLink="false">cGtFwZ7n7XDQzeHuaw3wd6wgBj53C1I8</guid>
-<link>https://example.com.com/podcast/5/</link>
+<link>https://example.com.com/podcast/6/</link>
 <pubDate>Thu, 20 Apr 2023 12:00:00 MDT</pubDate>
 <itunes:duration>00:02:28</itunes:duration>
 <itunes:explicit>false</itunes:explicit>
@@ -47,7 +47,7 @@ url="https://example.com/podcast/podcast5.mp3"
 <enclosure
 length="1479899"
 type="audio/mpeg"
-url="https://example.com/podcast/podcast5.mp3"
+url="https://archive.org/download/customdeckpodcast/podcast5.mp3"
 />
 <guid isPermaLink="false">aSufL2cl3MkupVEu7jNsNyimUiGJGxDZ</guid>
 <link>https://example.com.com/podcast/5/</link>
@@ -65,7 +65,7 @@ url="https://example.com/podcast/podcast5.mp3"
 <enclosure
 length="1479799"
 type="audio/mpeg"
-url="https://example.com/podcast/podcast4.mp3"
+url="https://archive.org/download/customdeckpodcast/podcast4.mp3"
 />
 <guid isPermaLink="false">KgPRR2rYUu8u2BXGNlty43FPTvphOD8i</guid>
 <link>https://example.com.com/podcast/4/</link>
@@ -83,7 +83,7 @@ url="https://example.com/podcast/podcast4.mp3"
 <enclosure
 length="1479941"
 type="audio/mpeg"
-url="https://example.com/podcast/podcast3.mp3"
+url="https://archive.org/download/customdeckpodcast/podcast3.mp3"
 />
 <guid isPermaLink="false">8qiVKxTR6VcshYc8OaF66beQe34EkTVV</guid>
 <link>https://example.com.com/podcast/3/</link>
@@ -101,7 +101,7 @@ In this festive episode, the podcast celebrates the enchantment and traditions o
 <enclosure
 length="1480691"
 type="audio/mpeg"
-url="https://example.com/podcast/podcast2.mp3"
+url="https://archive.org/download/customdeckpodcast/podcast2.mp3"
 />
 <guid isPermaLink="false">4nvP75g11pUUhhD2tVfjP1JEoIKfa7Yg</guid>
 <link>https://example.com.com/podcast/2/</link>
@@ -119,7 +119,7 @@ url="https://example.com/podcast/podcast2.mp3"
 <enclosure
 length="1480581"
 type="audio/mpeg"
-url="https://example.com/podcast/podcast1.mp3"
+url="https://archive.org/download/customdeckpodcast/podcast1.mp3"
 />
 <guid isPermaLink="false">BZK8Af0v91D2LWgKoYf6Wzd1MSwgQl6i</guid>
 <link>https://example.com.com/podcast/1/</link>
