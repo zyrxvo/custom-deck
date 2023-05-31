@@ -8,7 +8,9 @@
     RSS Feed Parsing
 */
 
-const CUSTOM_DECK = "__customdeck__";
+if (typeof CUSTOM_DECK === 'undefined') {
+    const CUSTOM_DECK = "__customdeck__";
+}
 
 const INTIAL_STATS = {time_listened: 0, percent_completed: 0, playhead: 0, acomplete: false, gcomplete: false, scomplete: false, softcomplete: false, duration: 1};
 function initialize_stats(name, duration) {
