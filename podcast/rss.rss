@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+<title>Podcast</title>
+<itunes:subtitle></itunes:subtitle>
+<description></description>
+<itunes:author>Garett Brown</itunes:author>
+<link>https://example.com/</link>
+<language>en-us</language>
+<itunes:category text="Society &amp; Culture">
+<itunes:category text="Personal Journals"/>
+</itunes:category>
+<itunes:image href="https://example.com/podcast/images/podcast.jpeg"/>
+<itunes:explicit>false</itunes:explicit>
+<itunes:type>episodic</itunes:type>
+<itunes:owner>
+<itunes:name>Garett Brown</itunes:name>
+<itunes:email>podcast@example.com</itunes:email>
+</itunes:owner>
+<copyright>Copyright 2023 Garett Brown</copyright>
+<itunes:copyright>Copyright 2023 Garett Brown</itunes:copyright>
+
+<item>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:episode>6</itunes:episode>
+<title>Four Twenty</title>
+<itunes:subtitle>In this episode, the podcast celebrates the joy and playfulness of 4/20, emphasizing the lightheartedness and camaraderie of the day. It highlights the importance of laughter, humor, and finding joy in the small moments. Join the host in embracing the spirit of 4/20, sharing laughter, and creating an atmosphere of positivity and merriment.</itunes:subtitle>
+<description><![CDATA[In this episode, the podcast celebrates the joy and playfulness of 4/20, emphasizing the lightheartedness and camaraderie of the day. It highlights the importance of laughter, humor, and finding joy in the small moments. Join the host in embracing the spirit of 4/20, sharing laughter, and creating an atmosphere of positivity and merriment.<p>Show Notes</p><ul><li>Follow Up<ul><li><a href="https://example.com">Example</a></li><li><a href="https://example.com">Another Example</a></li></ul></li><li>Notes<ul><li><a href="https://example.com">A note</a></li><li><a href="https://example.com">Another note</a></li></ul></li></ul><p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a></p>]]></description>
+<enclosure
+length="1480105"
+type="audio/mpeg"
+url="https://example.com/podcast/podcast5.mp3"
+/>
+<guid isPermaLink="false">cGtFwZ7n7XDQzeHuaw3wd6wgBj53C1I8</guid>
+<link>https://example.com.com/podcast/5/</link>
+<pubDate>Thu, 20 Apr 2023 12:00:00 MDT</pubDate>
+<itunes:duration>00:02:28</itunes:duration>
+<itunes:explicit>false</itunes:explicit>
+</item>
+
+<item>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:episode>5</itunes:episode>
+<title>A Good Day</title>
+<itunes:subtitle>In this episode, the podcast encourages listeners to embrace a day of self-reflection and introspection. It highlights the power of gaining clarity, nurturing well-being, and setting intentions for personal growth. Join the host on this transformative journey of self-discovery and renewal.</itunes:subtitle>
+<description><![CDATA[In this episode, the podcast encourages listeners to embrace a day of self-reflection and introspection. It highlights the power of gaining clarity, nurturing well-being, and setting intentions for personal growth. Join the host on this transformative journey of self-discovery and renewal.<p>Show Notes</p><ul><li>Follow Up<ul><li><a href="https://example.com">Example</a></li><li><a href="https://example.com">Another Example</a></li></ul></li><li>Notes<ul><li><a href="https://example.com">A note</a></li><li><a href="https://example.com">Another note</a></li></ul></li></ul><p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a></p>]]></description>
+<enclosure
+length="1479899"
+type="audio/mpeg"
+url="https://example.com/podcast/podcast5.mp3"
+/>
+<guid isPermaLink="false">aSufL2cl3MkupVEu7jNsNyimUiGJGxDZ</guid>
+<link>https://example.com.com/podcast/5/</link>
+<pubDate>Thu, 30 Mar 2023 12:00:00 MDT</pubDate>
+<itunes:duration>00:02:28</itunes:duration>
+<itunes:explicit>false</itunes:explicit>
+</item>
+
+<item>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:episode>4</itunes:episode>
+<title>Valentines</title>
+<itunes:subtitle>In this special Valentine's Day episode, the podcast celebrates the beauty and power of love. It emphasizes the significance of expressing gratitude and cherishing connections in our lives. Join the host on an enchanting journey that reminds us to let our hearts overflow with love and gratitude, not just on Valentine's Day, but every day.</itunes:subtitle>
+<description><![CDATA[In this special Valentine's Day episode, the podcast celebrates the beauty and power of love. It emphasizes the significance of expressing gratitude and cherishing connections in our lives. Join the host on an enchanting journey that reminds us to let our hearts overflow with love and gratitude, not just on Valentine's Day, but every day.<p>Show Notes</p><ul><li>Follow Up<ul><li><a href="https://example.com">Example</a></li><li><a href="https://example.com">Another Example</a></li></ul></li><li>Notes<ul><li><a href="https://example.com">A note</a></li><li><a href="https://example.com">Another note</a></li></ul></li></ul><p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a></p>]]></description>
+<enclosure
+length="1479799"
+type="audio/mpeg"
+url="https://example.com/podcast/podcast4.mp3"
+/>
+<guid isPermaLink="false">KgPRR2rYUu8u2BXGNlty43FPTvphOD8i</guid>
+<link>https://example.com.com/podcast/4/</link>
+<pubDate>Tue, 14 Feb 2023 12:00:00 MDT</pubDate>
+<itunes:duration>00:02:28</itunes:duration>
+<itunes:explicit>false</itunes:explicit>
+</item>
+
+<item>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:episode>3</itunes:episode>
+<title>Hanging Out Together</title>
+<itunes:subtitle>In this episode, the podcast celebrates the warmth and camaraderie of spending time with friends in January. It highlights the importance of nurturing relationships, cherishing shared experiences, and embracing the joy of companionship. Join the host on this delightful journey of laughter, love, and everlasting friendships.</itunes:subtitle>
+<description><![CDATA[In this episode, the podcast celebrates the warmth and camaraderie of spending time with friends in January. It highlights the importance of nurturing relationships, cherishing shared experiences, and embracing the joy of companionship. Join the host on this delightful journey of laughter, love, and everlasting friendships.<p>Show Notes</p><ul><li>Follow Up<ul><li><a href="https://example.com">Example</a></li><li><a href="https://example.com">Another Example</a></li></ul></li><li>Notes<ul><li><a href="https://example.com">A note</a></li><li><a href="https://example.com">Another note</a></li></ul></li></ul><p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a></p>]]></description>
+<enclosure
+length="1479941"
+type="audio/mpeg"
+url="https://example.com/podcast/podcast3.mp3"
+/>
+<guid isPermaLink="false">8qiVKxTR6VcshYc8OaF66beQe34EkTVV</guid>
+<link>https://example.com.com/podcast/3/</link>
+<pubDate>Sun, 15 Jan 2023 12:00:00 MDT</pubDate>
+<itunes:duration>00:02:28</itunes:duration>
+<itunes:explicit>false</itunes:explicit>
+</item>
+
+<item>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:episode>2</itunes:episode>
+<title>Christmas</title>
+<itunes:subtitle>
+In this festive episode, the podcast celebrates the enchantment and traditions of Christmas. It highlights the deeper meaning of the holiday, emphasizing love, togetherness, and the spirit of giving. Join the host on this magical journey and let the wonder of the holiday season fill your heart with joy and laughter.</itunes:subtitle>
+<enclosure
+length="1480691"
+type="audio/mpeg"
+url="https://example.com/podcast/podcast2.mp3"
+/>
+<guid isPermaLink="false">4nvP75g11pUUhhD2tVfjP1JEoIKfa7Yg</guid>
+<link>https://example.com.com/podcast/2/</link>
+<pubDate>Sun, 25 Dec 2022 12:00:00 MDT</pubDate>
+<itunes:duration>00:02:27</itunes:duration>
+<itunes:explicit>false</itunes:explicit>
+<description><![CDATA[In this festive episode, the podcast celebrates the enchantment and traditions of Christmas. It highlights the deeper meaning of the holiday, emphasizing love, togetherness, and the spirit of giving. Join the host on this magical journey and let the wonder of the holiday season fill your heart with joy and laughter.<p>Show Notes</p><ul><li>Follow Up<ul><li><a href="https://example.com">Example</a></li><li><a href="https://example.com">Another Example</a></li></ul></li><li>Notes<ul><li><a href="https://example.com">A note</a></li><li><a href="https://example.com">Another note</a></li></ul></li></ul><p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a></p>]]></description>
+</item>
+
+<item>
+<itunes:episodeType>full</itunes:episodeType>
+<itunes:episode>1</itunes:episode>
+<title>Thanksgiving</title>
+<itunes:subtitle>In this heartwarming episode, the podcast explores the theme of Thanksgiving, going beyond the feast and football games to delve into the traditions and stories that make this holiday special. The episode encourages listeners to reach out to others, express gratitude, and spread love during the holiday season. Join the host on this gratitude-filled journey and let your heart overflow with Thanksgiving.</itunes:subtitle>
+<enclosure
+length="1480581"
+type="audio/mpeg"
+url="https://example.com/podcast/podcast1.mp3"
+/>
+<guid isPermaLink="false">BZK8Af0v91D2LWgKoYf6Wzd1MSwgQl6i</guid>
+<link>https://example.com.com/podcast/1/</link>
+<pubDate>Thu, 24 Nov 2022 12:00:00 MDT</pubDate>
+<itunes:duration>00:02:27</itunes:duration>
+<itunes:explicit>false</itunes:explicit>
+<description><![CDATA[In this heartwarming episode, the podcast explores the theme of Thanksgiving, going beyond the feast and football games to delve into the traditions and stories that make this holiday special. The episode encourages listeners to reach out to others, express gratitude, and spread love during the holiday season. Join the host on this gratitude-filled journey and let your heart overflow with Thanksgiving.<p>Show Notes</p><ul><li>Follow Up<ul><li><a href="https://example.com">Example</a></li><li><a href="https://example.com">Another Example</a></li></ul></li><li>Notes<ul><li><a href="https://example.com">A note</a></li><li><a href="https://example.com">Another note</a></li></ul></li></ul><p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a></p>]]></description>
+</item>
+
+</channel>
+</rss>

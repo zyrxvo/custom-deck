@@ -1,0 +1,66 @@
+<!-- Garett Brown 22 June 2021 Analytical Main Page  -->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<link rel="stylesheet" href="../main.css">
+	<link rel="icon" href="../images/favicon.ico">
+	<link rel="alternate" type="application/rss+xml" title="Podcast" href="rss.rss"/>
+	<title customdeck-placeholder="podcast.title" ></title>
+</head>
+<body class="page">
+<script src="../js/main.js"></script>
+<script src="../js/podcast.js"></script>
+<main>
+	<div customdeck-include-html="../nav.html"></div>
+	<article class="card-top centred padded">
+		<div class="onethird">
+			<div class="centred">
+				<a href=""><img class="return-img" src="images/podcast.jpeg" alt="Podcast Logo" decoding="async" loading="lazy"></a>
+			</div>
+			<div class="card vertical padded">
+				<h1>Podcast</h1>
+				<p>A podcast tagline</p>
+				<p>Details about a podcast, the main premise of the show, what is discussed, and a quip about how it's done.</p>
+				<p>Email us feedback or ask us questions at <a  customdeck-placeholder="podcast.email" id="email" href="mailto:me@example.com">me@example.com</a></p>
+			</div>
+			<section class="card color0 centred">
+				<div class="badge-box"> 
+					<a href="https://podcasts.apple.com" target="_blank">
+						<img class="badge" src="images/apple-badge.svg" alt="Listen on Apple Podcasts" decoding="async" loading="lazy">
+						<img class="logo" src="images/apple-logo.svg" alt="Listen on Apple Podcasts" decoding="async" loading="lazy">
+					</a>
+					<a href="https://open.spotify.com" target="_blank">
+						<img class="badge" src="images/spotify-badge.svg" alt="Listen on Spotify" decoding="async" loading="lazy">
+						<img class="logo" src="images/spotify-logo.svg" alt="Listen on Spotify" decoding="async" loading="lazy">
+					</a>
+					<a href="https://podcasts.google.com" target="_blank">
+						<img class="badge" src="images/google-badge.svg" alt="Listen on Google" decoding="async" loading="lazy">
+						<img class="logo" src="images/google-logo.svg" alt="Listen on Google" decoding="async" loading="lazy">
+					</a>
+					<a href="https://overcast.fm" target="_blank">
+						<img class="badge" src="images/overcast-badge.svg" alt="Listen in Overcast" decoding="async" loading="lazy">
+						<img class="logo" src="images/overcast-logo.svg" alt="Listen in Overcast" decoding="async" loading="lazy">
+					</a>
+					<a href="https://www.youtube.com/" target="_blank">
+						<img class="badge" src="images/youtube-badge.svg" alt="Watch/Listen on YouTube" decoding="async" loading="lazy">
+						<img class="logo" src="images/youtube-logo.svg" alt="Watch/Listen on YouTube" decoding="async" loading="lazy">
+					</a>
+					<a href="rss.rss" target="_blank">
+						<img class="badge" src="images/rss-badge.svg" alt="RSS Feed" decoding="async" loading="lazy">
+						<img class="logo" src="images/rss-logo.svg" alt="RSS Feed" decoding="async" loading="lazy">
+					</a>
+				</div>
+			</section>
+			<hr style="width:75%">
+		</div>
+		<div class="twothirds" id="main">
+			<script>parseRSS("rss.rss");</script>
+		</div>
+	</article>
+</main>
+<section class="footer" customdeck-include-html="../footer.html"></section>
+<script> includeHTML("podcast").then(() => { loadConfig(); }) </script>
+</body>
+</html>

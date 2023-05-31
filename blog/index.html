@@ -1,0 +1,47 @@
+<!-- Garett Brown 15 October 2018 Personal Website Travel Blog Page  -->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<link rel="stylesheet" href="../main.css">
+	<link rel="icon" href="../images/favicon.ico">
+	<title customdeck-placeholder="blog.title" ></title>
+</head>
+<body class="page">
+<script type="text/javascript" src="../js/main.js"></script>
+<script type="text/javascript" src="../js/blog.js"></script>
+
+  <section class="card-hero">
+		<img customdeck-placeholder="blog.heroimage" alt="Hero Image" decoding="async" loading="lazy">
+    <div class="hero-text">
+      <h1 customdeck-placeholder="blog.herotext"></h1>
+      <h4 customdeck-placeholder="blog.heroquote"></h4>
+    </div>
+    <div class="hero-text-small">
+      <h3 customdeck-placeholder="blog.herotext"></h3>
+      <h6 customdeck-placeholder="blog.heroquote"></h6>
+    </div>
+  </section>
+
+	<div customdeck-include-html="../nav.html"></div>
+
+  <main>
+    <article id="main" class="deck vertical">
+    </article>
+
+    <script>loadPosts()</script>
+    
+    <section class="card color1 vertical centred padded margins">
+      <div class="centred-text">
+          <h2>Places I've Been</h2>
+          <p>Comprising 3 countries; 37 states (USA); 7 provinces and 2 territories (Canada); and 2 states (Mexico).</p>
+          <a href=images/map_full.jpeg><img src=images/map.jpeg alt="Map"  decoding="async" loading="lazy"/></a><figcaption aria-hidden="true">A Map <a href="https://www.example.com/" target="_blank">(Original)</a></figcaption>
+      </div>
+    </section>
+  </main>
+
+	<section class="footer" customdeck-include-html="../footer.html"></section>
+	<script> includeHTML("blog").then(() => { loadConfig(); }) </script>
+</body>
+</html>

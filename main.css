@@ -1,0 +1,296 @@
+/* 
+	Garett Brown 24 September 2018
+	CSS File for Personal Website.
+*/
+
+/* padding: top right bottom left; */
+/* padding: top-bottom left-right; */
+
+/* Default Values */
+:root {
+	--max-width: 1200px;
+	--base-font-size: 16px;
+	--button-border-radius: 0.375em;
+	--card-border-radius: 1em;
+	--base-line-height: 1.5;
+	--card-vertical-padding: 0.75em;
+	--card-horizontal-padding: 0.75em;
+	--card-vertical-margins: 0.625em;
+	--card-horizontal-margins: 0;
+}
+
+* {box-sizing: border-box;}
+
+/* Colour Definitions */
+/* Light Mode (Default) */
+:root, :root.light {
+	--font-colour: #000000;
+	--background-colour: #ffffff;
+	--card-colour-0: #f3f3f3;
+	--card-colour-1: #e6e6e6;
+	--card-colour-2: #d9d9d9;
+	--card-colour-3: #cccccc;
+	--card-colour-4: #bfbfbf;
+	--button-colour: #1F85BA;
+	--button-hover-colour: #2C6583;
+
+	--accent-colour: #7BB5D3;
+	--accent-background-colour: #B4C8D3;
+
+	--link-colour: #0000EE;
+	--link-active-colour: #1C92FF;
+	--link-visited-colour: #551A8B;
+	
+	--hero-font-colour: #ffffff;
+	--hero-font-shadow: #000000;
+	
+	--footer-font-colour: #000000;
+	--trailer-font-colour: #ffffff;
+	--chapters-colour: #cecece;
+	--chapter-colour: #e6e6e6;
+	--chapter-hover-colour: #dddddd;
+
+	--navbar-background-colour: #dddddd;
+	--navbar-border-colour: #e7e7e7;
+	--navbar-title-colour: #000000;
+	--navbar-visited-font-colour: #666666;
+	--navbar-hover-not-active-colour: #cecece;
+	--navbar-active-font-colour: #ffffff;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--font-colour: #dfdede;
+		--background-colour: #000000;
+		--card-colour-0: #1f1f1f;
+		--card-colour-1: #2c2c2c;
+		--card-colour-2: #393939;
+		--card-colour-3: #464646;
+		--card-colour-4: #535353;
+		--button-colour: #1F85BA;
+		--button-hover-colour: #2C6583;
+
+		--accent-colour: #7BB5D3;
+		--accent-background-colour: #1D4F69;
+
+		--link-colour: #7BB5D3;
+		--link-active-colour: #9bffff;
+		--link-visited-colour: #318cb3;
+		
+		--hero-font-colour: #ffffff;
+		--hero-font-shadow: #000000;
+		
+		--footer-font-colour: #dfdede;
+		--trailer-font-colour: #ffffff;
+		--chapters-colour: #1D1D1F;
+		--chapter-colour: #333333;
+		--chapter-hover-colour: #2b2b2b;
+	
+		--navbar-background-colour: #333333;
+		--navbar-border-colour: #3c3c3c;
+		--navbar-title-colour: #dfdede;
+		--navbar-visited-font-colour: #dfdede;
+		--navbar-hover-not-active-colour: #2b2b2b;
+		--navbar-active-font-colour: #dfdede;
+	}
+}
+
+:root.dark {
+	--font-colour: #dfdede;
+	--background-colour: #000000;
+	--card-colour-0: #1f1f1f;
+	--card-colour-1: #2c2c2c;
+	--card-colour-2: #393939;
+	--card-colour-3: #464646;
+	--card-colour-4: #535353;
+	--button-colour: #1F85BA;
+	--button-hover-colour: #2C6583;
+
+	--accent-colour: #7BB5D3;
+	--accent-background-colour: #1D4F69;
+
+	--link-colour: #7BB5D3;
+	--link-active-colour: #9bffff;
+	--link-visited-colour: #318cb3;
+	
+	--hero-font-colour: #ffffff;
+	--hero-font-shadow: #000000;
+	
+	--footer-font-colour: #dfdede;
+	--trailer-font-colour: #ffffff;
+	--chapters-colour: #1D1D1F;
+	--chapter-colour: #333333;
+	--chapter-hover-colour: #2b2b2b;
+
+	--navbar-background-colour: #333333;
+	--navbar-border-colour: #3c3c3c;
+	--navbar-title-colour: #dfdede;
+	--navbar-visited-font-colour: #dfdede;
+	--navbar-hover-not-active-colour: #2b2b2b;
+	--navbar-active-font-colour: #dfdede;
+}
+
+/* Page Definitions */
+/* Max Page Width*/
+html {max-width: 100%; overflow-x: hidden; word-wrap: break-word; scroll-behavior: smooth; font-size: var(--base-font-size);}
+.page {overflow-x: hidden; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;}
+
+/* Font Descriptions */
+body {font-family:  "SF Pro Rounded", ui-rounded, -apple-system, sans-serif; color: var(--font-colour); background-color: var(--background-colour);}
+
+h1 {font-size: 2.5em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.6em;}
+h4 {font-size: 1.28em;}
+h5 {font-size: 1.024em;}
+h6 {font-size: 1em;}
+p {line-height: var(--base-line-height);}
+
+.transcript {background-color: var(--card-colour-2); border-radius: var(--card-border-radius); text-indent: -1em; /*padding: 0.5em 2em 0.5em 2em;*/}
+.transcript ul {list-style-type: none;}
+/* To compensate for the fixed header */
+/* https://stackoverflow.com/a/24298427/11096898 */
+:target:before {
+	content:"";
+	display:block;
+	height:3.25em; /* fixed header height*/
+	margin:-3.25em 0 0; /* negative fixed header height */
+	}
+
+a {word-break: break-word; color: var(--link-colour); display: inline-block}
+a:link {color: var(--link-colour);}
+a:visited {color: var(--link-visited-colour);}
+a:hover, a:active {color: var(--link-active-colour);}
+  
+
+/* Card Definitions */
+.deck {display: flex;}
+.card {max-width: var(--max-width); width: 100%; display: inherit; flex-wrap: wrap; background-color: var(--card-colour-0); border-radius: var(--card-border-radius); flex: initial; overflow-wrap: break-word; word-break: keep-all; }
+.card-top {max-width: var(--max-width); width: 100%; display: flex; flex-wrap: wrap; background-color: var(--card-colour-0); border-radius: var(--card-border-radius); margin-top: 3.75em; margin-bottom: 0.625em; flex: initial; overflow-wrap: break-word; word-break: keep-all;}
+
+/* Card Options */
+.color0 {background-color: var(--card-colour-0);}
+.color1 {background-color: var(--card-colour-1);}
+.color2 {background-color: var(--card-colour-2);}
+.color3 {background-color: var(--card-colour-3);}
+.color4 {background-color: var(--card-colour-4);}
+
+.vertical {flex-direction: column;}
+.horizontal {flex-direction: row;}
+.padded {padding: var(--card-vertical-padding) var(--card-horizontal-padding);}
+.margins {margin: var(--card-vertical-margins) var(--card-horizontal-margins);}
+.centred {display: flex; justify-content: center;}
+.aligned {display: flex; align-content: center;}
+.centred-text {text-align: center;}
+
+/* For Hero Image */
+.card-hero {max-width: var(--max-width); margin-left: auto; margin-right: auto; width: 100%; display: table; margin-top: 3.75em; margin-bottom: 0.625em; position: relative; border-radius: var(--card-border-radius); flex: 1;}
+.card-hero img {max-width: 100%; height: auto; width: auto; border-radius: var(--card-border-radius); margin-left: auto; margin-right: auto; display: block; object-fit: cover;}
+.hero-text {text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--hero-font-colour); text-shadow: 2px 2px 4px var(--hero-font-shadow);}
+.hero-text-small {display: none; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--hero-font-colour); text-shadow: 2px 2px 4px var(--hero-font-shadow);}
+
+/* For RSS Feed */
+.card-rss {max-width: var(--max-width); margin: 0 auto; width: 90%; color: var(--font-colour); background-color: var(--card-colour-1); display: table; border-radius: var(--card-border-radius); margin-top: 1.25em; margin-bottom: 1.25em; padding: var(--card-vertical-padding) var(--card-horizontal-padding);}
+.card-rss:hover {box-shadow: 0 0 3pt 5pt var(--button-hover-colour); color: var(--link-active-colour);}
+.card-rss a:link {text-decoration: none; color: var(--font-colour);}
+.card-rss a:visited {color: var(--font-colour);}
+.return-img {object-fit: cover; position: relative; width: 90%;}
+.return-img:hover {box-shadow: 0 0 3pt 5pt var(--button-hover-colour);}
+
+
+/* Colomn Width Class Declaration */
+.half {float: left; width: 50%;}
+.twothirds {width: 60%; float: left;}
+.onethird {width: 40%; float: left;}
+
+/* Footer Definitions */
+.footer {font-size: 0.8em; max-width: var(--max-width); width: 100%; background-color: var(--card-colour-1); border-radius: var(--card-border-radius); text-align: center; color: var(--footer-font-colour); margin: var(--card-vertical-margins) var(--card-horizontal-margins);}
+
+.icon {min-width: 1em; min-height: 1em; max-width: 3em;  max-height: 3em;}
+.icon:hover {opacity: 0.60;}
+
+/* Navigation Bar Style Declaration */
+.site-title {float:left; margin: 0.875em; font-family: "SF Pro Rounded", ui-rounded, -apple-system, sans-serif; font-weight: normal; color: var(--navbar-title-colour); z-index: 0;}
+
+.nav-bar {max-width: var(--max-width); display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; width: 100%; height: 3.125em;/*50px;*/ border-radius: var(--button-border-radius); overflow: hidden; border: 1px solid var(--navbar-border-colour); background-color: var(--navbar-background-colour); margin: 0 auto; z-index: 100;}
+
+.nav-bar-ul {display: flex; flex-direction: row; list-style-type: none; float: right; margin-right: 0.875em;}
+
+.nav-bar-item a, .nav-bar-item a:visited {display: block; color: var(--navbar-visited-font-colour); text-align: center; text-decoration: none; border-radius: var(--button-border-radius); padding: 0.875em 0.625em;}
+
+.nav-bar-item a:hover:not(.active) {background-color: var(--navbar-hover-not-active-colour);}
+.nav-bar-item a.active {color: var(--navbar-active-font-colour); background-color: var(--button-colour);}
+.nav-bar-item a:hover.active {color: var(--navbar-active-font-colour); background-color: var(--button-hover-colour);}
+
+/* Dropdown Navigation Bar Style Declaration */
+
+.dropdown {display: none;  justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; width: 98%; height: 3.125em;/*50px;*/ border-radius: var(--button-border-radius); background-color: var(--navbar-background-colour); margin: 0 auto; z-index: 100;}
+
+.dropdown .dropbtn {float: right; cursor: pointer; border-radius: var(--button-border-radius); border: none; font-size: 1em; color: #ffffff; padding: 0.875em 1.75em; background-color: var(--button-colour); font-family: inherit; margin: 0.125em 0.75em;}
+
+.dropdown-content {display: none;  flex-direction: column; position: fixed; top: 3.125em; width: 98%; padding: 0.375em 0; border-radius: var(--button-border-radius); background-color: var(--navbar-background-colour); z-index: -1;}
+
+.dropdown-content a {float: center; color: var(--font-colour); padding: 0.875em 1em; text-decoration: none; display: flex;  flex-direction: column; text-align: center; border: 1px solid var(--navbar-visited-font-colour); border-radius: var(--button-border-radius); margin: 0.25em 0.75em;}
+
+.dropdown-content a:hover:not(.active) {background-color: var(--navbar-hover-not-active-colour); border-radius: var(--button-border-radius);}
+.dropdown-content a:hover.active {background-color: var(--button-hover-colour); border-radius: var(--button-border-radius);}
+.dropdown-content .active {color: white; background-color: var(--button-colour);}
+.dropbtn:hover {background-color: var(--button-hover-colour);}
+.dropdown:hover .dropdown-content {display: flex; flex-direction: column;}
+.show {display: flex;}
+
+/* Button Definitions */
+.centre-button {margin: 0 auto; display: flex; justify-content: center; padding: 1em 0;}
+.button {background-color: var(--button-colour); border: none; border-radius: var(--button-border-radius); color: white; padding: 0.875em 2em; text-align: center; text-decoration: none; display: inline-block; font-size: 1em;}
+.button:hover {background-color: var(--button-hover-colour);}
+
+/* Images and Video Definitions */
+img {width: 90%; border-radius: var(--card-border-radius); margin: auto; display: block; object-fit: cover; position: relative;}
+video {max-width: 100%; height: auto; width: auto; margin-left: auto; margin-right: auto; display: block;}
+audio {width: 90%; border-radius: var(--button-border-radius); transform: scale(1.075); display: table; margin: 0 auto;}
+.scene {position: fixed; right: 4%; bottom: 2%; width: 50px; height: 50px; z-index: 50;}
+
+
+
+/* For MP3 Chapters */
+.card-chapters {max-width: var(--max-width); margin: 0 auto; width: 90%; color: var(--font-colour); background-color: var(--chapters-colour); display: table; border-radius: var(--card-border-radius); padding: 2px 0;}
+.card-chapter {margin: 2px auto; width: 90%; background-color: var(--chapter-colour); display: table; border-radius: 12px; padding: 8px 12px; }
+.card-chapter:hover {background-color: var(--chapter-hover-colour);}
+
+/* For RSS Icons */
+.badge {min-width: 1em; min-height: 1em; max-height: 5em; max-width: 90%; height: 4em; width: auto; border-radius: 0; margin: 0.75em auto; object-fit: contain; display: none;}
+.logo {width: 3.25em; height: auto; margin: 0.25em; object-fit: contain; display: none;}
+.badge-box {display: flex; flex-wrap: wrap; flex-direction: column; max-width: 100%; justify-content: center;}
+
+
+.hide {
+	display: none;
+	-webkit-transition: display 1s; /* For Safari 3.1 to 6.0 */
+	transition: display 1s;
+}
+
+/* Change the Layout for Mobile Phones Landscape */
+@media only screen and (min-width:737px) { .badge {display: block;} }
+@media only screen and (max-width:736px) {
+	.card, .card-color {justify-content: center;}
+	.onethird, .twothirds, .half {width: 90%;}
+	.nav-bar, .nav-bar-ul, .nav-bar-item {display: none;}
+	.dropdown {display: flex;}
+	.badge-box {flex-direction: row;}
+	.logo {display: block;}
+}
+/* Change the Layout for Mobile Phones Portrait*/
+@media only screen and (max-width:440px) {
+	.onethird, .twothirds, .half {width:100%;}
+	.card-hero img {width: 100%; height: 300px; object-fit: cover;}
+	.hero-text {display: none;}
+	.hero-text-small {display: inline;}
+}
+/* Change the Layout for the Smallest Mobile Phones */
+@media only screen and (max-width:321px) {
+	.onethird, .twothirds, .half {width:100%; float: none;}
+	.card-hero img {width: 100%; height: 300px; object-fit: cover;}
+	.hero-text {display: none;}
+	.hero-text-small {display: inline;}
+}

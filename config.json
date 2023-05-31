@@ -1,0 +1,22 @@
+{
+    "site": {
+        "title": "Custom-Deck",
+        "copyright": "&copy Me 2023",
+        "email": "me@example.com"
+    },
+    "homepage": {
+        "herotext": "Custom-Deck",
+        "heroquote": "A lightweight, website theme template",
+        "heroimage": "homepage/images/hero.jpeg"
+    },
+    "blog": {
+        "title": "Custom-Deck | Blog",
+        "herotext": "Blog",
+        "heroquote": "Here are some short blog entries related to things that I've done and places I've been.",
+        "heroimage": "images/hero.jpeg"
+    },
+    "podcast": {
+        "title": "Custom-Deck | Podcast",
+        "email": "podcast@example.com"
+    }
+}
