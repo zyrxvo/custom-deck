@@ -7,8 +7,10 @@
     Config replacements
 */
 
+const CUSTOM_DECK = "__customdeck__";
+
 const PLACEHOLDER_ID_KEY = 'customdeck-placeholder';
-const CONFIG_KEY = '__customdeck__config';
+const CONFIG_KEY = CUSTOM_DECK + 'config';
 const EXPIRATION_TIME = 3600 * 1000; // 1 hour in milliseconds
 function loadConfig() {
   getConfig()
@@ -117,13 +119,15 @@ document.addEventListener("click", function(event) {
     Light/Dark Mode
 */
 
+const SCENE_KEY =  CUSTOM_DECK + 'scene'
 // Set the scene image for the Light/Dark mode toggle.
 function setSceneImg(mode) {
-    var scene_img = document.getElementById("scene");
-    if (scene_img != null) {
-        if (mode == "light") { scene_img.src = "/images/moon.svg"; }
-        else { scene_img.src = "/images/sun.svg"; }
-    }
+  let relativePathPrefix = getRelativePathPrefix();
+  var scene_img = document.getElementById("scene");
+  if (scene_img != null) {
+      if (mode == "light") { scene_img.src = relativePathPrefix + "images/moon.svg"; }
+      else { scene_img.src = relativePathPrefix + "images/sun.svg"; }
+  }
 }
 
 // Make sure that the correct scene is set given the choice of Light/Dark mode.
@@ -137,7 +141,7 @@ function setScene() {
 
         match.addEventListener('change', e => {
             var systemIsDark = window.matchMedia('(prefers-color-scheme: dark)') // System Setting
-            var scene = sessionStorage.getItem("scene"); // User Setting
+            var scene = sessionStorage.getItem(SCENE_KEY); // User Setting
             if (scene != null){
                 if (scene == "dark" && systemIsDark.matches) { mode = "dark"; }
                 else if (scene == "light" && systemIsDark.matches) { mode = "dark"; }
@@ -145,18 +149,18 @@ function setScene() {
                 else if (scene == "light" && !systemIsDark.matches) { mode = "light"; }
                 else {}
             }
-            sessionStorage.setItem("scene",mode);
+            sessionStorage.setItem(SCENE_KEY,mode);
             setSceneImg(mode);
         })
 
       }
 
-    let scene = sessionStorage.getItem("scene");
+    let scene = sessionStorage.getItem(SCENE_KEY);
     if (scene != null && mode != scene){
         changeScene();
         mode = scene;
     }
-    sessionStorage.setItem("scene",mode);
+    sessionStorage.setItem(SCENE_KEY,mode);
     setSceneImg(mode);
 }
 
@@ -165,48 +169,49 @@ function setScene() {
 // if no class is present (initial state), then assume current state based on system color scheme
 // if system color scheme is not supported, then assume current state is light
 function changeScene() {
-    var mode = "light";
-    let scene = sessionStorage.getItem("scene");
-    if (scene != null) {mode = scene;}
+  let relativePathPrefix = getRelativePathPrefix();
+  var mode = "light";
+  let scene = sessionStorage.getItem(SCENE_KEY);
+  if (scene != null) {mode = scene;}
 
-    if (document.documentElement.classList.contains("light")) {
-      document.documentElement.classList.remove("light")
-      document.documentElement.classList.add("dark")
-      mode = "dark";
-      githubImg = document.getElementById("github");
-      githubImgDark = document.getElementById("github-dark");
-      if (githubImg != null) { githubImg.src = "/images/github-white.png"; }
-      if (githubImgDark != null) {githubImgDark.srcset = "/images/github-white.png";}
-    } 
-    else if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark")
+  if (document.documentElement.classList.contains("light")) {
+    document.documentElement.classList.remove("light")
+    document.documentElement.classList.add("dark")
+    mode = "dark";
+    githubImg = document.getElementById("github");
+    githubImgDark = document.getElementById("github-dark");
+    if (githubImg != null) { githubImg.src = relativePathPrefix + "images/github-white.png"; }
+    if (githubImgDark != null) {githubImgDark.srcset = relativePathPrefix + "images/github-white.png";}
+  } 
+  else if (document.documentElement.classList.contains("dark")) {
+    document.documentElement.classList.remove("dark")
+    document.documentElement.classList.add("light")
+    mode = "light";
+    githubImg = document.getElementById("github");
+    githubImgDark = document.getElementById("github-dark");
+    if (githubImg != null) { githubImg.src = relativePathPrefix + "images/github.png"; }
+    if (githubImgDark != null) {githubImgDark.srcset = relativePathPrefix + "images/github.png"; }
+  } 
+  else {
+    if (window?.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.classList.add("light")
       mode = "light";
       githubImg = document.getElementById("github");
       githubImgDark = document.getElementById("github-dark");
-      if (githubImg != null) { githubImg.src = "/images/github.png"; }
-      if (githubImgDark != null) {githubImgDark.srcset = "/images/github.png"; }
+      if (githubImg != null) { githubImg.src = relativePathPrefix + "images/github.png"; }
+      if (githubImgDark != null) {githubImgDark.srcset = relativePathPrefix + "images/github.png"; }
     } 
     else {
-      if (window?.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add("light")
-        mode = "light";
-        githubImg = document.getElementById("github");
-        githubImgDark = document.getElementById("github-dark");
-        if (githubImg != null) { githubImg.src = "/images/github.png"; }
-        if (githubImgDark != null) {githubImgDark.srcset = "/images/github.png"; }
-      } 
-      else {
-        document.documentElement.classList.add("dark")
-        mode = "dark";
-        githubImg = document.getElementById("github");
-        githubImgDark = document.getElementById("github-dark");
-        if (githubImg != null) { githubImg.src = "/images/github-white.png"; }
-        if (githubImgDark != null) {githubImgDark.srcset = "/images/github-white.png";}
-      }
+      document.documentElement.classList.add("dark")
+      mode = "dark";
+      githubImg = document.getElementById("github");
+      githubImgDark = document.getElementById("github-dark");
+      if (githubImg != null) { githubImg.src = relativePathPrefix + "images/github-white.png"; }
+      if (githubImgDark != null) {githubImgDark.srcset = relativePathPrefix + "images/github-white.png";}
     }
-    setSceneImg(mode);
-    sessionStorage.setItem("scene",mode);
+  }
+  setSceneImg(mode);
+  sessionStorage.setItem(SCENE_KEY,mode);
 }
 
 
