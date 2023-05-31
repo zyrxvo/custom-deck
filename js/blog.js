@@ -16,17 +16,12 @@ function setBlogPostStructure(blogPosts) {
         var onethird = `<div id="${blogPosts[i].date}-image" class="onethird centred"><a href="images/${fullImage}"><img src=images/${image} decoding="async" loading="lazy"></a></div>`;
 
         const numberOfColors = 5; // Number of Card Colors defined in CSS file.
-        const thisColor = Math.abs(parseInt(i%(2*numberOfColors) - (numberOfColors-1)));
+        const thisColor = i % numberOfColors;
         const classDescription = `card color${thisColor} padded margins`;
+        entry.setAttribute("class", classDescription);
         // Alternate which side the image is on.
-        if (i%2) {
-            entry.setAttribute("class", classDescription);
-            entry.innerHTML = twothirds + onethird;
-        }
-        else {
-            entry.setAttribute("class", classDescription);
-            entry.innerHTML = onethird + twothirds;
-        }
+        if (i%2) { entry.innerHTML = twothirds + onethird; }
+        else { entry.innerHTML = onethird + twothirds; }
         main_element.appendChild(entry);
     }
 }
@@ -47,7 +42,6 @@ async function loadPosts() {
     // Check if AJAX request was previously made.
     // Check if the dynamic content exists in localStorage
     var storedContent = localStorage.getItem("__customdeck__blogPosts");
-    // console.log("storedContent (blogPosts): " + String(storedContent));
 
     if (storedContent != null) {
         // Rebuild the page using the stored data
@@ -56,7 +50,6 @@ async function loadPosts() {
         // Get the list of filenames from the directory listing
         const config = await getConfig();
         const filenames = await fetchCSVFile(config.blog.blogPostList);
-        console.log(filenames);
 
         // Filter the filenames to include only those with the .md extension
         var blogPosts = [];
@@ -71,7 +64,6 @@ async function loadPosts() {
             return dateA - dateB;
         });
         blogPosts.sort().reverse();
-        console.log(blogPosts);
 
         localStorage.setItem("__customdeck__blogPosts", JSON.stringify(blogPosts));
         loadAllPosts();
@@ -84,7 +76,6 @@ function loadAllPosts() {
     for (i=0; i < blogPosts.length; i++) {
         files.push(`posts/${blogPosts[i].date}.md`);
     }
-    console.log(files);
 
     // Create an array of promises for each file
     const promises = files.map((filename, index) => {
