@@ -49,23 +49,24 @@ function getValueFromKey(object, key) {
 
 // JavaScript code to fetch config.json and store it in sessionStorage
 function fetchConfig() {
-    return fetch('/config.json')
-      .then(response => response.json())
-      .then(config => {
-        sessionStorage.setItem('__customdeck__config', JSON.stringify(config));
-        return config;
-      });
-  }
+  let relativePathPrefix = getRelativePathPrefix();
+  return fetch(relativePathPrefix + 'config.json')
+    .then(response => response.json())
+    .then(config => {
+      sessionStorage.setItem('__customdeck__config', JSON.stringify(config));
+      return config;
+    });
+}
   
-  // JavaScript code to retrieve config from sessionStorage or fetch if not available
-  function getConfig() {
-    const config = sessionStorage.getItem('__customdeck__config');
-    if (config) {
-      return Promise.resolve(JSON.parse(config));
-    } else {
-      return fetchConfig();
-    }
+// JavaScript code to retrieve config from sessionStorage or fetch if not available
+function getConfig() {
+  const config = sessionStorage.getItem('__customdeck__config');
+  if (config) {
+    return Promise.resolve(JSON.parse(config));
+  } else {
+    return fetchConfig();
   }
+}
   
 
 /*
@@ -232,17 +233,24 @@ function includeHTML(page) {
   return Promise.all(promises);
 }
 
-function updateNavLinks() {
-  var navLinks = document.querySelectorAll("#navbar a");
+function getRelativePathPrefix(){
+  const INITIALDEPTH = 1;
   var currentPagePath = window.location.pathname;
+  console.log(currentPagePath);
   var relativePathPrefix = "";
   
   // Calculate relative path prefix based on the current page's location
   var pathSegments = currentPagePath.split("/");
-  for (var i = 1; i < pathSegments.length - 1; i++) {
+  for (var i = 1; i < pathSegments.length - 1 - INITIALDEPTH; i++) {
     relativePathPrefix += "../";
   }
+  console.log(relativePathPrefix);
+  return relativePathPrefix;
+}
 
+function updateNavLinks() {
+  var navLinks = document.querySelectorAll("#navbar a");
+  let relativePathPrefix = getRelativePathPrefix();
   // Update href attributes of navigation links
   for (var i = 0; i < navLinks.length; i++) {
     var href = navLinks[i].getAttribute("href");

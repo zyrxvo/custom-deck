@@ -41,9 +41,9 @@ function loadPosts() {
         // Rebuild the page using the stored data
         loadAllPosts();
     } else {
-        // Make an AJAX request to the server to get the directory listing
+        // Try making an AJAX request to the server to get the directory listing
         const xhr = new XMLHttpRequest();
-        const folder = "/blog/posts/"
+        const folder = "posts/"
         xhr.open('GET', folder, true);
 
         xhr.onload = function() {
