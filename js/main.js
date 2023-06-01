@@ -8,6 +8,7 @@
 */
 
 const CUSTOM_DECK = "__customdeck__";
+const SITE_DEPTH = 1;
 
 const PLACEHOLDER_ID_KEY = 'customdeck-placeholder';
 const CONFIG_KEY = CUSTOM_DECK + 'config';
@@ -61,59 +62,38 @@ function fetchConfig() {
         "timestamp": Date.now()
       };
       sessionStorage.setItem(CONFIG_KEY, JSON.stringify(configWithTimestamp));
-      // sessionStorage.setItem(CONFIG_KEY, JSON.stringify(config));
       return Promise.resolve(config);
     });
 }
   
 // JavaScript code to retrieve config from sessionStorage or fetch if not available
-async function getConfig() {
-  await checkAndUpdateConfig()
+function getConfig() {
   const savedConfig = sessionStorage.getItem(CONFIG_KEY);
   if (savedConfig) { 
     const { config, timestamp } = JSON.parse(savedConfig);
     const currentTime = Date.now();
-    if (currentTime - timestamp < EXPIRATION_TIME) {
-      // Config is still valid, return it
-      return Promise.resolve(config);
-    }
+
+    // Check if the config is still valid.
+    if (currentTime - timestamp < EXPIRATION_TIME) { return Promise.resolve(config); }
+    else { return fetchConfig(); }
   }
   else { return fetchConfig(); }
 }
-
-// JavaScript code to periodically check and update the saved config preferences in sessionStorage
-async function checkAndUpdateConfig() {
-  const savedConfig = sessionStorage.getItem(CONFIG_KEY);
-  if (savedConfig) {
-    const { config, timestamp } = JSON.parse(savedConfig);
-    const currentTime = Date.now();
-    if (currentTime - timestamp >= EXPIRATION_TIME) {
-      // Config has expired, update it
-      await fetchConfig();
-    }
-  }
-}
-
-  
 
 /*
     NavBar Navigation
 */
 
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function dropMenuClick() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
+/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+function dropMenuClick() { document.getElementById("myDropdown").classList.toggle("show"); }
 // Close the dropdown if the user taps outside of it
 document.addEventListener("click", function(event) {
-    var dropdown = document.getElementById("myDropdown");
-    var dropbtn = document.querySelector(".dropbtn");
-    if (!dropdown.contains(event.target) && !dropbtn.contains(event.target)) {
-      dropdown.classList.remove("show");
-    }
-  });
+  var dropdown = document.getElementById("myDropdown");
+  var dropbtn = document.querySelector(".dropbtn");
+  if (!dropdown.contains(event.target) && !dropbtn.contains(event.target)) {
+    dropdown.classList.remove("show");
+  }
+});
 
 /*
     Light/Dark Mode
@@ -222,9 +202,7 @@ function changeScene() {
 function fetchHTML(file) {
   return fetch(file)
     .then(response => {
-      if (!response.ok) {
-        throw new Error('Page not found.');
-      }
+      if (!response.ok) { throw new Error('Page not found.'); }
       return response.text();
     });
 }
@@ -236,14 +214,13 @@ function includeHTML(page) {
   elements.forEach(element => {
     const file = element.getAttribute('customdeck-include-html');
     const isNavFile = file.includes('nav');
+    const isFooterFile = file.includes('footer');
 
     const promise = fetchHTML(file)
       .then(html => {
         element.innerHTML = html;
-
         if (isNavFile) {
           setActivePage(page);
-          updateNavLinks();
           setScene();
         }
       })
@@ -260,13 +237,12 @@ function includeHTML(page) {
 }
 
 function getRelativePathPrefix(){
-  const INITIALDEPTH = 1;
   var currentPagePath = window.location.pathname;
   var relativePathPrefix = "";
   
   // Calculate relative path prefix based on the current page's location
   var pathSegments = currentPagePath.split("/");
-  for (var i = 1; i < pathSegments.length - 1 - INITIALDEPTH; i++) {
+  for (var i = 1; i < pathSegments.length - 1 - SITE_DEPTH; i++) {
     relativePathPrefix += "../";
   }
   return relativePathPrefix;
@@ -275,30 +251,30 @@ function getRelativePathPrefix(){
 function updateNavLinks() {
   let relativePathPrefix = getRelativePathPrefix();
   // Update href attributes of navigation links
-  var navLinks = document.querySelectorAll("#navbar a");
-  for (var i = 0; i < navLinks.length; i++) {
-    var href = navLinks[i].getAttribute("href");
-    navLinks[i].setAttribute("href", relativePathPrefix + href);
-  }
-  var dropdownLinks = document.querySelectorAll("#dropdown a");
-  for (var i = 0; i < dropdownLinks.length; i++) {
-    var href = dropdownLinks[i].getAttribute("href");
-    dropdownLinks[i].setAttribute("href", relativePathPrefix + href);
-  }
+  var elements = document.querySelectorAll('[customdeck-update-relpath]');
+  elements.forEach(element => {
+    if (element.tagName === 'A') {
+      var href = element.getAttribute("href");
+      element.setAttribute("href", relativePathPrefix + href);
+    }
+    else if (element.tagName === 'IMG') {
+      var href = element.getAttribute("src");
+      element.setAttribute("src", relativePathPrefix + href);
+    }
+    else if (element.tagName === 'SOURCE') {
+      var href = element.getAttribute("srcset");
+      element.setAttribute("srcset", relativePathPrefix + href);
+    }
+  });
 }
 
 // https://www.w3schools.com/howto/howto_js_add_class.asp
 function setActivePage(page) {
     if (page != "") {
         var elmnt = document.getElementById(page);
-        if (elmnt != null) {
-            elmnt.classList.add("active");
-        }
-
+        if (elmnt != null) { elmnt.classList.add("active"); }
         var elmnt = document.getElementById(page + "-drop");
-        if (elmnt != null) {
-            elmnt.classList.add("active");
-        }
+        if (elmnt != null) { elmnt.classList.add("active"); }
     }
 }
 
