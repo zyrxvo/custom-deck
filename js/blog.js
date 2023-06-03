@@ -38,7 +38,6 @@ function setBlogPostStructure(blogPosts, imageFolder) {
                   });
 
             } else {
-                // console.log('No image',imageExists,imageURL);
                 // No image exists for this blog post.
                 entry.innerHTML = `<div id="${blogPost.date}-text">${blogPost.entry}</div>`;
             }
