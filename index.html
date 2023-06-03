@@ -1,4 +1,4 @@
-<!-- Garett Brown 15 October 2018 Personal Website Main Page  -->
+<!-- Garett Brown May 2023 Custom-Deck Main Page  -->
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -33,6 +33,15 @@
 	</section>
 
 	<section class="card color1 padded margins">
+		<div class="half">
+			<div id="customization" class="card color2 padded"><script>insertMD("homepage/customization.md", "customization");</script></div>
+		</div>
+		<div class="half">
+			<div id="implementation" class="card color3 padded"><script>insertMD("homepage/implementation-details.md", "implementation");</script></div>
+		</div>
+	</section>
+
+	<section class="card color1 padded margins">
 		<div class="onethird">
 			<img src="homepage/images/landscape.jpeg" alt="Landscape" >
 		</div>
@@ -41,6 +50,6 @@
 		</div>
 	</section>
 	<section class="footer" customdeck-include-html="footer.html"></section>
-	<script> includeHTML("home").then(() => { loadConfig(); updateNavLinks(); }) </script>
+	<script> includeHTML("home").then(() => { loadConfig(); updateNavLinks(); setScene(); }); </script>
 </body>
 </html>

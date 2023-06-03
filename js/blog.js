@@ -3,28 +3,61 @@
 	JS File for Podcast Features.
 */
 
+// Number of Card Colors defined in CSS file.
+const NUMBER_OF_COLORS = 5; 
 
-function setBlogPostStructure(blogPosts) {
+function setBlogPostStructure(blogPosts, imageFolder) {
     let main_element = document.getElementById("main");
-    for (i=0; i < blogPosts.length; i++) {
-        var entry = document.createElement("section");
-        entry.setAttribute("id", blogPosts[i].date);
-        var twothirds = `<div id="${blogPosts[i].date}-text" class="twothirds">${blogPosts[i].entry}</div>`;
-
-        const image = `${blogPosts[i].date}.jpeg`;
-        const fullImage = `${blogPosts[i].date}_full.jpeg`;
-        var onethird = `<div id="${blogPosts[i].date}-image" class="onethird centred"><a href="images/${fullImage}"><img src=images/${image} decoding="async" loading="lazy"></a></div>`;
-
-        const numberOfColors = 5; // Number of Card Colors defined in CSS file.
-        const thisColor = i % numberOfColors;
+    blogPosts.forEach((blogPost, index) => {
+        const thisColor = index % NUMBER_OF_COLORS;
         const classDescription = `card color${thisColor} padded margins`;
+
+        var entry = document.createElement("section");
+        entry.setAttribute("id", blogPost.date);
         entry.setAttribute("class", classDescription);
-        // Alternate which side the image is on.
-        if (i%2) { entry.innerHTML = twothirds + onethird; }
-        else { entry.innerHTML = onethird + twothirds; }
+
+        const imageURL = `${imageFolder}${blogPost.date}.jpeg`;
+        const fullImageURL = `${imageFolder}${blogPost.date}_full.jpeg`;
+
+        checkImageExists(imageURL, function(imageExists) {
+            if (imageExists) {
+                var post = `<div id="${blogPost.date}-text" class="twothirds">${blogPost.entry}</div>`;
+                checkImageExists(fullImageURL, function(fullImageExists) {
+                    if (fullImageExists) {
+                        var image = `<div id="${blogPost.date}-image" class="onethird centred"><a href="${fullImageURL}"><img src=${imageURL} decoding="async" loading="lazy"></a></div>`;
+                        // Alternate which side the image is on.
+                        if (index%2) { entry.innerHTML = post + image; }
+                        else { entry.innerHTML = image + post; }
+                    } else {
+                      // The full resolution of the image doesn't exist
+                        var image = `<div id="${blogPost.date}-image" class="onethird horizontal"><img src=${imageURL} decoding="async" loading="lazy"></div>`;
+                        // Alternate which side the image is on.
+                        if (index%2) { entry.innerHTML = post + image; }
+                        else { entry.innerHTML = image + post; }
+                    }
+                  });
+
+            } else {
+                // console.log('No image',imageExists,imageURL);
+                // No image exists for this blog post.
+                entry.innerHTML = `<div id="${blogPost.date}-text">${blogPost.entry}</div>`;
+            }
+          });
         main_element.appendChild(entry);
-    }
+    });
 }
+
+function checkImageExists(url, callback) {
+    fetch(url, { method: 'HEAD' })
+        .then(function(response) {
+            callback(response.ok);
+        })
+        .catch(function() {
+            console.log('Error');
+            callback(false);
+        });
+}
+
 
 async function fetchCSVFile(url) {
     try {
@@ -38,44 +71,45 @@ async function fetchCSVFile(url) {
     }
 }
 
+
 async function loadPosts() {
     // Check if AJAX request was previously made.
-    // Check if the dynamic content exists in localStorage
-    var storedContent = localStorage.getItem("__customdeck__blogPosts");
-
+    // Check if the dynamic content exists in sessionStorage
+    var storedContent = sessionStorage.getItem("__customdeck__blogPosts");
     if (storedContent != null) {
-        // Rebuild the page using the stored data
-        loadAllPosts();
-    } else {
-        // Get the list of filenames from the directory listing
-        const config = await getConfig();
-        const filenames = await fetchCSVFile(config.blog.blogPostList);
+        const { blogPosts, timestamp } = JSON.parse(storedContent);
+        const currentTime = Date.now();
 
-        // Filter the filenames to include only those with the .md extension
-        var blogPosts = [];
-        for (const filename of filenames) {
-            blogPosts.push({date: filename.split('.')[0], entry: ''});
-        }
-
-        // Sort the JSON array by the 'date' parameter in reverse chronological order.
-        blogPosts.sort(function(a, b) {
-            var dateA = new Date(a.date);
-            var dateB = new Date(b.date);
-            return dateA - dateB;
-        });
-        blogPosts.sort().reverse();
-
-        localStorage.setItem("__customdeck__blogPosts", JSON.stringify(blogPosts));
-        loadAllPosts();
-    }
+        // Check if the blog post cache is still valid and rebuild the page using the stored data
+        if (currentTime - timestamp < EXPIRATION_TIME) { setBlogPostStructure(blogPosts); }
+        else { return fetchPosts(); }
+      }
+      else { return fetchPosts(); }
 }
 
-function loadAllPosts() {
-    var blogPosts = JSON.parse(localStorage.getItem("__customdeck__blogPosts"));
-    var files = []
-    for (i=0; i < blogPosts.length; i++) {
-        files.push(`posts/${blogPosts[i].date}.md`);
+async function fetchPosts() {
+    // Get the list of filenames from the directory listing
+    const config = await getConfig();
+    const filenames = await fetchCSVFile(config.blog.blogPostList);
+
+    // Convert list of filenames into an array of JSON objects
+    var blogPosts = [];
+    for (const filename of filenames) {
+        blogPosts.push({date: filename.split('.')[0], entry: ''});
     }
+
+    // Sort the JSON array by the 'date' parameter in reverse chronological order.
+    blogPosts.sort(function(a, b) {
+        var dateA = new Date(a.date);
+        var dateB = new Date(b.date);
+        return dateA - dateB;
+    });
+    blogPosts.sort().reverse();
+
+    var files = []
+    blogPosts.forEach(blogPost => {
+        files.push(`${config.blog.posts}${blogPost.date}.md`);
+    });
 
     // Create an array of promises for each file
     const promises = files.map((filename, index) => {
@@ -90,12 +124,12 @@ function loadAllPosts() {
     });
 
     // Wait for all promises to resolve
-    Promise.all(promises)
-    .then(() => {
-        // Access the universal JSON object containing all the HTML data
-        localStorage.setItem("__customdeck__blogPosts", JSON.stringify(blogPosts));
-        setBlogPostStructure(blogPosts);
+    Promise.all(promises).then(() => {
+        const postsWithTimestamp = {
+            "blogPosts": blogPosts,
+            "timestamp": Date.now()
+        };
+        sessionStorage.setItem("__customdeck__blogPosts", JSON.stringify(postsWithTimestamp));
+        setBlogPostStructure(blogPosts, config.blog.images);
     });
-
 }
-

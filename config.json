@@ -7,17 +7,24 @@
     "homepage": {
         "herotext": "Custom-Deck",
         "heroquote": "A lightweight, website theme template",
-        "heroimage": "homepage/images/hero.jpeg"
+        "heroimage": "homepage/images/home_hero.jpeg"
     },
     "blog": {
         "title": "Custom-Deck | Blog",
         "herotext": "Blog",
         "heroquote": "Here are some short blog entries related to things that I've done and places I've been.",
-        "heroimage": "images/hero.jpeg",
+        "heroimage": "images/blog_hero.jpeg",
+        "posts": "posts/",
+        "images": "images/",
         "blogPostList": "posts/list.txt"
     },
     "podcast": {
         "title": "Custom-Deck | Podcast",
-        "email": "podcast@example.com"
+        "email": "podcast@example.com",
+        "apple": "https://podcasts.apple.com/",
+        "spotify": "https://open.spotify.com",
+        "google": "https://podcasts.google.com",
+        "overcast": "https://overcast.fm",
+        "youtube": "https://www.youtube.com/"
     }
 }

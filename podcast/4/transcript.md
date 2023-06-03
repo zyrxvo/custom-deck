@@ -1,5 +1,9 @@
 ### Transcript
 
+- [00:00 - Introduction](#introduction)
+- [00:20 - Initial Thoughts](#initial-thoughts)
+- [01:08 - Conclusion](#conclusion)
+
 #### 00:00 - Introduction
 (upbeat music)
 Hello and welcome back to the podcast. We're celebrating the beauty and power of love on this special Valentine's Day. I'm your host. In today's episode, we're diving into the magic and significance of this romantic holiday. So open your hearts and let's embark on this enchanting journey together.

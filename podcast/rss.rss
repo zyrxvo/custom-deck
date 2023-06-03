@@ -5,12 +5,12 @@
 <itunes:subtitle></itunes:subtitle>
 <description></description>
 <itunes:author>Garett Brown</itunes:author>
-<link>https://example.com/</link>
+<link>https://zyrxvo.github.io/custom-deck/podcast/</link>
 <language>en-us</language>
 <itunes:category text="Society &amp; Culture">
 <itunes:category text="Personal Journals"/>
 </itunes:category>
-<itunes:image href="https://example.com/podcast/images/podcast.jpeg"/>
+<itunes:image href="https://zyrxvo.github.io/custom-deck/podcast/images/podcast.jpeg"/>
 <itunes:explicit>false</itunes:explicit>
 <itunes:type>episodic</itunes:type>
 <itunes:owner>
@@ -32,7 +32,7 @@ type="audio/mpeg"
 url="https://archive.org/download/customdeckpodcast/podcast6.mp3"
 />
 <guid isPermaLink="false">cGtFwZ7n7XDQzeHuaw3wd6wgBj53C1I8</guid>
-<link>https://example.com.com/podcast/6/</link>
+<link>https://zyrxvo.github.io/custom-deck/podcast/6/</link>
 <pubDate>Thu, 20 Apr 2023 12:00:00 MDT</pubDate>
 <itunes:duration>00:02:28</itunes:duration>
 <itunes:explicit>false</itunes:explicit>
@@ -50,7 +50,7 @@ type="audio/mpeg"
 url="https://archive.org/download/customdeckpodcast/podcast5.mp3"
 />
 <guid isPermaLink="false">aSufL2cl3MkupVEu7jNsNyimUiGJGxDZ</guid>
-<link>https://example.com.com/podcast/5/</link>
+<link>https://zyrxvo.github.io/custom-deck/podcast/5/</link>
 <pubDate>Thu, 30 Mar 2023 12:00:00 MDT</pubDate>
 <itunes:duration>00:02:28</itunes:duration>
 <itunes:explicit>false</itunes:explicit>
@@ -68,7 +68,7 @@ type="audio/mpeg"
 url="https://archive.org/download/customdeckpodcast/podcast4.mp3"
 />
 <guid isPermaLink="false">KgPRR2rYUu8u2BXGNlty43FPTvphOD8i</guid>
-<link>https://example.com.com/podcast/4/</link>
+<link>https://zyrxvo.github.io/custom-deck/podcast/4/</link>
 <pubDate>Tue, 14 Feb 2023 12:00:00 MDT</pubDate>
 <itunes:duration>00:02:28</itunes:duration>
 <itunes:explicit>false</itunes:explicit>
@@ -86,7 +86,7 @@ type="audio/mpeg"
 url="https://archive.org/download/customdeckpodcast/podcast3.mp3"
 />
 <guid isPermaLink="false">8qiVKxTR6VcshYc8OaF66beQe34EkTVV</guid>
-<link>https://example.com.com/podcast/3/</link>
+<link>https://zyrxvo.github.io/custom-deck/podcast/3/</link>
 <pubDate>Sun, 15 Jan 2023 12:00:00 MDT</pubDate>
 <itunes:duration>00:02:28</itunes:duration>
 <itunes:explicit>false</itunes:explicit>
@@ -104,7 +104,7 @@ type="audio/mpeg"
 url="https://archive.org/download/customdeckpodcast/podcast2.mp3"
 />
 <guid isPermaLink="false">4nvP75g11pUUhhD2tVfjP1JEoIKfa7Yg</guid>
-<link>https://example.com.com/podcast/2/</link>
+<link>https://zyrxvo.github.io/custom-deck/podcast/2/</link>
 <pubDate>Sun, 25 Dec 2022 12:00:00 MDT</pubDate>
 <itunes:duration>00:02:27</itunes:duration>
 <itunes:explicit>false</itunes:explicit>
@@ -122,7 +122,7 @@ type="audio/mpeg"
 url="https://archive.org/download/customdeckpodcast/podcast1.mp3"
 />
 <guid isPermaLink="false">BZK8Af0v91D2LWgKoYf6Wzd1MSwgQl6i</guid>
-<link>https://example.com.com/podcast/1/</link>
+<link>https://zyrxvo.github.io/custom-deck/podcast/1/</link>
 <pubDate>Thu, 24 Nov 2022 12:00:00 MDT</pubDate>
 <itunes:duration>00:02:27</itunes:duration>
 <itunes:explicit>false</itunes:explicit>

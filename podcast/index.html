@@ -1,4 +1,4 @@
-<!-- Garett Brown 22 June 2021 Analytical Main Page  -->
+<!-- Garett Brown May 2023 Custom-Deck Main Podcast Page  -->
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -27,23 +27,23 @@
 			</div>
 			<section class="card color0 centred">
 				<div class="badge-box"> 
-					<a href="https://podcasts.apple.com" target="_blank">
+					<a customdeck-placeholder="podcast.apple" target="_blank">
 						<img class="badge" src="images/apple-badge.svg" alt="Listen on Apple Podcasts" decoding="async" loading="lazy">
 						<img class="logo" src="images/apple-logo.svg" alt="Listen on Apple Podcasts" decoding="async" loading="lazy">
 					</a>
-					<a href="https://open.spotify.com" target="_blank">
+					<a customdeck-placeholder="podcast.spotify" target="_blank">
 						<img class="badge" src="images/spotify-badge.svg" alt="Listen on Spotify" decoding="async" loading="lazy">
 						<img class="logo" src="images/spotify-logo.svg" alt="Listen on Spotify" decoding="async" loading="lazy">
 					</a>
-					<a href="https://podcasts.google.com" target="_blank">
+					<a customdeck-placeholder="podcast.google" target="_blank">
 						<img class="badge" src="images/google-badge.svg" alt="Listen on Google" decoding="async" loading="lazy">
 						<img class="logo" src="images/google-logo.svg" alt="Listen on Google" decoding="async" loading="lazy">
 					</a>
-					<a href="https://overcast.fm" target="_blank">
+					<a customdeck-placeholder="podcast.overcast" target="_blank">
 						<img class="badge" src="images/overcast-badge.svg" alt="Listen in Overcast" decoding="async" loading="lazy">
 						<img class="logo" src="images/overcast-logo.svg" alt="Listen in Overcast" decoding="async" loading="lazy">
 					</a>
-					<a href="https://www.youtube.com/" target="_blank">
+					<a customdeck-placeholder="podcast.youtube" target="_blank">
 						<img class="badge" src="images/youtube-badge.svg" alt="Watch/Listen on YouTube" decoding="async" loading="lazy">
 						<img class="logo" src="images/youtube-logo.svg" alt="Watch/Listen on YouTube" decoding="async" loading="lazy">
 					</a>
@@ -61,6 +61,6 @@
 	</article>
 </main>
 <section class="footer" customdeck-include-html="../footer.html"></section>
-<script> includeHTML("podcast").then(() => { loadConfig(); updateNavLinks(); }) </script>
+<script> includeHTML("podcast").then(() => { loadConfig(); updateNavLinks(); setScene(); }); </script>
 </body>
 </html>

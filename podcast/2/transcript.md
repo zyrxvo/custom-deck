@@ -1,5 +1,9 @@
 ### Transcript
 
+- [00:00 - Introduction](#introduction)
+- [00:20 - Initial Thoughts](#initial-thoughts)
+- [01:08 - Conclusion](#conclusion)
+
 #### 00:00 - Introduction
 (upbeat music)
 Welcome back to the podcast. This podcast captures the enchantment and joy of the holiday season. I'm your host, and in today's episode, we're unwrapping the wonder and traditions of Christmas. So cozy up by the fire, and let's embark on this festive journey together.

@@ -1,5 +1,9 @@
 ### Transcript
 
+- [00:00 - Introduction](#introduction)
+- [00:20 - Initial Thoughts](#initial-thoughts)
+- [01:08 - Conclusion](#conclusion)
+
 #### 00:00 - Introduction
 (upbeat music)
 Welcome back to the podcast. This episode we're going to embrace the warmth and camaraderie of spending time with friends. I'm your host. So grab a hot cup of cocoa and let's embark on this delightful journey together.

@@ -10,6 +10,6 @@ I created it because I wanted to explore how to do front-end web development but
 
 The name `Custom-Deck` come from the design of the site. Everything is predominantly divided into separate cards to display information. These cards can be arranged however you like them to build a site that works for you.
 
-Much of what I learned in order to build this site I received from [W3 Schools](https://www.w3schools.com), [Stack Overflow](https://stackoverflow.com), and more recently [ChatGPT](https://chat.openai.com) because sometimes I don't even know how to ask the questions I have. However, this theme does include the small and fantastic work of [TimeJump](https://davatron5000.github.io/TimeJump/).
+Much of what I learned in order to build this site I received from [W3 Schools](https://www.w3schools.com), [Stack Overflow](https://stackoverflow.com), [MDN](https://developer.mozilla.org/en-US/) and more recently [ChatGPT](https://chat.openai.com) because sometimes I don't even know how to ask the questions I have. However, this theme does include the small and fantastic work of [TimeJump](https://davatron5000.github.io/TimeJump/).
 
 Almost all of the images on this demo-site were generated using [DiffusionBee](https://diffusionbee.com). If you have any questions or concerns, feel free to reach out to me.

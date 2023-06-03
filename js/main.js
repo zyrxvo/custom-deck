@@ -12,7 +12,7 @@ const SITE_DEPTH = 1;
 
 const PLACEHOLDER_ID_KEY = 'customdeck-placeholder';
 const CONFIG_KEY = CUSTOM_DECK + 'config';
-const EXPIRATION_TIME = 3600 * 1000; // 1 hour in milliseconds
+const EXPIRATION_TIME = 10 * 1000; // 1 hour in milliseconds
 function loadConfig() {
   getConfig()
   .then(config => {
@@ -23,13 +23,16 @@ function loadConfig() {
 
       if (placeholderValue) {
         if (placeholder.tagName === 'IMG') {
-            placeholder.src = placeholderValue;
+          placeholder.src = placeholderValue;
+        }
+        else if (placeholder.tagName === 'A') {
+          placeholder.href = placeholderValue;
         } 
         else if (placeholder.id == "email") {
-            placeholder.innerHTML = `<a href="mailto:${placeholderValue}">${placeholderValue}</a>`;
+          placeholder.innerHTML = `<a href="mailto:${placeholderValue}">${placeholderValue}</a>`;
         }
         else {
-            placeholder.innerHTML = placeholderValue; 
+          placeholder.innerHTML = placeholderValue; 
         }
       }
       placeholder.removeAttribute(PLACEHOLDER_ID_KEY);
@@ -121,7 +124,7 @@ function setScene() {
 
         match.addEventListener('change', e => {
             var systemIsDark = window.matchMedia('(prefers-color-scheme: dark)') // System Setting
-            var scene = sessionStorage.getItem(SCENE_KEY); // User Setting
+            var scene = localStorage.getItem(SCENE_KEY); // User Setting
             if (scene != null){
                 if (scene == "dark" && systemIsDark.matches) { mode = "dark"; }
                 else if (scene == "light" && systemIsDark.matches) { mode = "dark"; }
@@ -129,18 +132,18 @@ function setScene() {
                 else if (scene == "light" && !systemIsDark.matches) { mode = "light"; }
                 else {}
             }
-            sessionStorage.setItem(SCENE_KEY,mode);
+            localStorage.setItem(SCENE_KEY,mode);
             setSceneImg(mode);
         })
 
       }
 
-    let scene = sessionStorage.getItem(SCENE_KEY);
+    let scene = localStorage.getItem(SCENE_KEY);
     if (scene != null && mode != scene){
         changeScene();
         mode = scene;
     }
-    sessionStorage.setItem(SCENE_KEY,mode);
+    localStorage.setItem(SCENE_KEY,mode);
     setSceneImg(mode);
 }
 
@@ -151,7 +154,7 @@ function setScene() {
 function changeScene() {
   let relativePathPrefix = getRelativePathPrefix();
   var mode = "light";
-  let scene = sessionStorage.getItem(SCENE_KEY);
+  let scene = localStorage.getItem(SCENE_KEY);
   if (scene != null) {mode = scene;}
 
   if (document.documentElement.classList.contains("light")) {
@@ -191,7 +194,7 @@ function changeScene() {
     }
   }
   setSceneImg(mode);
-  sessionStorage.setItem(SCENE_KEY,mode);
+  localStorage.setItem(SCENE_KEY,mode);
 }
 
 
@@ -214,14 +217,11 @@ function includeHTML(page) {
   elements.forEach(element => {
     const file = element.getAttribute('customdeck-include-html');
     const isNavFile = file.includes('nav');
-    const isFooterFile = file.includes('footer');
-
     const promise = fetchHTML(file)
       .then(html => {
         element.innerHTML = html;
         if (isNavFile) {
           setActivePage(page);
-          setScene();
         }
       })
       .catch(error => {
@@ -292,7 +292,9 @@ async function parseMD(filename) {
     // Convert the Markdown to HTML using regular expressions
     const html = markdown
         .replace(/`([^`]+)`/g, "<code>$1</code>")
-        .replace(/^- (.*)$/gm, "<ul><li>$1</li></ul>")
+        .replace(/^(>[\s*]?)(.*)/gm, "<blockquote>\n$2</blockquote>")
+        .replace(/<\/blockquote>\n<blockquote>/g, "") // Remove consecutive blockquote tags
+        .replace(/^(<blockquote>)?- (.*)$/gm, "<ul><li>$2</li></ul>")
         .replace(/<\/ul>\n<ul>/g, "") // Remove consecutive ul tags
         .replace(/^(\d+)\. (.*)$/gm, "<ol><li>$2</li></ol>")
         .replace(/<\/ol>\n<ol>/g, "") // Remove consecutive ol tags
@@ -300,7 +302,7 @@ async function parseMD(filename) {
         .replace(/^(#+)\s*([\d:]+)?\s*-?\s*(.*)/gm, (match, level, time, title) => {
             const headingLevel = level.length;
             const anchorText = (time ? `${time} - ${title}` : title);
-            return `<h${headingLevel} id="#${title.toLowerCase().replace(/\s+/g, "-")}">${anchorText}</h${headingLevel}>`;
+            return `<h${headingLevel} id="${title.toLowerCase().replace(/\s+/g, "-")}">${anchorText}</h${headingLevel}>`;
           })
         .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
         .replace(/\_\_(.*?)\_\_/g, "<strong>$1</strong>")
@@ -315,18 +317,17 @@ async function parseMD(filename) {
 }
 
 async function insertMD(filename, id) {
-    // Retrieve the target element by ID
-    const targetElement = document.getElementById(id);
-  
-    try {
-      // Call parseMD to convert Markdown to HTML
-      const html = await parseMD(filename);
+  // Retrieve the target element by ID
+  const targetElement = document.getElementById(id);
 
-      // Insert the parsed HTML into the target element
-      targetElement.innerHTML = html;
-    } catch (error) {
-      // Handle any errors that occur during parsing or insertion
-      console.error('Error inserting Markdown:', error);
-    }
+  try {
+    // Call parseMD to convert Markdown to HTML
+    const html = await parseMD(filename);
+
+    // Insert the parsed HTML into the target element
+    targetElement.innerHTML = html;
+  } catch (error) {
+    // Handle any errors that occur during parsing or insertion
+    console.error('Error inserting Markdown:', error);
   }
-  
+}

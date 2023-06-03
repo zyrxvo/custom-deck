@@ -19,6 +19,7 @@
 	--card-horizontal-padding: 0.75em;
 	--card-vertical-margins: 0.625em;
 	--card-horizontal-margins: 0;
+	--hero-image-blur: 2px; /* Set to 0 for no blur. */
 }
 
 * {box-sizing: border-box;}
@@ -148,6 +149,7 @@ h4 {font-size: calc(var(--base-h1-size) / pow(var(--base-header-scale-factor),3)
 h5 {font-size: calc(var(--base-h1-size) / pow(var(--base-header-scale-factor),4));}
 h6 {font-size: calc(var(--base-h1-size) / pow(var(--base-header-scale-factor),5));}
 p {line-height: var(--base-line-height);}
+blockquote {border-left: 3px solid var(--accent-colour); padding-left: var(--card-horizontal-padding);}
 
 /* To compensate for the fixed header */
 /* https://stackoverflow.com/a/24298427/11096898 */
@@ -184,8 +186,8 @@ a:hover, a:active {color: var(--link-active-colour);}
 .centred-text {text-align: center;}
 
 /* For Hero Image */
-.card-hero {max-width: var(--max-width); margin-left: auto; margin-right: auto; width: 100%; display: table; margin-top: 3.75em; margin-bottom: 0.625em; position: relative; border-radius: var(--card-border-radius); flex: 1;}
-.card-hero img {max-width: 100%; height: auto; width: auto; border-radius: var(--card-border-radius); margin-left: auto; margin-right: auto; display: block; object-fit: cover;}
+.card-hero {max-width: var(--max-width); margin-left: auto; margin-right: auto; width: 100%; display: table; margin-top: 3.75em; margin-bottom: 0.625em; position: relative; border-radius: var(--card-border-radius); flex: 1; overflow: hidden;}
+.card-hero img {max-width: 100%; height: auto; width: auto; border-radius: var(--card-border-radius); margin-left: auto; margin-right: auto; display: block; object-fit: cover; filter: blur(var(--hero-image-blur));}
 .hero-text {text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--hero-font-colour); text-shadow: 2px 2px 4px var(--hero-font-shadow);}
 .hero-text-small {display: none; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--hero-font-colour); text-shadow: 2px 2px 4px var(--hero-font-shadow);}
 

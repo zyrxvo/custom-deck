@@ -1,5 +1,9 @@
 ### Transcript
 
+- [00:00 - Introduction](#introduction)
+- [00:20 - Initial Thoughts](#initial-thoughts)
+- [01:08 - Conclusion](#conclusion)
+
 #### 00:00 - Introduction
 (upbeat music) 
 Welcome back to the podcast, a podcast that celebrates our lives. I'm your host, and in today's special episode, we're diving into heartwarming traditions and stories surrounding Thanksgiving. So grab a cozy seat, and let's embark on this gratitude-filled journey together. 

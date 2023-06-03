@@ -212,6 +212,7 @@ async function loadChapters(url, podcast, episodeNumber) {
     try {
         const id = `${CUSTOM_DECK}${podcast}${episodeNumber}`;
         const response = await fetch(url);
+        if (!response.ok) { return ""; }
         const markdown = await response.text();
         const html = markdown
             .replace(/^(#+)(.*)/gm, (match, level, title) => {
