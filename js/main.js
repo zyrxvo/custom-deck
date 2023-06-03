@@ -12,7 +12,7 @@ const SITE_DEPTH = 1;
 
 const PLACEHOLDER_ID_KEY = 'customdeck-placeholder';
 const CONFIG_KEY = CUSTOM_DECK + 'config';
-const EXPIRATION_TIME = 10 * 1000; // 1 hour in milliseconds
+const EXPIRATION_TIME = 3600 * 1000; // 1 hour in milliseconds
 function loadConfig() {
   getConfig()
   .then(config => {
