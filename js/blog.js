@@ -80,7 +80,10 @@ async function loadPosts() {
         const currentTime = Date.now();
 
         // Check if the blog post cache is still valid and rebuild the page using the stored data
-        if (currentTime - timestamp < EXPIRATION_TIME) { setBlogPostStructure(blogPosts); }
+        if (currentTime - timestamp < EXPIRATION_TIME) { 
+            const config = await getConfig();
+            setBlogPostStructure(blogPosts, config.blog.images); 
+        }
         else { return fetchPosts(); }
       }
       else { return fetchPosts(); }
