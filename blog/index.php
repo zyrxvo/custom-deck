@@ -1,4 +1,7 @@
 <!-- Garett Brown 15 October 2018 Personal Website Travel Blog Page  -->
+<?php require "../php/main.php"; 
+$config = loadConfig("../config.json");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -24,7 +27,8 @@
     </div>
   </section>
 
-	<div customdeck-include-html="../nav.html"></div>
+	<!-- <div customdeck-include-html="../nav.html"></div> -->
+  <?php $PAGE="blog"; require "../nav.php"; ?>
 
   <main>
     <article id="main" class="deck vertical">
@@ -41,7 +45,8 @@
     </section>
   </main>
 
-	<section class="footer" customdeck-include-html="../footer.html"></section>
+	<!-- <div customdeck-include-html="../footer.html"></div> -->
+  <?php require "../footer.html"; ?>
 	<script> includeHTML("blog").then(() => { loadConfig(); updateNavLinks(); setScene(); }); </script>
 </body>
 </html>
