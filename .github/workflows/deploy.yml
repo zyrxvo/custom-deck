@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Generate HTML
-        run: python website.py  # Replace with the command to generate your HTML files
+        run: python website.py build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
