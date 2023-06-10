@@ -13,7 +13,22 @@
 <script src="../../js/main.js"></script>
 <script src="../../js/timeJump.js"></script>
 <script src="../../js/podcast.js"></script>
-<div customdeck-active-page="podcast" customdeck-include-html="../../nav.html"></div>
+<div customdeck-active-page="podcast" customdeck-include-html="../../nav.html"><nav class="nav-bar" id="navbar">
+<a customdeck-update-relpath="" href="../../"><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<ul class="nav-bar-ul">
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../../" id="home">Home</a></li>
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../../blog/" id="blog">Blog</a></li>
+<li class="nav-bar-item"><a class="active" customdeck-update-relpath="" href="../../podcast/" id="podcast">Podcast</a></li>
+</ul>
+</nav><nav class="dropdown" id="dropdown">
+<a href=""><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<button class="dropbtn" onclick="dropMenuClick()">Menu</button>
+<div class="dropdown-content" id="myDropdown">
+<a customdeck-update-relpath="" href="../../" id="home-drop">Home</a>
+<a customdeck-update-relpath="" href="../../blog/" id="blog-drop">Blog</a>
+<a customdeck-update-relpath="" href="../../podcast/" id="podcast-drop">Podcast</a>
+</div>
+</nav><span><img alt="Scene Mode" class="scene" decoding="async" fetchpriority="high" id="scene" loading="eager" onclick="changeScene()"/></span></div>
 <main>
 <article class="card-top centred padded">
 <div class="onethird">
@@ -23,12 +38,72 @@
 </a>
 </div>
 </div>
-<section class="twothirds"><div class="padded" customdeck-include-rss-episode="podcast" id="main"></div>
-<div class="card color1 vertical padded" customdeck-insertmd="transcript.md" id="include-transcript"></div>
+<section class="twothirds"><div class="padded" customdeck-include-rss-episode="podcast" id="main"><h1>Podcast</h1><h2>Hanging Out Together</h2><p>
+<i>15 Jan 2023 - 2 minutes</i>
+</p><p>In this episode, the podcast celebrates the warmth and camaraderie of spending time with friends in January. It highlights the importance of nurturing relationships, cherishing shared experiences, and embracing the joy of companionship. Join the host on this delightful journey of laughter, love, and everlasting friendships.</p><h3>Play or <a download="" href="podcast3.mp3">download</a> this episode (1.5 MB)</h3><audio controls="" id="__custom_deck__Podcast3" oncanplay="setTime('__custom_deck__Podcast3')" onended="completed('__custom_deck__Podcast3', '')" onplay="pressedPlay('__custom_deck__Podcast3', '')" ontimeupdate="trackTime('__custom_deck__Podcast3', '')" preload="metadata" style="width: 85%">
+<source src="https://archive.org/download/customdeckpodcast/podcast3.mp3" type="audio/mpeg"/>
+<source src="podcast3.mp3" type="audio/mpeg"/>
+</audio><h3 id="#-chapters"> Chapters</h3><div class="card-chapters">
+<div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast3', '0.0', 'Introduction')">0:00 - Introduction</div>
+<div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast3', '20.0', 'Initial Thoughts')">0:20 - Initial Thoughts</div>
+<div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast3', '68.0', 'Conclusion')">1:08 - Conclusion</div>
+</div><br/><p>In this episode, the podcast celebrates the warmth and camaraderie of spending time with friends in January. It highlights the importance of nurturing relationships, cherishing shared experiences, and embracing the joy of companionship. Join the host on this delightful journey of laughter, love, and everlasting friendships.<p>Show Notes</p>
+<ul>
+<li>Follow Up<ul>
+<li>
+<a href="https://example.com">Example</a>
+</li>
+<li>
+<a href="https://example.com">Another Example</a>
+</li>
+</ul>
+</li>
+<li>Notes<ul>
+<li>
+<a href="https://example.com">A note</a>
+</li>
+<li>
+<a href="https://example.com">Another note</a>
+</li>
+</ul>
+</li>
+</ul>
+<p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a>
+</p>
+</p><br/></div>
+<div class="card color1 vertical padded" customdeck-insertmd="transcript.md" id="include-transcript"><h3 id="transcript">Transcript</h3><p>
+<ul>
+<li>
+<a href="#introduction">00:00 - Introduction</a>
+</li>
+<li>
+<a href="#initial-thoughts">00:20 - Initial Thoughts</a>
+</li>
+<li>
+<a href="#conclusion">01:08 - Conclusion</a>
+</li>
+</ul>
+</p><h4 id="00:00---introduction">00:00 - Introduction</h4><p>(upbeat music)
+Welcome back to the podcast. This episode we're going to embrace the warmth and camaraderie of spending time with friends. I'm your host. So grab a hot cup of cocoa and let's embark on this delightful journey together.</p><h4 id="00:20---initial-thoughts">00:20 - Initial Thoughts</h4><p>(upbeat music)
+January. A time when the winter chill is in the air but our hearts seek the warmth of friendship. It's a time for reconnecting laughter and creating memories with the ones who bring us joy. Picture this. A cozy living room adorned with soft blankets and twinkling fairy lights. The sound of laughter fills the space as friends gather sharing stories and relishing in each other's company. It's a moment of respite from the winter cold. A sanctuary of friendship and connection. Each gathering in January is a chance to rejuvenate the spirit, to catch up on life's happenings, and to find solace in the warmth of friendship. We share laughter, heartfelt conversations, and create bonds that carry us through the rest of the year.</p><h4 id="01:08---conclusion">01:08 - Conclusion</h4><p>(gentle music)
+But hanging out with friends in mid-January is more than just a casual get-together. It's a reminder of the importance of nurturing for relationships. It's a time to put aside our busy schedules and embrace the joy of companionship. It's about cherishing those who lift us up and make our lives brighter. As we gather with friends this January, let's be present in the moment, savoring every laugh and shared memory. Let's create new traditions, embark on adventures, and support each other through the highs and the lows. Together, we make the winter days warmer and brighter. So as you plan your hangouts with friends this January, let the spirit of camaraderie guide you. Embrace the comfort of shared experiences, explore new activities, and cherish the bonds that make life's journey all the more beautiful. From all of us here, we wish you delightful moments spent with friends, filled with laughter, love, and the warmth of genuine connection. Thank you for joining us today. Don't forget to subscribe to our podcast and share the joy with your friends. Until next time, may your January be filled with cherished moments and everlasting friendships.
+(gentle music)</p></div>
 </section>
 </article>
 </main>
-<section class="footer" customdeck-include-html="../../footer.html"></section>
+<section class="footer" customdeck-include-html="../../footer.html"><footer>
+<h3><i>Contact Me</i></h3>
+<a href="https://github.com/zyrxvo" target="_blank">
+<picture class="icon">
+<source alt="GitHub" customdeck-update-relpath="" decoding="async" id="github-dark" loading="lazy" media="(prefers-color-scheme: dark)" srcset="../../images/github-white.png"/>
+<img alt="GitHub" class="icon" customdeck-update-relpath="" decoding="async" id="github" loading="lazy" src="../../images/github.png" type="image/png"/>
+</picture>
+</a>
+<a href="https://mas.to/@zyrxvo" target="_blank"><img alt="Mastodon" class="icon" customdeck-update-relpath="" decoding="async" loading="lazy" src="../../images/mastodon.png" type="image/png"/></a>
+<p customdeck-placeholder="site.email" id="email"><a href="mailto:me@example.com">me@example.com</a></p>
+<p>The <code>Custom-Deck</code> theme was designed by <a href="https://github.com/zyrxvo/custom-deck/" target="_blank">Garett Brown</a></p>
+<p customdeck-placeholder="site.copyright">© Garett Brown 2023</p>
+</footer></section>
 <script>setScene();</script>
 </body>
 </html>

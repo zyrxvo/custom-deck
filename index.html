@@ -23,28 +23,167 @@
 <h6 customdeck-placeholder="homepage.heroquote">A lightweight, website theme template</h6>
 </div>
 </section>
-<div customdeck-active-page="home" customdeck-include-html="nav.html"></div>
+<div customdeck-active-page="home" customdeck-include-html="nav.html"><nav class="nav-bar" id="navbar">
+<a customdeck-update-relpath="" href=""><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<ul class="nav-bar-ul">
+<li class="nav-bar-item"><a class="active" customdeck-update-relpath="" href="" id="home">Home</a></li>
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="blog/" id="blog">Blog</a></li>
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="podcast/" id="podcast">Podcast</a></li>
+</ul>
+</nav><nav class="dropdown" id="dropdown">
+<a href=""><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<button class="dropbtn" onclick="dropMenuClick()">Menu</button>
+<div class="dropdown-content" id="myDropdown">
+<a customdeck-update-relpath="" href="" id="home-drop">Home</a>
+<a customdeck-update-relpath="" href="blog/" id="blog-drop">Blog</a>
+<a customdeck-update-relpath="" href="podcast/" id="podcast-drop">Podcast</a>
+</div>
+</nav><span><img alt="Scene Mode" class="scene" decoding="async" fetchpriority="high" id="scene" loading="eager" onclick="changeScene()"/></span></div>
 <section class="card padded margins">
-<div class="twothirds" customdeck-insertmd="README.md" id="readme"></div>
+<div class="twothirds" customdeck-insertmd="README.md" id="readme"><h1 id="welcome-to-custom-deck!">Welcome to Custom-Deck!</h1><p>This is a public version of the custom theme I built myself for my own website, <a href="https://zyrxvo.github.io">zyrxvo.github.io</a>.</p><p>I created it because I wanted to explore how to do front-end web development but I didn't want to load large libraries just to present a static site. Thus, the theme can be used to create very lightweight sites that are almost exclusively <code>HTML</code> and <code>CSS</code>. This theme could easily be modified to remove all <code>JavaScript</code>. However, with <code>JavaScript</code> it has a few additional features.
+<ol>
+<li>Reusable code, because reusability isn't native to <code>HTML</code>.</li>
+<li>An optional light and dark mode button for those who love dark mode.</li>
+<li>A basic Markdown engine for easy writing and posting.</li>
+<li>A basic podcast player that keeps track of where you are in each episode.</li>
+</ol>
+</p><p>The name <code>Custom-Deck</code> come from the design of the site. Everything is predominantly divided into separate cards to display information. These cards can be arranged however you like them to build a site that works for you.</p><p>Much of what I learned in order to build this site I received from <a href="https://www.w3schools.com">W3 Schools</a>, <a href="https://stackoverflow.com">Stack Overflow</a>, <a href="https://developer.mozilla.org/en-US/">MDN</a> and more recently <a href="https://chat.openai.com">ChatGPT</a> because sometimes I don't even know how to ask the questions I have. However, this theme does include the small and fantastic work of <a href="https://davatron5000.github.io/TimeJump/">TimeJump</a>.</p><p>Almost all of the images on this demo-site were generated using <a href="https://diffusionbee.com">DiffusionBee</a>. If you have any questions or concerns, feel free to reach out to me.</p></div>
 <div class="onethird">
 <img alt="Deck of Cards" decoding="async" loading="lazy" src="homepage/images/cards.jpeg"/>
 </div>
 </section>
 <section class="card color1 padded margins">
 <div class="half">
-<div class="card color2 padded" customdeck-insertmd="homepage/customization.md" id="customization"></div>
+<div class="card color2 padded" customdeck-insertmd="homepage/customization.md" id="customization"><h1 id="customizing-">Customizing <code>Custom-Deck</code>
+</h1><h2 id="site-details">Site Details</h2><h3 id="config.json">config.json</h3><p>In the top-level folder there is a <code>config.json</code> file that provides some customization options for the theme. They don't change very much of the site, but it does allow some of the major components of the site to be altered without digging into the <code>HTML</code>, <code>CSS</code>, or <code>JavaScript</code>.</p><h3 id="content">Content</h3><p>Changing the main layout and content of the site is done by editing the <code>HTML</code> files themselves. The basic <code>card</code> class can be used as full-width, half-width, two-thirds-width, and one-third-width cards with nested combinations, in case you wanted quarter-width, etc. The content itself can be added directly into the <code>HTML</code>. <em>This will be the enable the fastest and most accessible experience for visitors.</em> However, if you want to more quickly create content then you can write in markdown and simply insert the markdown using the markdown rendering engine, see the <a href="#example-markdown">Example Markdown</a> below. I have not done extensive accessibility testing with my implementation, so if this is a concern then let me know how I can improve the implementation, or simply convert your markdown to <code>HTML</code> preemptively using something like <a href="https://pandoc.org">pandoc</a> and then put the content directly into the <code>HTML</code>, or use a server side implementation like <a href="https://jekyllrb.com">jekyll</a>.</p><h3 id="css">CSS</h3><p>Some of the other components of the <code>CSS</code> that can be easily customized are located at the top of the <code>main.css</code> file. These include font-size and white space adjustments. The site colours for both light and dark schemes are also located at the top of the file. There is only one set of light mode colours, but make sure that when you edit the dark mode colours that you have the same colour defined for both <code>:root.dark</code> and <code>@media (prefers-color-scheme: dark)</code>.</p><h3 id="javascript">JavaScript</h3><p>There are some customizations that can be easily made to the JavaScript that change how the site looks and feels. I suspect that most of these elements will be located in the <code>blog.js</code> and <code>podcast.js</code> files where the layout of these pages are rendered dynamically. Additionally, for the light and dark schemes, the GitHub logo in the footer is dynamically changed between black and white because a single image doesn't work with both schemes. Any additional images like this can be added in a similar way to the <code>scene</code> logic. Or the logic can be entirely removed if it is unnecessary. </p><h2 id="home">Home</h2><p>This homepage is an example of a normal page in this theme. As mentioned before, the content can either be inserted directly into the <code>HTML</code> or it can be written in markdown and dynamically loaded. See the <a href="#example-markdown">markdown example</a> below for the features and quirks of the markdown engine.</p><h2 id="blog">Blog</h2><p>Blog posts are written in markdown. The location of the posts and associated images are defined in the <code>config.json</code> file along with the list of files to load (remember to define the location to the posts folder and list of files relatively with respect to the <code>blog</code> page). The scripts in <code>js/blog.js</code> use the config information to dynamically build a display the blog posts. It checks for images with the same file name as the blog post (one image per post). It also checks for a full resolution image to link to. The current format is to label each blog post file as the date of the post. Multiple posts on the same day can have appended alphabetical indicators, (<code>2023-03-30a.md</code>, <code>2023-03-30b.md</code>, etc.). You can easily change the filenames after it's already been published if need be. The images would then be labelled <code>2023-03-30a.jpeg</code>, <code>2023-03-30b.jpeg</code>, etc. If there is not an associated image it will just render the post without it.</p><h2 id="podcast">Podcast</h2><p>Almost all of the podcast customization is contained within the RSS file. If you're unfamiliar with how RSS feeds work, I suggest <a href="https://podcasters.apple.com/support/823-podcast-requirements">this guide from Apple</a> as a starting point and use the <code>rss.rss</code> file as a template. As far as the RSS feed goes, I believe that an email address is optional now, in case you would like to have less spam in your inbox because you <strong>
+<em>will</em>
+</strong> get spam to that email address.</p><p>On the <code>podcast</code> landing page, the badges/logos to different podcast players can be customized to link to your specific show using the config file. If you want to link to a different player or list you should be able to easily customize the <code>HTML</code> and config file to suit your needs. </p><p>MP3 chapters are a common feature of modern podcast players. In order to indicate chapters in your MP3 simply include a file named <code>chapters.md</code> in the same folder as your podcast episode page. A simple markdown rendering engine takes a list of chapter titles (with timestamps) and dynamically generates a set up buttons that will automatically seek to the timestamp given. This means that you don't need to embed chapters within your MP3 for this feature to work. You just need to list the times in a <code>chapters.md</code> file and <code>js/podcast.js</code> does the rest. If you don't include a <code>chapters.md</code> file then nothing happens.</p></div>
 </div>
 <div class="half">
-<div class="card color3 padded" customdeck-insertmd="homepage/implementation-details.md" id="implementation"></div>
+<div class="card color3 padded" customdeck-insertmd="homepage/implementation-details.md" id="implementation"><h1 id="implementation-details">Implementation Details</h1><p>Here are some of the details regarding how the site is implemented so that if you go digging around it might be easier for you to customize it to your liking.</p><h2 id="session-storage">Session Storage</h2><p>The <code>config</code> details are stored in <code>sessionStorage</code> to reduce the number of server requests in an attempt to improved the loading times. The details are saved with an 'expiration' time so that in the event that a user does not close their browsing session, any changes made to the cached config details will be included. The default expiration time is 1 hour, but this can be changed at the top of the <code>js/main.js</code> file.</p><p>The rendered markdown from the blog posts are also saved in <code>sessionStorage</code>. This is to help reduce the number of server requests and speed up loading times over slower internet connections when visitors go between pages and come back to your blog. Changing this to be stored in <code>localStorage</code> would also be straight forward. The content of the blog posts are also saved with the same 'expiration' time  (1 hour default initialized at the top of <code>js/main.js</code>). This allows visitors to get new posts within at most the expiration time of being published.</p><p>The biggest issue with this approach is that there is typically a limit of <code>5 MB</code> of storage available per website in <code>sessionStorage</code>. So if you many and/or long posts you may not want to save them in <code>sessionStorage</code> and alter the code to always <code>fetchPosts()</code> whenever <code>loadPosts()</code> is called (be sure to also remove the line from <code>fetchPosts()</code> that saves the content to <code>sessionStorage</code>).</p><h2 id="local-storage">Local Storage</h2><p>There are two main pieces of data that are stored in <code>localStorage</code>: the current <code>scene</code> and the current playback information for podcast episodes. The current <code>scene</code> flag determines whether the site should be displayed in <code>light</code> or <code>dark</code> mode. Saving this setting here allows the preference to persist across browsing sessions.</p><p>The podcast episode playback information is also saved so that visitors can resume listening to an episode when the come back (assuming they return using the same browser they originally visited with). Data identifying how much of each episode each visitor has listened to is also saved to <code>localStorage</code>. This allows for the ability to collect statistics on how much of each episode visitors listen to. However, this data is kept local in each visitor's browser unless it is captured somewhere else. I personally use <a href="https://matomo.org">Matomo</a> to do this and host a Matomo server myself.</p><h2 id="network-usage">Network Usage</h2><p>All of the images are given the <code>loading="lazy"</code> flag to reduce network usage, especially when loading the blog posts. This flag helps to load pages more quickly by waiting until the images come close to or above the 'fold' of the page.</p><h1 id="possible-issues">Possible Issues</h1><p>Here are some of the biggest quality of life issues with this theme that are a result of how I dynamically load all of the content.
+<ul>
+<li>The page location is not saved between refreshes.</li>
+<li>While anchor links (#header) work when clicked on within a page, they do not scroll to the correct location when the page is refreshed (or when landing on the page initially with the anchor). This could be because I also use <a href="https://github.com/davatron5000/TimeJump">TimeJump</a>.</li>
+</ul>
+</p><p>Other issues are not limited to the following.
+<ul>
+<li>If a visitor loads an episode page using a TimeJump hash, it will overwrite their previously saved progress for the episode. This is because it is equivalent to them manually seeking through the episode themselves. This is intended behaviour but may be surprising.</li>
+</ul>
+</p><h1 id="timejump">TimeJump</h1><p>This theme uses a slightly customized version of <a href="https://github.com/davatron5000/TimeJump">TimeJump</a> which adds deep-linking to HTML5 <code>audio</code> and <code>video</code> podcasts. TimeJump works behind-the-scenes to create a standardized API for seeking, based off the YouTube deep-linking syntax.</p><p>
+<strong>How it works.</strong> It auto-detects the <code>t</code> (time) parameter in your URL and attempt to fast-forward listeners to that timestamp. It usually works, <em>but doesn't not work on iOS.</em>
+</p><p>
+<strong>Supported URL formats include:</strong>
+Media Fragments w/ hash:
+<ul>
+<li>
+<code>http://mypodca.st/first-episode/#t=1:23:45</code>
+</li>
+<li>
+<code>http://mypodca.st/first-episode/#t=23:45</code>
+</li>
+<li>
+<code>http://mypodca.st/first-episode/#t=234</code>
+</li>
+</ul>
+</p><p>Media Fragments w/ query:
+<ul>
+<li>
+<code>http://mypodca.st/first-episode/?t=1:23:45</code>
+</li>
+<li>
+<code>http://mypodca.st/first-episode/?t=23:45</code>
+</li>
+<li>
+<code>http://mypodca.st/first-episode/?t=234</code>
+</li>
+</ul>
+</p><p>Quirks Mode (YouTube-style) w/ hash or query:
+<ul>
+<li>
+<code>http://mypodca.st/first-episode/?t=1h23m45s</code>
+</li>
+<li>
+<code>http://mypodca.st/first-episode/#t=1m23s</code> </li>
+</ul>
+</p></div>
 </div>
 </section>
 <section class="card color1 padded margins">
 <div class="onethird">
 <img alt="Landscape" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg"/>
 </div>
-<div class="twothirds" customdeck-insertmd="homepage/markdown-example.md" id="markdown-example"></div>
+<div class="twothirds" customdeck-insertmd="homepage/markdown-example.md" id="markdown-example"><h2 id="example-markdown">Example Markdown</h2><p>The <code>Custom-Deck</code> theme implements a very basic version of Markdown for speed and convenience. However, because it is basic, use of Markdown syntax that is nested or complex may result in errors or unintended behaviour. <code>HTML</code> used within the Markdown will remain unchanged and render as <code>HTML</code>. The Markdown engine is implemented with basic regular expressions. The following are some examples of the what is rendered.</p><h3 id="headings">Headings</h3><p>Headings from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> are made by using the hashtag <code>#</code> . Simply use as many as you need to get from  <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.</p><h1 id="heading-1">Heading 1</h1><h2 id="heading-2">Heading 2</h2><h3 id="heading-3">Heading 3</h3><h4 id="heading-4">Heading 4</h4><h5 id="heading-5">Heading 5</h5><h6 id="heading-6">Heading 6</h6><h3 id="emphasis">Emphasis</h3><p>Basic emphasis is available using asterisks or underscores around words or phrases. <em>One</em> is <em>emphasized</em>, <strong>two</strong> is <strong>bold</strong>, and <strong>
+<em>three</em>
+</strong> is <strong>
+<em>both</em>
+</strong>. Basic <code>code</code> emphasis is made using single, surrounding <code>`backticks`</code>. Combinations of these emphasizers may not render as expected.</p><h3 id="links">Links</h3><p>With markdown you can easily make links using closing square brackets <code>[]</code> followed immediately by closing round parentheses <code>()</code>. For example, <code>[this is a link](README.md)</code> and links to an image or file and renders as: <a href="README.md">this is a link</a> , <code>[another page](blog)</code> renders as a link to <a href="blog">another page</a> on the site, and <code>[an external URL](https://www.example.com)</code> is <a href="https://www.example.com">an external URL</a>.</p><p>
+<strong>The most important consideration with relative links is that the link will be make with respect to where the markdown page will be rendered <em>not</em> where it is saved!</strong>
+</p><p>With an exclamation point at the start, you can <code>![Embed an image](homepage/images/landscape.jpeg)</code> to embed an image with alt-text "Embed an image":
+<img alt="Embed image" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg"/>
+</p><p>By adding a vertical bar after the link, but before closing the parentheses, you can <code>&lt;div&gt;&lt;img src='homepage/images/landscape.jpeg' alt='embed an image with width 200px' style='width: 200px;' decoding='async' loading='lazy'&gt;&lt;/div&gt;</code>, to embed an image and specify the width:
+<div>
+<img alt="Embeded image with width 200px" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg" style="width: 200px;"/>
+</div>
+</p><p>And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this <code>&lt;div class='centre-button'&gt;&lt;a href='/podcast/5/#t=0:47'&gt;&lt;button class='button'&gt;Button Link&lt;/button&gt;&lt;/a&gt;&lt;/div&gt;</code> renders as a button link: <div class="centre-button">
+<a href="podcast/5/#t=0:47">
+<button class="button">Button Link</button>
+</a>
+</div>
+</p><h3 id="text-lists-and-quotes">Text, Lists, and Quotes</h3><p>
+<strong>Text</strong> is just text. Paragraphs and new lines are wrapped in the <code>HTML</code> paragraph tags <code>&lt;p&gt;</code>. 
+<strong>Lists</strong> are made if a line begins with a hyphen followed by a space, '<code>-</code>  ', then the text on those lines will be converted into an <strong>unordered list</strong>. Successive lines will be included in the same list. For example,
+<ul>
+<li>This is a list with only one line.</li>
+</ul>
+And
+<ul>
+<li>This is</li>
+<li>a list</li>
+<li>with multiple lines.</li>
+</ul>
+This is also true for an <strong>ordered list</strong>, except you must begin the line with a whole number followed by a period followed by a space, '<code>1.</code>'. However, it doesn't matter what number you start with because the ordered list will always begin with <code>1.</code>. For example, 
+<ol>
+<li>This is a single element in an ordered list.</li>
+</ol>
+And
+<ol>
+<li>&lt;— This number is 9812.</li>
+<li>&lt;— This number is 4.</li>
+<li>&lt;— And this number is 0.</li>
+</ol>
+</p><p>
+<strong>Quotes</strong> are made if a line begins with <code>&gt;</code> then it will be wrapped in <code>&lt;blockquote&gt;</code> tags. It should work work lists too.</p><blockquote>
+<p>This is a single line quote.</p>
+</blockquote><p>See how fancy it is with its automatic indentation!</p><blockquote>
+<p>This is a multi-line quote that also contains two different kinds of lists, some <em>emphasis</em> <strong>and</strong> some <code>code</code>.
+Each new line is also wrapped in paragraph tags.
+<ul>
+<li>See! This is</li>
+<li>a multi-line list!</li>
+</ul>
+<ol>
+<li>Another List</li>
+<li>Within the quote!</li>
+</ol>
+Finally this quote is attributed to no one.</p>
+</blockquote><p>
+<strong>
+<em>Again, the Markdown rendering engine uses basic regular expressions. So if something isn't working like you expected it to, then maybe you expected too much of it.</em>
+</strong> I didn't want to load a third-party library because I wanted to learn.</p></div>
 </section>
-<section class="footer" customdeck-include-html="footer.html"></section>
+<section class="footer" customdeck-include-html="footer.html"><footer>
+<h3><i>Contact Me</i></h3>
+<a href="https://github.com/zyrxvo" target="_blank">
+<picture class="icon">
+<source alt="GitHub" customdeck-update-relpath="" decoding="async" id="github-dark" loading="lazy" media="(prefers-color-scheme: dark)" srcset="images/github-white.png"/>
+<img alt="GitHub" class="icon" customdeck-update-relpath="" decoding="async" id="github" loading="lazy" src="images/github.png" type="image/png"/>
+</picture>
+</a>
+<a href="https://mas.to/@zyrxvo" target="_blank"><img alt="Mastodon" class="icon" customdeck-update-relpath="" decoding="async" loading="lazy" src="images/mastodon.png" type="image/png"/></a>
+<p customdeck-placeholder="site.email" id="email"><a href="mailto:me@example.com">me@example.com</a></p>
+<p>The <code>Custom-Deck</code> theme was designed by <a href="https://github.com/zyrxvo/custom-deck/" target="_blank">Garett Brown</a></p>
+<p customdeck-placeholder="site.copyright">© Garett Brown 2023</p>
+</footer></section>
 <script>
    setScene();
   </script>

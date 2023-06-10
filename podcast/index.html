@@ -11,7 +11,22 @@
 <title customdeck-placeholder="podcast.title">Custom-Deck | Podcast</title>
 </head>
 <body class="page">
-<div customdeck-active-page="podcast" customdeck-include-html="../nav.html"></div>
+<div customdeck-active-page="podcast" customdeck-include-html="../nav.html"><nav class="nav-bar" id="navbar">
+<a customdeck-update-relpath="" href="../"><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<ul class="nav-bar-ul">
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../" id="home">Home</a></li>
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../blog/" id="blog">Blog</a></li>
+<li class="nav-bar-item"><a class="active" customdeck-update-relpath="" href="../podcast/" id="podcast">Podcast</a></li>
+</ul>
+</nav><nav class="dropdown" id="dropdown">
+<a href=""><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<button class="dropbtn" onclick="dropMenuClick()">Menu</button>
+<div class="dropdown-content" id="myDropdown">
+<a customdeck-update-relpath="" href="../" id="home-drop">Home</a>
+<a customdeck-update-relpath="" href="../blog/" id="blog-drop">Blog</a>
+<a customdeck-update-relpath="" href="../podcast/" id="podcast-drop">Podcast</a>
+</div>
+</nav><span><img alt="Scene Mode" class="scene" decoding="async" fetchpriority="high" id="scene" loading="eager" onclick="changeScene()"/></span></div>
 <article class="card-top centred padded">
 <div class="onethird">
 <div class="centred">
@@ -55,9 +70,85 @@
 </section>
 <hr/>
 </div>
-<div class="twothirds" customdeck-include-rss="podcast" id="main"></div>
+<div class="twothirds" customdeck-include-rss="podcast" id="main"><h2 class="centred-text">All Episodes</h2><hr/><section class="card-rss">
+<a href="6/">
+<div>
+<h3>Four Twenty</h3>
+<p>
+<i>20 Apr 2023 - 2 minutes</i>
+</p>
+<p>In this episode, the podcast celebrates the joy and playfulness of 4/20, emphasizing the lightheartedness and camaraderie of the day. It highlights the importance of laughter, humor, and finding joy in the small moments. Join the host in embracing the spirit of 4/20, sharing laughter, and creating an atmosphere of positivity and merriment.</p>
+</div>
+</a>
+<audio controls="" id="__custom_deck__Podcast6" oncanplay="setTime('__custom_deck__Podcast6')" onended="completed('__custom_deck__Podcast6', '')" onplay="pressedPlay('__custom_deck__Podcast6', '')" ontimeupdate="trackTime('__custom_deck__Podcast6', '')" preload="metadata" style="width: 85%">
+<source src="https://archive.org/download/customdeckpodcast/podcast6.mp3" type="audio/mpeg"/>
+<source src="6/podcast6.mp3" type="audio/mpeg"/>
+</audio>
+</section><hr/><section class="card-rss">
+<a href="5/">
+<div>
+<h3>A Good Day</h3>
+<p>
+<i>30 Mar 2023 - 2 minutes</i>
+</p>
+<p>In this episode, the podcast encourages listeners to embrace a day of self-reflection and introspection. It highlights the power of gaining clarity, nurturing well-being, and setting intentions for personal growth. Join the host on this transformative journey of self-discovery and renewal.</p>
+</div>
+</a>
+</section><hr/><section class="card-rss">
+<a href="4/">
+<div>
+<h3>Valentines</h3>
+<p>
+<i>14 Feb 2023 - 2 minutes</i>
+</p>
+<p>In this special Valentine's Day episode, the podcast celebrates the beauty and power of love. It emphasizes the significance of expressing gratitude and cherishing connections in our lives. Join the host on an enchanting journey that reminds us to let our hearts overflow with love and gratitude, not just on Valentine's Day, but every day.</p>
+</div>
+</a>
+</section><hr/><section class="card-rss">
+<a href="3/">
+<div>
+<h3>Hanging Out Together</h3>
+<p>
+<i>15 Jan 2023 - 2 minutes</i>
+</p>
+<p>In this episode, the podcast celebrates the warmth and camaraderie of spending time with friends in January. It highlights the importance of nurturing relationships, cherishing shared experiences, and embracing the joy of companionship. Join the host on this delightful journey of laughter, love, and everlasting friendships.</p>
+</div>
+</a>
+</section><hr/><section class="card-rss">
+<a href="2/">
+<div>
+<h3>Christmas</h3>
+<p>
+<i>25 Dec 2022 - 2 minutes</i>
+</p>
+<p>In this festive episode, the podcast celebrates the enchantment and traditions of Christmas. It highlights the deeper meaning of the holiday, emphasizing love, togetherness, and the spirit of giving. Join the host on this magical journey and let the wonder of the holiday season fill your heart with joy and laughter.</p>
+</div>
+</a>
+</section><hr/><section class="card-rss">
+<a href="1/">
+<div>
+<h3>Thanksgiving</h3>
+<p>
+<i>24 Nov 2022 - 2 minutes</i>
+</p>
+<p>In this heartwarming episode, the podcast explores the theme of Thanksgiving, going beyond the feast and football games to delve into the traditions and stories that make this holiday special. The episode encourages listeners to reach out to others, express gratitude, and spread love during the holiday season. Join the host on this gratitude-filled journey and let your heart overflow with Thanksgiving.</p>
+</div>
+</a>
+</section><hr/></div>
 </article>
-<section class="footer" customdeck-include-html="../footer.html"></section>
+<section class="footer" customdeck-include-html="../footer.html"><footer>
+<h3><i>Contact Me</i></h3>
+<a href="https://github.com/zyrxvo" target="_blank">
+<picture class="icon">
+<source alt="GitHub" customdeck-update-relpath="" decoding="async" id="github-dark" loading="lazy" media="(prefers-color-scheme: dark)" srcset="../images/github-white.png"/>
+<img alt="GitHub" class="icon" customdeck-update-relpath="" decoding="async" id="github" loading="lazy" src="../images/github.png" type="image/png"/>
+</picture>
+</a>
+<a href="https://mas.to/@zyrxvo" target="_blank"><img alt="Mastodon" class="icon" customdeck-update-relpath="" decoding="async" loading="lazy" src="../images/mastodon.png" type="image/png"/></a>
+<p customdeck-placeholder="site.email" id="email"><a href="mailto:me@example.com">me@example.com</a></p>
+<p>The <code>Custom-Deck</code> theme was designed by <a href="https://github.com/zyrxvo/custom-deck/" target="_blank">Garett Brown</a></p>
+<p customdeck-placeholder="site.copyright">© Garett Brown 2023</p>
+</footer></section>
 <script src="../js/main.js"></script>
 <script src="../js/podcast.js"></script>
 <script>setScene();</script>
