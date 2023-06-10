@@ -1,55 +1,52 @@
 <!-- Garett Brown May 2023 Custom-Deck Main Page  -->
 <!DOCTYPE html>
+
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <head>
-	<link rel="stylesheet" href="main.css">
-	<link rel="icon" href="images/favicon.ico">
-	<title customdeck-placeholder="site.title" ></title>
+<link href="main.css" rel="stylesheet"/>
+<link href="images/favicon.png" rel="icon"/>
+<title customdeck-placeholder="site.title">Custom-Deck</title>
 </head>
 <body class="page">
-<script src="js/main.js"></script>
-	<section class="card-hero">
-		<img customdeck-placeholder="homepage.heroimage" alt="Hero Image" >
-		<div class="hero-text">
-			<h1 customdeck-placeholder="homepage.herotext"></h1>
-			<h4 customdeck-placeholder="homepage.heroquote"></h4>
-		</div>
-		<div class="hero-text-small">
-			<h3 customdeck-placeholder="homepage.herotext"></h3>
-			<h6 customdeck-placeholder="homepage.heroquote"></h6>
-		</div>
-	</section>
-
-	<div customdeck-include-html="nav.html"></div>
-	<section class="card padded margins">
-		<div id="readme" class="twothirds">
-			<script>insertMD("README.md", "readme");</script>
-		</div>
-		<div class="onethird">
-			<img src="homepage/images/cards.jpeg" alt="Deck of Cards" >
-		</div>
-	</section>
-
-	<section class="card color1 padded margins">
-		<div class="half">
-			<div id="customization" class="card color2 padded"><script>insertMD("homepage/customization.md", "customization");</script></div>
-		</div>
-		<div class="half">
-			<div id="implementation" class="card color3 padded"><script>insertMD("homepage/implementation-details.md", "implementation");</script></div>
-		</div>
-	</section>
-
-	<section class="card color1 padded margins">
-		<div class="onethird">
-			<img src="homepage/images/landscape.jpeg" alt="Landscape" >
-		</div>
-		<div id="markdown-example" class="twothirds">
-			<script>insertMD("homepage/markdown-example.md", "markdown-example");</script>
-		</div>
-	</section>
-	<section class="footer" customdeck-include-html="footer.html"></section>
-	<script> includeHTML("home").then(() => { loadConfig(); updateNavLinks(); setScene(); }); </script>
+<script src="js/main.js">
+</script>
+<section class="card-hero">
+<img alt="Hero Image" customdeck-placeholder="homepage.heroimage" decoding="async" fetchpriority="high" id="hero-image" loading="eager" src="homepage/images/home_hero.jpeg"/>
+<div class="hero-text">
+<h1 customdeck-placeholder="homepage.herotext">Custom-Deck</h1>
+<h4 customdeck-placeholder="homepage.heroquote">A lightweight, website theme template</h4>
+</div>
+<div class="hero-text-small">
+<h3 customdeck-placeholder="homepage.herotext">Custom-Deck</h3>
+<h6 customdeck-placeholder="homepage.heroquote">A lightweight, website theme template</h6>
+</div>
+</section>
+<div customdeck-active-page="home" customdeck-include-html="nav.html"></div>
+<section class="card padded margins">
+<div class="twothirds" customdeck-insertmd="README.md" id="readme"></div>
+<div class="onethird">
+<img alt="Deck of Cards" decoding="async" loading="lazy" src="homepage/images/cards.jpeg"/>
+</div>
+</section>
+<section class="card color1 padded margins">
+<div class="half">
+<div class="card color2 padded" customdeck-insertmd="homepage/customization.md" id="customization"></div>
+</div>
+<div class="half">
+<div class="card color3 padded" customdeck-insertmd="homepage/implementation-details.md" id="implementation"></div>
+</div>
+</section>
+<section class="card color1 padded margins">
+<div class="onethird">
+<img alt="Landscape" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg"/>
+</div>
+<div class="twothirds" customdeck-insertmd="homepage/markdown-example.md" id="markdown-example"></div>
+</section>
+<section class="footer" customdeck-include-html="footer.html"></section>
+<script>
+   setScene();
+  </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Welcome to `Custom-Deck`!
+# Welcome to Custom-Deck!
 
 This is a public version of the custom theme I built myself for my own website, [zyrxvo.github.io](https://zyrxvo.github.io).
 

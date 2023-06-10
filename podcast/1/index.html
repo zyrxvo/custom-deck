@@ -1,32 +1,34 @@
 <!-- Custom-Deck Podcast Episode Page  -->
 <!DOCTYPE html>
+
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <head>
-	<link rel="stylesheet" href="../../main.css">
-	<link rel="icon" href="../../images/favicon.ico">
-	<title customdeck-placeholder="podcast.title" ></title>
+<link href="../../main.css" rel="stylesheet"/>
+<link href="../../images/favicon.png" rel="icon"/>
+<title customdeck-placeholder="podcast.title">Custom-Deck | Podcast</title>
 </head>
 <body class="page">
 <script src="../../js/main.js"></script>
 <script src="../../js/timeJump.js"></script>
 <script src="../../js/podcast.js"></script>
-<div customdeck-include-html="../../nav.html"></div>
+<div customdeck-active-page="podcast" customdeck-include-html="../../nav.html"></div>
 <main>
-	<article class="card-top centred padded">
-		<div class="onethird">
-			<div class="centred"><a href="../"><img class="return-img" src="../images/podcast.jpeg" alt="Podcast Logo" ></a></div>
-		</div>
-		<div class="twothirds padded" id="main">
-			<script>getEpisode("../rss.rss", 1, "chapters.md");</script>
-			<div id="include-transcript" class="card color1 vertical padded">
-				<script>insertMD("transcript.md", "include-transcript");</script>
-			</div>
-		</div>
-	</article>
+<article class="card-top centred padded">
+<div class="onethird">
+<div class="centred">
+<a href="../">
+<img alt="Podcast Logo" class="return-img" decoding="async" loading="lazy" src="../images/podcast.jpeg"/>
+</a>
+</div>
+</div>
+<section class="twothirds"><div class="padded" customdeck-include-rss-episode="podcast" id="main"></div>
+<div class="card color1 vertical padded" customdeck-insertmd="transcript.md" id="include-transcript"></div>
+</section>
+</article>
 </main>
 <section class="footer" customdeck-include-html="../../footer.html"></section>
-<script> includeHTML("podcast").then(() => { loadConfig(); updateNavLinks(); setScene(); }); </script>
+<script>setScene();</script>
 </body>
 </html>

@@ -18,7 +18,7 @@
 	--card-vertical-padding: 0.75em;
 	--card-horizontal-padding: 0.75em;
 	--card-vertical-margins: 0.625em;
-	--card-horizontal-margins: 0;
+	--card-horizontal-margins: auto;
 	--hero-image-blur: 2px; /* Set to 0 for no blur. */
 }
 
@@ -149,6 +149,7 @@ h4 {font-size: calc(var(--base-h1-size) / pow(var(--base-header-scale-factor),3)
 h5 {font-size: calc(var(--base-h1-size) / pow(var(--base-header-scale-factor),4));}
 h6 {font-size: calc(var(--base-h1-size) / pow(var(--base-header-scale-factor),5));}
 p {line-height: var(--base-line-height);}
+hr {width: 80%;}
 blockquote {border-left: 3px solid var(--accent-colour); padding-left: var(--card-horizontal-padding);}
 
 /* To compensate for the fixed header */
@@ -187,7 +188,7 @@ a:hover, a:active {color: var(--link-active-colour);}
 
 /* For Hero Image */
 .card-hero {max-width: var(--max-width); margin-left: auto; margin-right: auto; width: 100%; display: table; margin-top: 3.75em; margin-bottom: 0.625em; position: relative; border-radius: var(--card-border-radius); flex: 1; overflow: hidden;}
-.card-hero img {max-width: 100%; height: auto; width: auto; border-radius: var(--card-border-radius); margin-left: auto; margin-right: auto; display: block; object-fit: cover; filter: blur(var(--hero-image-blur));}
+.card-hero img {max-width: 100%; height: 300px; width: 100%; border-radius: var(--card-border-radius); margin-left: auto; margin-right: auto; display: block; object-fit: cover; filter: blur(var(--hero-image-blur));}
 .hero-text {text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--hero-font-colour); text-shadow: 2px 2px 4px var(--hero-font-shadow);}
 .hero-text-small {display: none; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--hero-font-colour); text-shadow: 2px 2px 4px var(--hero-font-shadow);}
 
@@ -201,6 +202,7 @@ a:hover, a:active {color: var(--link-active-colour);}
 
 
 /* Colomn Width Class Declaration */
+.full {float: left; width: 100%;}
 .half {float: left; width: 50%;}
 .twothirds {width: 60%; float: left;}
 .onethird {width: 40%; float: left;}
@@ -266,7 +268,7 @@ audio {width: 90%; border-radius: var(--button-border-radius); transform: scale(
 @media only screen and (min-width:737px) { .badge {display: block;} }
 @media only screen and (max-width:736px) {
 	.card, .card-color {justify-content: center;}
-	.onethird, .twothirds, .half {width: 90%;}
+	.onethird, .twothirds, .half {width: 95%;}
 	.nav-bar, .nav-bar-ul, .nav-bar-item {display: none;}
 	.dropdown {display: flex;}
 	.badge-box {flex-direction: row;}
@@ -275,14 +277,12 @@ audio {width: 90%; border-radius: var(--button-border-radius); transform: scale(
 /* Change the Layout for Mobile Phones Portrait*/
 @media only screen and (max-width:440px) {
 	.onethird, .twothirds, .half {width:100%;}
-	.card-hero img {width: 100%; height: 300px; object-fit: cover;}
 	.hero-text {display: none;}
 	.hero-text-small {display: inline;}
 }
 /* Change the Layout for the Smallest Mobile Phones */
 @media only screen and (max-width:321px) {
 	.onethird, .twothirds, .half {width:100%; float: none;}
-	.card-hero img {width: 100%; height: 300px; object-fit: cover;}
 	.hero-text {display: none;}
 	.hero-text-small {display: inline;}
 }

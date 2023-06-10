@@ -4,7 +4,7 @@ The `Custom-Deck` theme implements a very basic version of Markdown for speed an
 
 ### Headings
 
-Headings from `<``h1``>` to `<``h6``>` are made by using the hashtag `#` . Simply use as many as you need to get from  `<``h1``>` to `<``h6``>`.
+Headings from `<h1>` to `<h6>` are made by using the hashtag `#` . Simply use as many as you need to get from  `<h1>` to `<h6>`.
 
 # Heading 1
 ## Heading 2
@@ -15,26 +15,26 @@ Headings from `<``h1``>` to `<``h6``>` are made by using the hashtag `#` . Simpl
 
 ### Emphasis
 
-Basic emphasis is available using asterisks or underscores around words or phrases. _One_ is *emphasized*, **two** is __bold__, and ***three*** is **_both_**. Basic `code` emphasis is made using single, surrounding `backticks`. Combinations of these emphasizers may not render as expected.
+Basic emphasis is available using asterisks or underscores around words or phrases. _One_ is *emphasized*, **two** is __bold__, and ***three*** is **_both_**. Basic `code` emphasis is made using single, surrounding ``` `backticks` ```. Combinations of these emphasizers may not render as expected.
 
 ### Links
 
-With markdown you can easily make links using closing square brackets `[]` followed immediately by closing round parentheses `()`. For example, `[this is a link]``(README.md)` and links to an image or file and renders as: [this is a link](README.md) , `[another page]``(blog)` renders as a link to [another page](blog) on the site, and `[an external URL]``(https://www.example.com)` is [an external URL](https://www.example.com).
+With markdown you can easily make links using closing square brackets `[]` followed immediately by closing round parentheses `()`. For example, `[this is a link](README.md)` and links to an image or file and renders as: [this is a link](README.md) , `[another page](blog)` renders as a link to [another page](blog) on the site, and `[an external URL](https://www.example.com)` is [an external URL](https://www.example.com).
 
 **The most important consideration with relative links is that the link will be make with respect to where the markdown page will be rendered *not* where it is saved!**
 
-With an exclamation point at the start, you can `![Embed an image]``(homepage/images/landscape.jpeg)` to embed an image with alt-text "Embed an image":
+With an exclamation point at the start, you can `![Embed an image](homepage/images/landscape.jpeg)` to embed an image with alt-text "Embed an image":
 ![Embed image](homepage/images/landscape.jpeg)
 
-By adding a vertical bar after the link, but before closing the parentheses, you can `![embed an image with width 200px]``(homepage/images/landscape.jpeg|200)`, to embed an image and specify the width:
+By adding a vertical bar after the link, but before closing the parentheses, you can `![embed an image with width 200px](homepage/images/landscape.jpeg|200)`, to embed an image and specify the width:
 ![Embeded image with width 200px](homepage/images/landscape.jpeg|200)
 
-And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this `¡[Button Link]``(/podcast/5/#t=0:47)` renders as a button link: ¡[Button Link](podcast/5/#t=0:47)
+And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this `¡[Button Link](/podcast/5/#t=0:47)` renders as a button link: ¡[Button Link](podcast/5/#t=0:47)
 
 ### Text, Lists, and Quotes
 
-**Text** is just text. Paragraphs and new lines are wrapped in the `HTML` paragraph tags `<``p``>`. 
-**Lists** are made if a line begins with a hyphen followed by a space, '`- `', then the text on those lines will be converted into an **unordered list**. Successive lines will be included in the same list. For example,
+**Text** is just text. Paragraphs and new lines are wrapped in the `HTML` paragraph tags `<p>`. 
+**Lists** are made if a line begins with a hyphen followed by a space, '`-`&nbsp;&nbsp;', then the text on those lines will be converted into an **unordered list**. Successive lines will be included in the same list. For example,
 - This is a list with only one line.
 And
 - This is
@@ -47,7 +47,7 @@ And
 4. <— This number is 4.
 0. <— And this number is 0.
 
-**Quotes** are made if a line begins with `>` then it will be wrapped in `<``blockquote``>` tags. It should work work lists too.
+**Quotes** are made if a line begins with `>` then it will be wrapped in `<blockquote>` tags. It should work work lists too.
 > This is a single line quote.
 
 See how fancy it is with its automatic indentation!
