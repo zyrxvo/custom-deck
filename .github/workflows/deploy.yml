@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.SSH_PRIVATE_KEY }}
+          github_token: ${{ secrets.BUILD }}
           publish_dir: ./  # Replace with the directory where your generated HTML files are located
           publish_branch: gh-pages
           user_name: Garett Brown
