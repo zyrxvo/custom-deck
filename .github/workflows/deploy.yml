@@ -31,3 +31,6 @@ jobs:
         with:
           github_token: ${{ secrets.SSH_PRIVATE_KEY }}
           publish_dir: ./  # Replace with the directory where your generated HTML files are located
+          publish_branch: gh-pages
+          user_name: Garett Brown
+          user_email: zyrxvo.us@gmail.com
