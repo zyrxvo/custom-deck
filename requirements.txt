@@ -1,0 +1,7 @@
+beautifulsoup4==4.12.2
+feedparser==6.0.10
+Markdown==3.4.3
+markdown-full-yaml-metadata==2.2.1
+PyYAML==6.0
+sgmllib3k==1.0.0
+soupsieve==2.4.1

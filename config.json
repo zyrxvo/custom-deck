@@ -15,12 +15,12 @@
         "heroquote": "Here are some short blog entries related to things that I've done and places I've been.",
         "heroimage": "images/blog_hero.jpeg",
         "posts": "posts/",
-        "images": "images/",
-        "blogPostList": "posts/list.txt"
+        "images": "images/"
     },
     "podcast": {
         "title": "Custom-Deck | Podcast",
         "email": "podcast@example.com",
+        "rss": "rss.rss",
         "apple": "https://podcasts.apple.com/",
         "spotify": "https://open.spotify.com",
         "google": "https://podcasts.google.com",

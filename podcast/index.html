@@ -1,66 +1,65 @@
 <!-- Garett Brown May 2023 Custom-Deck Main Podcast Page  -->
 <!DOCTYPE html>
+
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <head>
-	<link rel="stylesheet" href="../main.css">
-	<link rel="icon" href="../images/favicon.ico">
-	<link rel="alternate" type="application/rss+xml" title="Podcast" href="rss.rss"/>
-	<title customdeck-placeholder="podcast.title" ></title>
+<link href="../main.css" rel="stylesheet"/>
+<link href="../images/favicon.png" rel="icon"/>
+<link href="rss.rss" rel="alternate" title="Podcast" type="application/rss+xml"/>
+<title customdeck-placeholder="podcast.title">Custom-Deck | Podcast</title>
 </head>
 <body class="page">
+<div customdeck-active-page="podcast" customdeck-include-html="../nav.html"></div>
+<article class="card-top centred padded">
+<div class="onethird">
+<div class="centred">
+<a href="">
+<img alt="Podcast Logo" class="return-img" decoding="async" loading="lazy" src="images/podcast.jpeg"/>
+</a>
+</div>
+<div class="card vertical padded">
+<h1>Podcast</h1>
+<p>A podcast tagline</p>
+<p>Details about a podcast, the main premise of the show, what is discussed, and a quip about how it's done.</p>
+<p>Email us feedback or ask us questions at <a customdeck-placeholder="podcast.email" href="podcast@example.com" id="email"><a href="mailto:podcast@example.com">podcast@example.com</a></a></p>
+</div>
+<section class="card color0 centred">
+<div class="badge-box">
+<a customdeck-placeholder="podcast.apple" href="https://podcasts.apple.com/" target="_blank">
+<img alt="Listen on Apple Podcasts" class="badge" decoding="async" loading="lazy" src="images/apple-badge.svg"/>
+<img alt="Listen on Apple Podcasts" class="logo" decoding="async" loading="lazy" src="images/apple-logo.svg"/>
+</a>
+<a customdeck-placeholder="podcast.spotify" href="https://open.spotify.com" target="_blank">
+<img alt="Listen on Spotify" class="badge" decoding="async" loading="lazy" src="images/spotify-badge.svg"/>
+<img alt="Listen on Spotify" class="logo" decoding="async" loading="lazy" src="images/spotify-logo.svg"/>
+</a>
+<a customdeck-placeholder="podcast.google" href="https://podcasts.google.com" target="_blank">
+<img alt="Listen on Google" class="badge" decoding="async" loading="lazy" src="images/google-badge.svg"/>
+<img alt="Listen on Google" class="logo" decoding="async" loading="lazy" src="images/google-logo.svg"/>
+</a>
+<a customdeck-placeholder="podcast.overcast" href="https://overcast.fm" target="_blank">
+<img alt="Listen in Overcast" class="badge" decoding="async" loading="lazy" src="images/overcast-badge.svg"/>
+<img alt="Listen in Overcast" class="logo" decoding="async" loading="lazy" src="images/overcast-logo.svg"/>
+</a>
+<a customdeck-placeholder="podcast.youtube" href="https://www.youtube.com/" target="_blank">
+<img alt="Watch/Listen on YouTube" class="badge" decoding="async" loading="lazy" src="images/youtube-badge.svg"/>
+<img alt="Watch/Listen on YouTube" class="logo" decoding="async" loading="lazy" src="images/youtube-logo.svg"/>
+</a>
+<a href="rss.rss" target="_blank">
+<img alt="RSS Feed" class="badge" decoding="async" loading="lazy" src="images/rss-badge.svg"/>
+<img alt="RSS Feed" class="logo" decoding="async" loading="lazy" src="images/rss-logo.svg"/>
+</a>
+</div>
+</section>
+<hr/>
+</div>
+<div class="twothirds" customdeck-include-rss="podcast" id="main"></div>
+</article>
+<section class="footer" customdeck-include-html="../footer.html"></section>
 <script src="../js/main.js"></script>
 <script src="../js/podcast.js"></script>
-<main>
-	<div customdeck-include-html="../nav.html"></div>
-	<article class="card-top centred padded">
-		<div class="onethird">
-			<div class="centred">
-				<a href=""><img class="return-img" src="images/podcast.jpeg" alt="Podcast Logo" decoding="async" loading="lazy"></a>
-			</div>
-			<div class="card vertical padded">
-				<h1>Podcast</h1>
-				<p>A podcast tagline</p>
-				<p>Details about a podcast, the main premise of the show, what is discussed, and a quip about how it's done.</p>
-				<p>Email us feedback or ask us questions at <a  customdeck-placeholder="podcast.email" id="email" href="mailto:me@example.com">me@example.com</a></p>
-			</div>
-			<section class="card color0 centred">
-				<div class="badge-box"> 
-					<a customdeck-placeholder="podcast.apple" target="_blank">
-						<img class="badge" src="images/apple-badge.svg" alt="Listen on Apple Podcasts" decoding="async" loading="lazy">
-						<img class="logo" src="images/apple-logo.svg" alt="Listen on Apple Podcasts" decoding="async" loading="lazy">
-					</a>
-					<a customdeck-placeholder="podcast.spotify" target="_blank">
-						<img class="badge" src="images/spotify-badge.svg" alt="Listen on Spotify" decoding="async" loading="lazy">
-						<img class="logo" src="images/spotify-logo.svg" alt="Listen on Spotify" decoding="async" loading="lazy">
-					</a>
-					<a customdeck-placeholder="podcast.google" target="_blank">
-						<img class="badge" src="images/google-badge.svg" alt="Listen on Google" decoding="async" loading="lazy">
-						<img class="logo" src="images/google-logo.svg" alt="Listen on Google" decoding="async" loading="lazy">
-					</a>
-					<a customdeck-placeholder="podcast.overcast" target="_blank">
-						<img class="badge" src="images/overcast-badge.svg" alt="Listen in Overcast" decoding="async" loading="lazy">
-						<img class="logo" src="images/overcast-logo.svg" alt="Listen in Overcast" decoding="async" loading="lazy">
-					</a>
-					<a customdeck-placeholder="podcast.youtube" target="_blank">
-						<img class="badge" src="images/youtube-badge.svg" alt="Watch/Listen on YouTube" decoding="async" loading="lazy">
-						<img class="logo" src="images/youtube-logo.svg" alt="Watch/Listen on YouTube" decoding="async" loading="lazy">
-					</a>
-					<a href="rss.rss" target="_blank">
-						<img class="badge" src="images/rss-badge.svg" alt="RSS Feed" decoding="async" loading="lazy">
-						<img class="logo" src="images/rss-logo.svg" alt="RSS Feed" decoding="async" loading="lazy">
-					</a>
-				</div>
-			</section>
-			<hr style="width:75%">
-		</div>
-		<div class="twothirds" id="main">
-			<script>parseRSS("rss.rss");</script>
-		</div>
-	</article>
-</main>
-<section class="footer" customdeck-include-html="../footer.html"></section>
-<script> includeHTML("podcast").then(() => { loadConfig(); updateNavLinks(); setScene(); }); </script>
+<script>setScene();</script>
 </body>
 </html>

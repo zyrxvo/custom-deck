@@ -1,47 +1,38 @@
-<!-- Garett Brown 15 October 2018 Personal Website Travel Blog Page  -->
+<!-- Garett Brown May 2023 Custom-Deck Blog Page  -->
 <!DOCTYPE html>
+
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <head>
-	<link rel="stylesheet" href="../main.css">
-	<link rel="icon" href="../images/favicon.ico">
-	<title customdeck-placeholder="blog.title" ></title>
+<link href="../main.css" rel="stylesheet"/>
+<link href="../images/favicon.png" rel="icon"/>
+<title customdeck-placeholder="blog.title">Custom-Deck | Blog</title>
 </head>
 <body class="page">
-<script type="text/javascript" src="../js/main.js"></script>
-<script type="text/javascript" src="../js/blog.js"></script>
-
-  <section class="card-hero">
-		<img customdeck-placeholder="blog.heroimage" alt="Hero Image" decoding="async" loading="lazy">
-    <div class="hero-text">
-      <h1 customdeck-placeholder="blog.herotext"></h1>
-      <h4 customdeck-placeholder="blog.heroquote"></h4>
-    </div>
-    <div class="hero-text-small">
-      <h3 customdeck-placeholder="blog.herotext"></h3>
-      <h6 customdeck-placeholder="blog.heroquote"></h6>
-    </div>
-  </section>
-
-	<div customdeck-include-html="../nav.html"></div>
-
-  <main>
-    <article id="main" class="deck vertical">
-    </article>
-
-    <script>loadPosts()</script>
-    
-    <section class="card color1 vertical centred padded margins">
-      <div class="centred-text">
-          <h2>Places I've Been</h2>
-          <p>Comprising 3 countries; 37 states (USA); 7 provinces and 2 territories (Canada); and 2 states (Mexico).</p>
-          <a href=images/map_full.jpeg><img src=images/map.jpeg alt="Map"  decoding="async" loading="lazy"/></a><figcaption aria-hidden="true">A Map <a href="https://www.example.com/" target="_blank">(Original)</a></figcaption>
-      </div>
-    </section>
-  </main>
-
-	<section class="footer" customdeck-include-html="../footer.html"></section>
-	<script> includeHTML("blog").then(() => { loadConfig(); updateNavLinks(); setScene(); }); </script>
+<section class="card-hero">
+<img alt="Hero Image" customdeck-placeholder="blog.heroimage" decoding="async" fetchpriority="high" id="hero-image" loading="eager" src="images/blog_hero.jpeg"/>
+<div class="hero-text">
+<h1 customdeck-placeholder="blog.herotext">Blog</h1>
+<h4 customdeck-placeholder="blog.heroquote">Here are some short blog entries related to things that I've done and places I've been.</h4>
+</div>
+<div class="hero-text-small">
+<h3 customdeck-placeholder="blog.herotext">Blog</h3>
+<h6 customdeck-placeholder="blog.heroquote">Here are some short blog entries related to things that I've done and places I've been.</h6>
+</div>
+</section>
+<div customdeck-active-page="blog" customdeck-include-html="../nav.html"></div>
+<article class="deck vertical" customdeck-include-blog="blog"></article>
+<section class="full card color1 vertical centred padded margins">
+<div class="centred-text">
+<h2>Places I've Been</h2>
+<p>Comprising 3 countries; 37 states (USA); 7 provinces and 2 territories (Canada); and 2 states (Mexico).</p>
+<a href="images/map_full.jpeg"><img alt="Map" decoding="async" loading="lazy" src="images/map.jpeg"/></a>
+<figcaption aria-hidden="true">A Map<a href="https://www.example.com/" target="_blank">(Original)</a></figcaption>
+</div>
+</section>
+<section class="footer" customdeck-include-html="../footer.html"></section>
+<script src="../js/main.js" type="text/javascript"></script>
+<script>setScene();</script>
 </body>
 </html>
