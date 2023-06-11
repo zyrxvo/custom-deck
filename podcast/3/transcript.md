@@ -1,8 +1,8 @@
 ### Transcript
 
-- [00:00 - Introduction](#introduction)
-- [00:20 - Initial Thoughts](#initial-thoughts)
-- [01:08 - Conclusion](#conclusion)
+- [00:00 - Introduction](#00:00---introduction)
+- [00:20 - Initial Thoughts](#00:20---initial-thoughts)
+- [01:08 - Conclusion](#01:08---conclusion)
 
 #### 00:00 - Introduction
 (upbeat music)

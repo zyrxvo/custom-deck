@@ -21,8 +21,133 @@
 <h6 customdeck-placeholder="blog.heroquote">Here are some short blog entries related to things that I've done and places I've been.</h6>
 </div>
 </section>
-<div customdeck-active-page="blog" customdeck-include-html="../nav.html"></div>
-<article class="deck vertical" customdeck-include-blog="blog"></article>
+<div customdeck-active-page="blog" customdeck-include-html="../nav.html"><nav class="nav-bar" id="navbar">
+<a customdeck-update-relpath="" href="../"><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<ul class="nav-bar-ul">
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../" id="home">Home</a></li>
+<li class="nav-bar-item"><a class="active" customdeck-update-relpath="" href="../blog/" id="blog">Blog</a></li>
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../podcast/" id="podcast">Podcast</a></li>
+</ul>
+</nav><nav class="dropdown" id="dropdown">
+<a href=""><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<button class="dropbtn" onclick="dropMenuClick()">Menu</button>
+<div class="dropdown-content" id="myDropdown">
+<a customdeck-update-relpath="" href="../" id="home-drop">Home</a>
+<a customdeck-update-relpath="" href="../blog/" id="blog-drop">Blog</a>
+<a customdeck-update-relpath="" href="../podcast/" id="podcast-drop">Podcast</a>
+</div>
+</nav><span><img alt="Scene Mode" class="scene" decoding="async" fetchpriority="high" id="scene" loading="eager" onclick="changeScene()"/></span></div>
+<article class="deck vertical" customdeck-include-blog="blog"><section class="card color2 padded margins" id="2023-05-29.md">
+<div class="twothirds" id="2023-05-29.md-text">
+<h2 id="holiday">Holiday</h2>
+<p>
+<em>2023-05-29</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Ante metus dictum at tempor commodo. Suspendisse potenti nullam ac tortor vitae purus faucibus. In est ante in nibh. Facilisis sed odio morbi quis commodo odio. Egestas sed sed risus pretium quam vulputate dignissim. Nec nam aliquam sem et tortor consequat id. Ut enim blandit volutpat maecenas volutpat. Mi bibendum neque egestas congue. Pretium quam vulputate dignissim suspendisse in est ante in. Donec pretium vulputate sapien nec sagittis aliquam. Vestibulum sed arcu non odio euismod lacinia at quis. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Dictum varius duis at consectetur lorem donec massa.</p>
+<p>Tellus orci ac auctor augue. Metus vulputate eu scelerisque felis imperdiet. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Amet tellus cras adipiscing enim eu turpis egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Arcu non sodales neque sodales ut etiam. Vitae turpis massa sed elementum tempus egestas sed. Quis risus sed vulputate odio ut enim blandit volutpat. Id neque aliquam vestibulum morbi. Suspendisse ultrices gravida dictum fusce ut. Tempor commodo ullamcorper a lacus. Morbi tristique senectus et netus. Ac tortor vitae purus faucibus ornare suspendisse.</p>
+</div>
+<div class="onethird centred" id="2023-05-29.md-image">
+<a href="images/2023-05-29_full.jpeg">
+<img decoding="async" loading="lazy" src="images/2023-05-29.jpeg"/>
+</a>
+</div>
+</section><section class="card color1 padded margins" id="2023-04-20.md">
+<div class="onethird centred" id="2023-04-20.md-image">
+<a href="images/2023-04-20_full.jpeg">
+<img decoding="async" loading="lazy" src="images/2023-04-20.jpeg"/>
+</a>
+</div>
+<div class="twothirds" id="2023-04-20.md-text">
+<h2 id="four-twenty">Four-twenty</h2>
+<p>
+<em>2023-04-20</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Ante metus dictum at tempor commodo. Suspendisse potenti nullam ac tortor vitae purus faucibus. In est ante in nibh. Facilisis sed odio morbi quis commodo odio. Egestas sed sed risus pretium quam vulputate dignissim. Nec nam aliquam sem et tortor consequat id. Ut enim blandit volutpat maecenas volutpat. Mi bibendum neque egestas congue. Pretium quam vulputate dignissim suspendisse in est ante in. Donec pretium vulputate sapien nec sagittis aliquam. Vestibulum sed arcu non odio euismod lacinia at quis. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Dictum varius duis at consectetur lorem donec massa.</p>
+<p>Tellus orci ac auctor augue. Metus vulputate eu scelerisque felis imperdiet. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Amet tellus cras adipiscing enim eu turpis egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Arcu non sodales neque sodales ut etiam. Vitae turpis massa sed elementum tempus egestas sed. Quis risus sed vulputate odio ut enim blandit volutpat. Id neque aliquam vestibulum morbi. Suspendisse ultrices gravida dictum fusce ut. Tempor commodo ullamcorper a lacus. Morbi tristique senectus et netus. Ac tortor vitae purus faucibus ornare suspendisse.</p>
+</div>
+</section><section class="card color0 padded margins" id="2023-03-30b.md">
+<div class="full" id="2023-03-30b.md-text">
+<h2 id="more-details-on-good-day">More details on good day</h2>
+<p>
+<em>2023-03-30</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio tempor orci dapibus ultrices in. Mauris ultrices eros in cursus turpis massa tincidunt. Eros donec ac odio tempor orci dapibus ultrices in. Sem nulla pharetra diam sit. Turpis egestas integer eget aliquet. Rutrum quisque non tellus orci ac auctor augue mauris augue. Felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque. Eget mauris pharetra et ultrices neque ornare aenean. Morbi quis commodo odio aenean sed adipiscing diam donec. Egestas tellus rutrum tellus pellentesque eu. Vitae auctor eu augue ut lectus. In nibh mauris cursus mattis molestie a.</p>
+<p>Diam vel quam elementum pulvinar etiam. Sed adipiscing diam donec adipiscing tristique risus nec feugiat. Libero justo laoreet sit amet cursus sit. Et tortor at risus viverra adipiscing at in tellus integer. Sed cras ornare arcu dui vivamus arcu felis bibendum ut. Eu non diam phasellus vestibulum lorem sed risus ultricies tristique. Vel pharetra vel turpis nunc eget lorem. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Posuere lorem ipsum dolor sit amet. Scelerisque in dictum non consectetur a erat nam at. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan. Id cursus metus aliquam eleifend.</p>
+<p>Ac felis donec et odio pellentesque diam volutpat commodo. Leo vel orci porta non pulvinar neque laoreet suspendisse. Odio ut sem nulla pharetra diam sit amet nisl. Integer eget aliquet nibh praesent tristique magna sit amet. Felis eget nunc lobortis mattis aliquam faucibus purus in. Lectus mauris ultrices eros in cursus. Et odio pellentesque diam volutpat commodo. Amet consectetur adipiscing elit pellentesque habitant morbi tristique. Adipiscing enim eu turpis egestas pretium. Enim sed faucibus turpis in eu mi bibendum. Pulvinar proin gravida hendrerit lectus.</p>
+<p>Tellus pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum. Nunc congue nisi vitae suscipit tellus mauris. Ipsum suspendisse ultrices gravida dictum. Facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui. Tortor aliquam nulla facilisi cras fermentum. Velit ut tortor pretium viverra suspendisse potenti nullam ac. Feugiat in ante metus dictum. Urna neque viverra justo nec ultrices dui sapien eget. Tempor orci dapibus ultrices in iaculis nunc. Nibh ipsum consequat nisl vel pretium lectus quam. Facilisis sed odio morbi quis commodo odio aenean sed. Sed libero enim sed faucibus turpis in eu. Neque sodales ut etiam sit amet nisl purus. Mollis aliquam ut porttitor leo a diam. Ridiculus mus mauris vitae ultricies leo integer malesuada. Aliquet nec ullamcorper sit amet risus nullam.</p>
+<p>Bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada. Phasellus faucibus scelerisque eleifend donec pretium. Pretium lectus quam id leo in vitae turpis massa sed. Aliquet nec ullamcorper sit amet risus nullam. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis lectus nulla at volutpat diam ut. Feugiat pretium nibh ipsum consequat nisl vel pretium. Amet cursus sit amet dictum sit amet justo. Ipsum dolor sit amet consectetur adipiscing elit. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum. Amet porttitor eget dolor morbi non. Vel orci porta non pulvinar. Tempor id eu nisl nunc mi ipsum faucibus vitae aliquet. Vitae turpis massa sed elementum tempus egestas sed sed risus. Ultricies lacus sed turpis tincidunt id aliquet risus.</p>
+</div>
+</section><section class="card color4 padded margins" id="2023-03-30a.md">
+<div class="onethird centred" id="2023-03-30a.md-image">
+<a href="images/2023-03-30a_full.jpeg">
+<img decoding="async" loading="lazy" src="images/2023-03-30a.jpeg"/>
+</a>
+</div>
+<div class="twothirds" id="2023-03-30a.md-text">
+<h2 id="a-good-day">A good day</h2>
+<p>
+<em>2023-03-30</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Ante metus dictum at tempor commodo. Suspendisse potenti nullam ac tortor vitae purus faucibus. In est ante in nibh. Facilisis sed odio morbi quis commodo odio. Egestas sed sed risus pretium quam vulputate dignissim. Nec nam aliquam sem et tortor consequat id. Ut enim blandit volutpat maecenas volutpat. Mi bibendum neque egestas congue. Pretium quam vulputate dignissim suspendisse in est ante in. Donec pretium vulputate sapien nec sagittis aliquam. Vestibulum sed arcu non odio euismod lacinia at quis. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Dictum varius duis at consectetur lorem donec massa.</p>
+<p>Tellus orci ac auctor augue. Metus vulputate eu scelerisque felis imperdiet. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Amet tellus cras adipiscing enim eu turpis egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Arcu non sodales neque sodales ut etiam. Vitae turpis massa sed elementum tempus egestas sed. Quis risus sed vulputate odio ut enim blandit volutpat. Id neque aliquam vestibulum morbi. Suspendisse ultrices gravida dictum fusce ut. Tempor commodo ullamcorper a lacus. Morbi tristique senectus et netus. Ac tortor vitae purus faucibus ornare suspendisse.</p>
+</div>
+</section><section class="card color3 padded margins" id="2023-02-14.md">
+<div class="twothirds" id="2023-02-14.md-text">
+<h2 id="valentines">Valentines</h2>
+<p>
+<em>2023-02-14</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Ante metus dictum at tempor commodo. Suspendisse potenti nullam ac tortor vitae purus faucibus. In est ante in nibh. Facilisis sed odio morbi quis commodo odio. Egestas sed sed risus pretium quam vulputate dignissim. Nec nam aliquam sem et tortor consequat id. Ut enim blandit volutpat maecenas volutpat. Mi bibendum neque egestas congue. Pretium quam vulputate dignissim suspendisse in est ante in. Donec pretium vulputate sapien nec sagittis aliquam. Vestibulum sed arcu non odio euismod lacinia at quis. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Dictum varius duis at consectetur lorem donec massa.</p>
+<p>Tellus orci ac auctor augue. Metus vulputate eu scelerisque felis imperdiet. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Amet tellus cras adipiscing enim eu turpis egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Arcu non sodales neque sodales ut etiam. Vitae turpis massa sed elementum tempus egestas sed. Quis risus sed vulputate odio ut enim blandit volutpat. Id neque aliquam vestibulum morbi. Suspendisse ultrices gravida dictum fusce ut. Tempor commodo ullamcorper a lacus. Morbi tristique senectus et netus. Ac tortor vitae purus faucibus ornare suspendisse.</p>
+</div>
+<div class="onethird centred" id="2023-02-14.md-image">
+<a href="images/2023-02-14_full.jpeg">
+<img decoding="async" loading="lazy" src="images/2023-02-14.jpeg"/>
+</a>
+</div>
+</section><section class="card color2 padded margins" id="2023-01-15.md">
+<div class="onethird centred" id="2023-01-15.md-image">
+<a href="images/2023-01-15_full.jpeg">
+<img decoding="async" loading="lazy" src="images/2023-01-15.jpeg"/>
+</a>
+</div>
+<div class="twothirds" id="2023-01-15.md-text">
+<h2 id="hanging-out-together">Hanging out together</h2>
+<p>
+<em>2022-01-15</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Ante metus dictum at tempor commodo. Suspendisse potenti nullam ac tortor vitae purus faucibus. In est ante in nibh. Facilisis sed odio morbi quis commodo odio. Egestas sed sed risus pretium quam vulputate dignissim. Nec nam aliquam sem et tortor consequat id. Ut enim blandit volutpat maecenas volutpat. Mi bibendum neque egestas congue. Pretium quam vulputate dignissim suspendisse in est ante in. Donec pretium vulputate sapien nec sagittis aliquam. Vestibulum sed arcu non odio euismod lacinia at quis. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Dictum varius duis at consectetur lorem donec massa.</p>
+<p>Tellus orci ac auctor augue. Metus vulputate eu scelerisque felis imperdiet. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Amet tellus cras adipiscing enim eu turpis egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Arcu non sodales neque sodales ut etiam. Vitae turpis massa sed elementum tempus egestas sed. Quis risus sed vulputate odio ut enim blandit volutpat. Id neque aliquam vestibulum morbi. Suspendisse ultrices gravida dictum fusce ut. Tempor commodo ullamcorper a lacus. Morbi tristique senectus et netus. Ac tortor vitae purus faucibus ornare suspendisse.</p>
+</div>
+</section><section class="card color1 padded margins" id="2022-12-25.md">
+<div class="twothirds" id="2022-12-25.md-text">
+<h2 id="christmas">Christmas</h2>
+<p>
+<em>2022-12-25</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Ante metus dictum at tempor commodo. Suspendisse potenti nullam ac tortor vitae purus faucibus. In est ante in nibh. Facilisis sed odio morbi quis commodo odio. Egestas sed sed risus pretium quam vulputate dignissim. Nec nam aliquam sem et tortor consequat id. Ut enim blandit volutpat maecenas volutpat. Mi bibendum neque egestas congue. Pretium quam vulputate dignissim suspendisse in est ante in. Donec pretium vulputate sapien nec sagittis aliquam. Vestibulum sed arcu non odio euismod lacinia at quis. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Dictum varius duis at consectetur lorem donec massa.</p>
+<p>Tellus orci ac auctor augue. Metus vulputate eu scelerisque felis imperdiet. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Amet tellus cras adipiscing enim eu turpis egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Arcu non sodales neque sodales ut etiam. Vitae turpis massa sed elementum tempus egestas sed. Quis risus sed vulputate odio ut enim blandit volutpat. Id neque aliquam vestibulum morbi. Suspendisse ultrices gravida dictum fusce ut. Tempor commodo ullamcorper a lacus. Morbi tristique senectus et netus. Ac tortor vitae purus faucibus ornare suspendisse.</p>
+</div>
+<div class="onethird centred" id="2022-12-25.md-image">
+<a href="images/2022-12-25_full.jpeg">
+<img decoding="async" loading="lazy" src="images/2022-12-25.jpeg"/>
+</a>
+</div>
+</section><section class="card color0 padded margins" id="2022-11-24.md">
+<div class="onethird centred" id="2022-11-24.md-image">
+<a href="images/2022-11-24_full.jpeg">
+<img decoding="async" loading="lazy" src="images/2022-11-24.jpeg"/>
+</a>
+</div>
+<div class="twothirds" id="2022-11-24.md-text">
+<h2 id="thanksgiving">Thanksgiving</h2>
+<p>
+<em>2022-11-24</em>
+</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare. Ante metus dictum at tempor commodo. Suspendisse potenti nullam ac tortor vitae purus faucibus. In est ante in nibh. Facilisis sed odio morbi quis commodo odio. Egestas sed sed risus pretium quam vulputate dignissim. Nec nam aliquam sem et tortor consequat id. Ut enim blandit volutpat maecenas volutpat. Mi bibendum neque egestas congue. Pretium quam vulputate dignissim suspendisse in est ante in. Donec pretium vulputate sapien nec sagittis aliquam. Vestibulum sed arcu non odio euismod lacinia at quis. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Dictum varius duis at consectetur lorem donec massa.</p>
+<p>Tellus orci ac auctor augue. Metus vulputate eu scelerisque felis imperdiet. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Amet tellus cras adipiscing enim eu turpis egestas. Placerat orci nulla pellentesque dignissim enim sit amet venenatis urna. Arcu non sodales neque sodales ut etiam. Vitae turpis massa sed elementum tempus egestas sed. Quis risus sed vulputate odio ut enim blandit volutpat. Id neque aliquam vestibulum morbi. Suspendisse ultrices gravida dictum fusce ut. Tempor commodo ullamcorper a lacus. Morbi tristique senectus et netus. Ac tortor vitae purus faucibus ornare suspendisse.</p>
+</div>
+</section></article>
 <section class="full card color1 vertical centred padded margins">
 <div class="centred-text">
 <h2>Places I've Been</h2>
@@ -31,7 +156,19 @@
 <figcaption aria-hidden="true">A Map<a href="https://www.example.com/" target="_blank">(Original)</a></figcaption>
 </div>
 </section>
-<section class="footer" customdeck-include-html="../footer.html"></section>
+<section class="footer" customdeck-include-html="../footer.html"><footer>
+<h3 id="contact-me"><i>Contact Me</i></h3>
+<a href="https://github.com/zyrxvo" target="_blank">
+<picture class="icon">
+<source alt="GitHub" customdeck-update-relpath="" decoding="async" id="github-dark" loading="lazy" media="(prefers-color-scheme: dark)" srcset="../images/github-white.png"/>
+<img alt="GitHub" class="icon" customdeck-update-relpath="" decoding="async" id="github" loading="lazy" src="../images/github.png" type="image/png"/>
+</picture>
+</a>
+<a href="https://mas.to/@zyrxvo" target="_blank"><img alt="Mastodon" class="icon" customdeck-update-relpath="" decoding="async" loading="lazy" src="../images/mastodon.png" type="image/png"/></a>
+<p customdeck-placeholder="site.email" id="email"><a href="mailto:me@example.com">me@example.com</a></p>
+<p>The <code>Custom-Deck</code> theme was designed by <a href="https://github.com/zyrxvo/custom-deck/" target="_blank">Garett Brown</a></p>
+<p customdeck-placeholder="site.copyright">© Garett Brown 2023</p>
+</footer></section>
 <script src="../js/main.js" type="text/javascript"></script>
 <script>setScene();</script>
 </body>

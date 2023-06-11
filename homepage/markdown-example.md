@@ -1,6 +1,6 @@
 ## Example Markdown
 
-The `Custom-Deck` theme implements a very basic version of Markdown for speed and convenience. However, because it is basic, use of Markdown syntax that is nested or complex may result in errors or unintended behaviour. `HTML` used within the Markdown will remain unchanged and render as `HTML`. The Markdown engine is implemented with basic regular expressions. The following are some examples of the what is rendered.
+[Markdown](https://daringfireball.net/projects/markdown/) is designed to "write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)." The `Custom-Deck` theme uses a customized version of the [Python-Markdown](https://python-markdown.github.io) engine by implementing a couple custom features for convenience. As such, it is unlikely to, but it may result in errors or unintended behaviour. `HTML` used within the Markdown will remain unchanged and render as `HTML` unless it is placed within `<code>` blocks using ``` `backticks` ```. The following are some examples of the what is rendered.
 
 ### Headings
 
@@ -26,6 +26,7 @@ With markdown you can easily make links using closing square brackets `[]` follo
 With an exclamation point at the start, you can `![Embed an image](homepage/images/landscape.jpeg)` to embed an image with alt-text "Embed an image":
 ![Embed image](homepage/images/landscape.jpeg)
 
+#### Non-standard Customizations
 By adding a vertical bar after the link, but before closing the parentheses, you can `![embed an image with width 200px](homepage/images/landscape.jpeg|200)`, to embed an image and specify the width:
 ![Embeded image with width 200px](homepage/images/landscape.jpeg|200)
 
@@ -34,6 +35,13 @@ And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this `¡[Bu
 ### Text, Lists, and Quotes
 
 **Text** is just text. Paragraphs and new lines are wrapped in the `HTML` paragraph tags `<p>`. 
+**Quotes** are made if a line begins with `>` then it will be wrapped in `<blockquote>` tags. It should work work lists too.
+> This is a single line/paragraph quote.
+Additional lines that are not separated by an empty line will appear on the previous line, even if they don't begin with an angle bracket `>`.
+
+But, see how fancy it is with its automatic indentation! The style of the quote can be customized using `CSS`.
+
+#### Non-standard Customizations
 **Lists** are made if a line begins with a hyphen followed by a space, '`-`&nbsp;&nbsp;', then the text on those lines will be converted into an **unordered list**. Successive lines will be included in the same list. For example,
 - This is a list with only one line.
 And
@@ -47,12 +55,14 @@ And
 4. <— This number is 4.
 0. <— And this number is 0.
 
-**Quotes** are made if a line begins with `>` then it will be wrapped in `<blockquote>` tags. It should work work lists too.
-> This is a single line quote.
 
-See how fancy it is with its automatic indentation!
+
 > This is a multi-line quote that also contains two different kinds of lists, some *emphasis* **and** some `code`.
-> Each new line is also wrapped in paragraph tags.
+> Note again that each new line is kept within the same paragraph tag.
+>
+> Paragraph breaks can be maintained so long as there is a newline gap that begins with a right angle bracket, `>`.
+>
+> My added customization is that the custom list rendering also works inside block quotes.
 > - See! This is
 > - a multi-line list!
 > 1. Another List

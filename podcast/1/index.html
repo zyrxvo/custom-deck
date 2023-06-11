@@ -10,10 +10,22 @@
 <title customdeck-placeholder="podcast.title">Custom-Deck | Podcast</title>
 </head>
 <body class="page">
-<script src="../../js/main.js"></script>
-<script src="../../js/timeJump.js"></script>
-<script src="../../js/podcast.js"></script>
-<div customdeck-active-page="podcast" customdeck-include-html="../../nav.html"></div>
+<div customdeck-active-page="podcast" customdeck-include-html="../../nav.html"><nav class="nav-bar" id="navbar">
+<a customdeck-update-relpath="" href="../../"><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<ul class="nav-bar-ul">
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../../" id="home">Home</a></li>
+<li class="nav-bar-item"><a customdeck-update-relpath="" href="../../blog/" id="blog">Blog</a></li>
+<li class="nav-bar-item"><a class="active" customdeck-update-relpath="" href="../../podcast/" id="podcast">Podcast</a></li>
+</ul>
+</nav><nav class="dropdown" id="dropdown">
+<a href=""><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
+<button class="dropbtn" onclick="dropMenuClick()">Menu</button>
+<div class="dropdown-content" id="myDropdown">
+<a customdeck-update-relpath="" href="../../" id="home-drop">Home</a>
+<a customdeck-update-relpath="" href="../../blog/" id="blog-drop">Blog</a>
+<a customdeck-update-relpath="" href="../../podcast/" id="podcast-drop">Podcast</a>
+</div>
+</nav><span><img alt="Scene Mode" class="scene" decoding="async" fetchpriority="high" id="scene" loading="eager" onclick="changeScene()"/></span></div>
 <main>
 <article class="card-top centred padded">
 <div class="onethird">
@@ -23,12 +35,76 @@
 </a>
 </div>
 </div>
-<section class="twothirds"><div class="padded" customdeck-include-rss-episode="podcast" id="main"></div>
-<div class="card color1 vertical padded" customdeck-insertmd="transcript.md" id="include-transcript"></div>
+<section class="twothirds"><div class="padded" customdeck-include-rss-episode="podcast" id="main"><h1>Podcast</h1><h2>Thanksgiving</h2><p>
+<i>24 Nov 2022 - 2 minutes</i>
+</p><p>In this heartwarming episode, the podcast explores the theme of Thanksgiving, going beyond the feast and football games to delve into the traditions and stories that make this holiday special. The episode encourages listeners to reach out to others, express gratitude, and spread love during the holiday season. Join the host on this gratitude-filled journey and let your heart overflow with Thanksgiving.</p><h3>Play or <a download="" href="podcast1.mp3">download</a> this episode (1.5 MB)</h3><audio controls="" id="__custom_deck__Podcast1" oncanplay="setTime('__custom_deck__Podcast1')" onended="completed('__custom_deck__Podcast1', '')" onplay="pressedPlay('__custom_deck__Podcast1', '')" ontimeupdate="trackTime('__custom_deck__Podcast1', '')" preload="metadata" style="width: 85%">
+<source src="https://archive.org/download/customdeckpodcast/podcast1.mp3" type="audio/mpeg"/>
+<source src="podcast1.mp3" type="audio/mpeg"/>
+</audio><h3 id="#-chapters"> Chapters</h3><div class="card-chapters">
+<div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast1', '0.0', 'Introduction')">0:00 - Introduction</div>
+<div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast1', '20.0', 'Initial Thoughts')">0:20 - Initial Thoughts</div>
+<div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast1', '68.0', 'Conclusion')">1:08 - Conclusion</div>
+</div><br/><p>
+<p>Show Notes</p>
+<ul>
+<li>Follow Up<ul>
+<li>
+<a href="https://example.com">Example</a>
+</li>
+<li>
+<a href="https://example.com">Another Example</a>
+</li>
+</ul>
+</li>
+<li>Notes<ul>
+<li>
+<a href="https://example.com">A note</a>
+</li>
+<li>
+<a href="https://example.com">Another note</a>
+</li>
+</ul>
+</li>
+</ul>
+<p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a>
+</p>
+</p><br/></div>
+<div class="card color1 vertical padded" customdeck-include-markdown="transcript.md" id="include-transcript"><h3 id="transcript">Transcript</h3><p>
+<ul>
+<li>
+<a href="#00:00---introduction">00:00 - Introduction</a>
+</li>
+<li>
+<a href="#00:20---initial-thoughts">00:20 - Initial Thoughts</a>
+</li>
+<li>
+<a href="#01:08---conclusion">01:08 - Conclusion</a>
+</li>
+</ul>
+</p><h4 id="00:00---introduction">00:00 - Introduction</h4><p>(upbeat music) 
+Welcome back to the podcast, a podcast that celebrates our lives. I'm your host, and in today's special episode, we're diving into heartwarming traditions and stories surrounding Thanksgiving. So grab a cozy seat, and let's embark on this gratitude-filled journey together. </p><h4 id="00:20---initial-thoughts">00:20 - Initial Thoughts</h4><p>(upbeat music)
+Thanksgiving, a time when families and friends come together to express gratitude for the blessings in their lives. It's a holiday that goes beyond the delicious feast and football games. It's a time to reflect, connect, and give thanks. Picture this, the aroma of freshly baked pies fills the air, as loved ones gather around in a beautifully adorned table. The turkey takes center stage, golden and inviting, but it's not just the food that warms our hearts, it's the people we share it with. Each Thanksgiving, we create memories that become woven into the tapestry of our lives. We reminisce about the past and make new stories to share in the future. It's a time to cherish our loved ones and appreciate the bonds that hold us together.</p><h4 id="01:08---conclusion">01:08 - Conclusion</h4><p>(gentle music)
+But Thanksgiving is more than just a day. It's a reminder to cultivate gratitude year-round. It encourages us to look beyond our challenges and find joy in the simple things. From a friendly smile to a kind gesture, gratitude is the key to unlocking happiness in our daily lives. As we celebrate this Thanksgiving, let's challenge ourselves to practice gratitude in a meaningful way. Let's reach out to those who may be feeling alone and make them feel loved and appreciated. Let's donate our time and resources to those in need, spreading the warmth of this holiday season.</p><p>So as you gather around your Thanksgiving table this year, take a moment to express your gratitude. To say those heartfelt words that sometimes go unsaid. Share your stories, create lasting memories, and let love and gratitude fill the air. We wish you a Thanksgiving filled with love, joy, and a deep appreciation for the blessings in your life.</p><p>Thank you for joining us today. Don't forget to subscribe and share this podcast with your friends and loved ones. Until next time, remember to embrace gratitude and let your heart overflow with Thanksgiving. 
+(gentle music)</p></div>
 </section>
 </article>
 </main>
-<section class="footer" customdeck-include-html="../../footer.html"></section>
+<section class="footer" customdeck-include-html="../../footer.html"><footer>
+<h3 id="contact-me"><i>Contact Me</i></h3>
+<a href="https://github.com/zyrxvo" target="_blank">
+<picture class="icon">
+<source alt="GitHub" customdeck-update-relpath="" decoding="async" id="github-dark" loading="lazy" media="(prefers-color-scheme: dark)" srcset="../../images/github-white.png"/>
+<img alt="GitHub" class="icon" customdeck-update-relpath="" decoding="async" id="github" loading="lazy" src="../../images/github.png" type="image/png"/>
+</picture>
+</a>
+<a href="https://mas.to/@zyrxvo" target="_blank"><img alt="Mastodon" class="icon" customdeck-update-relpath="" decoding="async" loading="lazy" src="../../images/mastodon.png" type="image/png"/></a>
+<p customdeck-placeholder="site.email" id="email"><a href="mailto:me@example.com">me@example.com</a></p>
+<p>The <code>Custom-Deck</code> theme was designed by <a href="https://github.com/zyrxvo/custom-deck/" target="_blank">Garett Brown</a></p>
+<p customdeck-placeholder="site.copyright">© Garett Brown 2023</p>
+</footer></section>
+<script src="../../js/main.js"></script>
+<script src="../../js/timeJump.js"></script>
+<script src="../../js/podcast.js"></script>
 <script>setScene();</script>
 </body>
 </html>
