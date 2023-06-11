@@ -10,9 +10,6 @@
 <title customdeck-placeholder="podcast.title">Custom-Deck | Podcast</title>
 </head>
 <body class="page">
-<script src="../../js/main.js"></script>
-<script src="../../js/timeJump.js"></script>
-<script src="../../js/podcast.js"></script>
 <div customdeck-active-page="podcast" customdeck-include-html="../../nav.html"><nav class="nav-bar" id="navbar">
 <a customdeck-update-relpath="" href="../../"><h4 class="site-title" customdeck-placeholder="site.title">Custom-Deck</h4></a>
 <ul class="nav-bar-ul">
@@ -47,7 +44,8 @@
 <div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast6', '0.0', 'Introduction')">0:00 - Introduction</div>
 <div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast6', '20.0', 'Initial Thoughts')">0:20 - Initial Thoughts</div>
 <div class="card-chapter" onclick="gotoChapter('__custom_deck__Podcast6', '68.0', 'Conclusion')">1:08 - Conclusion</div>
-</div><br/><p>In this episode, the podcast celebrates the joy and playfulness of 4/20, emphasizing the lightheartedness and camaraderie of the day. It highlights the importance of laughter, humor, and finding joy in the small moments. Join the host in embracing the spirit of 4/20, sharing laughter, and creating an atmosphere of positivity and merriment.<p>Show Notes</p>
+</div><br/><p>
+<p>Show Notes</p>
 <ul>
 <li>Follow Up<ul>
 <li>
@@ -71,16 +69,16 @@
 <p>Email us feedback or ask us questions at <a href="mailto:podcast@example.com">podcast@example.com</a>
 </p>
 </p><br/></div>
-<div class="card color1 vertical padded" customdeck-insertmd="transcript.md" id="include-transcript"><h3 id="transcript">Transcript</h3><p>
+<div class="card color1 vertical padded" customdeck-include-markdown="transcript.md" id="include-transcript"><h3 id="transcript">Transcript</h3><p>
 <ul>
 <li>
-<a href="#introduction">00:00 - Introduction</a>
+<a href="#00:00---introduction">00:00 - Introduction</a>
 </li>
 <li>
-<a href="#initial-thoughts">00:20 - Initial Thoughts</a>
+<a href="#00:20---initial-thoughts">00:20 - Initial Thoughts</a>
 </li>
 <li>
-<a href="#conclusion">01:08 - Conclusion</a>
+<a href="#01:08---conclusion">01:08 - Conclusion</a>
 </li>
 </ul>
 </p><h4 id="00:00---introduction">00:00 - Introduction</h4><p>(upbeat music) 
@@ -92,7 +90,7 @@ But 4/20 is more than just a day of jokes. It's a reminder to find joy in the sm
 </article>
 </main>
 <section class="footer" customdeck-include-html="../../footer.html"><footer>
-<h3><i>Contact Me</i></h3>
+<h3 id="contact-me"><i>Contact Me</i></h3>
 <a href="https://github.com/zyrxvo" target="_blank">
 <picture class="icon">
 <source alt="GitHub" customdeck-update-relpath="" decoding="async" id="github-dark" loading="lazy" media="(prefers-color-scheme: dark)" srcset="../../images/github-white.png"/>
@@ -104,6 +102,9 @@ But 4/20 is more than just a day of jokes. It's a reminder to find joy in the sm
 <p>The <code>Custom-Deck</code> theme was designed by <a href="https://github.com/zyrxvo/custom-deck/" target="_blank">Garett Brown</a></p>
 <p customdeck-placeholder="site.copyright">© Garett Brown 2023</p>
 </footer></section>
+<script src="../../js/main.js"></script>
+<script src="../../js/timeJump.js"></script>
+<script src="../../js/podcast.js"></script>
 <script>setScene();</script>
 </body>
 </html>

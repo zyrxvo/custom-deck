@@ -165,19 +165,25 @@ def parse_time(str):
     
     return 0
 
+def get_description(desc, subtitle):
+    if subtitle in desc: return desc.replace(subtitle, '')
+    else: return desc
+
 def escape_quotes(str):
     return str.replace("'", "\\'")
 
 def load_chapters(chapter_file, id):
-    with open(chapter_file, 'r') as f:
-        markdown_text = f.read()
-        f.close()
-    
-    html = re.sub(r'^(#+)(.*)', lambda match: f'<h{len(match.group(1))} id="#{match.group(2).lower().replace(" ", "-")}">{match.group(2)}</h{len(match.group(1))}>', markdown_text, flags=re.MULTILINE)
-    html = re.sub(r'^-\s*([\d:]+)\s*-?\s*(.*)$', lambda match: f'''<div class="card-chapter" onclick="gotoChapter('{id}', '{parse_time(match.group(1))}', '{escape_quotes(match.group(2))}')">{match.group(1)} - {match.group(2)}</div>''', html, flags=re.MULTILINE)
-    html = re.sub(r'(<div\b[^>]*>[\s\S]*?<\/div>\s*)+', r'<div class="card-chapters">\g<0></div><br>', html, flags=re.IGNORECASE)
-    
-    return html
+    if os.path.exists(chapter_file):
+        with open(chapter_file, 'r') as f:
+            markdown_text = f.read()
+            f.close()
+        
+        html = re.sub(r'^(#+)(.*)', lambda match: f'<h{len(match.group(1))} id="#{match.group(2).lower().replace(" ", "-")}">{match.group(2)}</h{len(match.group(1))}>', markdown_text, flags=re.MULTILINE)
+        html = re.sub(r'^-\s*([\d:]+)\s*-?\s*(.*)$', lambda match: f'''<div class="card-chapter" onclick="gotoChapter('{id}', '{parse_time(match.group(1))}', '{escape_quotes(match.group(2))}')">{match.group(1)} - {match.group(2)}</div>''', html, flags=re.MULTILINE)
+        html = re.sub(r'(<div\b[^>]*>[\s\S]*?<\/div>\s*)+', r'<div class="card-chapters">\g<0></div><br>', html, flags=re.IGNORECASE)
+        
+        return html
+    else: return ''
 
 
 def calculateDurationInMinutes(duration):
@@ -227,7 +233,7 @@ def insertRSSEpisode(soup, path):
     episodeID = f'{__CUSTOM_DECK__}{podcast}{episode_number}'
     mp3 = f'{podcast}{episode_number}.mp3'.lower()
     audio = audioHTML(episodeID, episode.enclosures[0]['url'], mp3)
-    html = f'''<h1>{podcast}</h1><h2>{episode.title}</h2><p><i>{(episode.published)[5:16]} - {calculateDurationInMinutes(episode.itunes_duration)} minutes</i></p><p>{episode.subtitle}</p><h3>Play or <a href="{mp3}" download>download</a> this episode ({round(float(episode.enclosures[0]['length'])/1e6, 1)} MB)</h3>{audio}{load_chapters(os.path.join(path, 'chapters.md'), episodeID)}<p>{episode.description}</p><br>'''
+    html = f'''<h1>{podcast}</h1><h2>{episode.title}</h2><p><i>{(episode.published)[5:16]} - {calculateDurationInMinutes(episode.itunes_duration)} minutes</i></p><p>{episode.subtitle}</p><h3>Play or <a href="{mp3}" download>download</a> this episode ({round(float(episode.enclosures[0]['length'])/1e6, 1)} MB)</h3>{audio}{load_chapters(os.path.join(path, 'chapters.md'), episodeID)}<p>{get_description(episode.description, episode.subtitle)}</p><br>'''
     element = innerHTML(html, element)
     return soup
 
@@ -236,10 +242,10 @@ def insertRSSEpisode(soup, path):
 #############################################################
 
 def insertMD(soup, path):
-    elements = soup.find_all(attrs={"customdeck-insertmd": True})
+    elements = soup.find_all(attrs={"customdeck-include-markdown": True})
     for element in elements:
         element.clear()
-        markdown_path = element['customdeck-insertmd']
+        markdown_path = element['customdeck-include-markdown']
         markdown_file = os.path.join(path, markdown_path)
         markdown_html, yaml = parseMD(markdown_file)
         element = innerHTML(markdown_html, element)
@@ -272,7 +278,7 @@ def insertHTML(soup, path):
 #############################################################
 
 def clean(soup):
-    for attribute in ['customdeck-insertmd', 'customdeck-include-html', 'customdeck-include-blog', 'customdeck-include-rss', 'customdeck-include-rss-episode']:
+    for attribute in ['customdeck-include-markdown', 'customdeck-include-html', 'customdeck-include-blog', 'customdeck-include-rss', 'customdeck-include-rss-episode']:
         elements = soup.find_all(attrs={attribute: True})
         for element in elements: element.clear()
     return BeautifulSoup(str(soup), 'html.parser')
