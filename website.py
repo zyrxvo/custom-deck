@@ -19,11 +19,13 @@ __NUMBER_OF_COLORS__ = 5
 class Mode(Enum):
     BUILD = 'build'
     CLEAN = 'clean'
+    PASS = None
 
-__MODE__ = argv[1]
-if __MODE__ == Mode.BUILD.value: __MODE__ = Mode.BUILD
-elif __MODE__ == Mode.CLEAN.value: __MODE__ = Mode.CLEAN
-else: pass
+__MODE__ = Mode.PASS
+if len(argv) > 1:
+    if argv[1] == Mode.BUILD.value: __MODE__ = Mode.BUILD
+    elif argv[1] == Mode.CLEAN.value: __MODE__ = Mode.CLEAN
+    else: pass 
 
 
 #############################################################
@@ -303,12 +305,30 @@ def process(html_file):
     with open(html_file, 'w') as file:
         file.write(str(soup))
 
+def gitignore_directories():
+    gitignore = ['']
+    if os.path.exists('.gitignore'):
+        with open('.gitignore', 'r') as f:
+            gitignore = f.read()
+    gitignore = set(gitignore.split('\n'))
+    gitignore.discard('')
+    ignore = set()
+    for ig in gitignore:
+        if os.path.isdir(ig): ignore.add(ig)
+        elif 'index.html' in ig: ignore.add(ig)
+        else: pass
+    return ignore
+
 def buildSite(root_dir):
+    gitignore = gitignore_directories()
     for root, dirs, files in os.walk(root_dir):
         for file in files:
             if file == 'index.html':
                 html_file = os.path.relpath(os.path.join(root, file), root_dir)
-                process(html_file)
+                ignore = False
+                for f in gitignore:
+                    if f in html_file: ignore = True
+                if not ignore: process(html_file)
 
 # Build the Site
 buildSite(os.getcwd())
