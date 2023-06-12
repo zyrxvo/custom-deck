@@ -124,7 +124,7 @@ Media Fragments w/ hash:
 <img alt="Landscape" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg"/>
 </div>
 <div class="twothirds" customdeck-include-markdown="homepage/markdown-example.md" id="markdown-example"><h2 id="example-markdown">Example Markdown</h2><p>
-<a href="https://daringfireball.net/projects/markdown/">Markdown</a> is designed to "write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)." The <code>Custom-Deck</code> theme uses a customized version of the <a href="https://python-markdown.github.io">Python-Markdown</a> engine by implementing a couple custom features for convenience. As such, it is unlikely to, but it may result in errors or unintended behaviour. <code>HTML</code> used within the Markdown will remain unchanged and render as <code>HTML</code> unless it is placed within <code>&lt;code&gt;</code> blocks using <code>`backticks`</code>. The following are some examples of the what is rendered.</p><h3 id="headings">Headings</h3><p>Headings from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> are made by using the hashtag <code>#</code> . Simply use as many as you need to get from  <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.</p><h1 id="heading-1">Heading 1</h1><h2 id="heading-2">Heading 2</h2><h3 id="heading-3">Heading 3</h3><h4 id="heading-4">Heading 4</h4><h5 id="heading-5">Heading 5</h5><h6 id="heading-6">Heading 6</h6><h3 id="emphasis">Emphasis</h3><p>Basic emphasis is available using asterisks or underscores around words or phrases. <em>One</em> is <em>emphasized</em>, <strong>two</strong> is <strong>bold</strong>, and <strong>
+<a href="https://daringfireball.net/projects/markdown/">Markdown</a> is designed to "write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)." The <code>Custom-Deck</code> theme uses a customized version of the <a href="https://python-markdown.github.io">Python-Markdown</a> engine by implementing a couple custom features using regular expressions for convenience. As such, it is unlikely to, but it may result in errors or unintended behaviour. <code>HTML</code> used within the Markdown will remain unchanged and render as <code>HTML</code> unless it is placed within <code>&lt;code&gt;</code> blocks using <code>`backticks`</code>. The most notable exceptions to this are when non-standard syntax is used. The following are some examples of the what is rendered.</p><h3 id="headings">Headings</h3><p>Headings from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> are made by using the hashtag <code>#</code> . Simply use as many as you need to get from  <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>. </p><h1 id="heading-1">Heading 1</h1><h2 id="heading-2">Heading 2</h2><h3 id="heading-3">Heading 3</h3><h4 id="heading-4">Heading 4</h4><h5 id="heading-5">Heading 5</h5><h6 id="heading-6">Heading 6</h6><h2 id="non-standard-customization">Non-standard Customization</h2><p>I've added an additional rendering effect where headers are given anchor IDs with the same name, except where spaces are replaced with dashes and commas are removed.</p><h3 id="emphasis">Emphasis</h3><p>Basic emphasis is available using asterisks or underscores around words or phrases. <em>One</em> is <em>emphasized</em>, <strong>two</strong> is <strong>bold</strong>, and <strong>
 <em>three</em>
 </strong> is <strong>
 <em>both</em>
@@ -132,22 +132,25 @@ Media Fragments w/ hash:
 <strong>The most important consideration with relative links is that the link will be make with respect to where the markdown page will be rendered <em>not</em> where it is saved!</strong>
 </p><p>With an exclamation point at the start, you can <code>![Embed an image](homepage/images/landscape.jpeg)</code> to embed an image with alt-text "Embed an image":
 <img alt="Embed image" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg"/>
-</p><h4 id="non-standard-customizations">Non-standard Customizations</h4><p>By adding a vertical bar after the link, but before closing the parentheses, you can <code>&lt;div&gt;&lt;img src='homepage/images/landscape.jpeg' alt='embed an image with width 200px' style='width: 200px;' decoding='async' loading='lazy'&gt;&lt;/div&gt;</code>, to embed an image and specify the width:
+</p><h4 id="non-standard-customizations">Non-standard Customizations</h4><p>By adding a vertical bar after the link, but before closing the parentheses, you can <code>![embed an image with width 200px]</code> <code>(homepage/images/landscape.jpeg|200)</code>, to embed an image and specify the width:
 <div>
 <img alt="Embeded image with width 200px" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg" style="width: 200px;"/>
 </div>
-</p><p>And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this <code>&lt;div class='centre-button'&gt;&lt;a href='/podcast/5/#t=0:47'&gt;&lt;button class='button'&gt;Button Link&lt;/button&gt;&lt;/a&gt;&lt;/div&gt;</code> renders as a button link: <div class="centre-button">
+<div>
+<img alt="embed an image with width 200px" decoding="async" loading="lazy" src="homepage/images/landscape.jpeg" style="width: 200px;"/>
+</div>
+</p><p>And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this <code>¡[Button Link] (/podcast/5/#t=0:47)</code> renders as a button link: <div class="centre-button">
 <a href="podcast/5/#t=0:47">
 <button class="button">Button Link</button>
 </a>
 </div>
 </p><h3 id="text-lists-and-quotes">Text, Lists, and Quotes</h3><p>
 <strong>Text</strong> is just text. Paragraphs and new lines are wrapped in the <code>HTML</code> paragraph tags <code>&lt;p&gt;</code>. 
-<strong>Quotes</strong> are made if a line begins with <code>&gt;</code> then it will be wrapped in <code>&lt;blockquote&gt;</code> tags. It should work work lists too.</p><blockquote>
+<strong>Quotes</strong> are made if a line begins with <code>&gt;</code> then it will be wrapped in <code>&lt;blockquote&gt;</code> tags. </p><blockquote>
 <p>This is a single line/paragraph quote.
 Additional lines that are not separated by an empty line will appear on the previous line, even if they don't begin with an angle bracket <code>&gt;</code>.</p>
 </blockquote><p>But, see how fancy it is with its automatic indentation! The style of the quote can be customized using <code>CSS</code>.</p><h4 id="non-standard-customizations">Non-standard Customizations</h4><p>
-<strong>Lists</strong> are made if a line begins with a hyphen followed by a space, '<code>-</code>  ', then the text on those lines will be converted into an <strong>unordered list</strong>. Successive lines will be included in the same list. For example,
+<strong>Lists</strong> are rendered if a line begins with a hyphen followed by a space, '<code>-</code>  ', then the text on those lines will be converted into an <strong>unordered list</strong>. Successive lines will be included in the same list. For example,
 <ul>
 <li>This is a list with only one line.</li>
 </ul>
@@ -167,7 +170,7 @@ And
 <li>&lt;— This number is 4.</li>
 <li>&lt;— And this number is 0.</li>
 </ol>
-</p><blockquote>
+</p><p>Lists should work with block quotes too.</p><blockquote>
 <p>This is a multi-line quote that also contains two different kinds of lists, some <em>emphasis</em> <strong>and</strong> some <code>code</code>.
 Note again that each new line is kept within the same paragraph tag.</p>
 <p>Paragraph breaks can be maintained so long as there is a newline gap that begins with a right angle bracket, <code>&gt;</code>.</p>
@@ -183,8 +186,9 @@ Note again that each new line is kept within the same paragraph tag.</p>
 Finally this quote is attributed to no one.</p>
 </blockquote><p>
 <strong>
-<em>Again, the Markdown rendering engine uses basic regular expressions. So if something isn't working like you expected it to, then maybe you expected too much of it.</em>
-</strong> I didn't want to load a third-party library because I wanted to learn.</p></div>
+<em>Again, the customizations to the Markdown rendering engine uses basic regular expressions. So if something isn't working like you expected it to, then maybe you expected too much of it.</em>
+</strong>
+</p></div>
 </section>
 <section class="footer" customdeck-include-html="footer.html"><footer>
 <h3 id="contact-me"><i>Contact Me</i></h3>

@@ -1,10 +1,10 @@
 ## Example Markdown
 
-[Markdown](https://daringfireball.net/projects/markdown/) is designed to "write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)." The `Custom-Deck` theme uses a customized version of the [Python-Markdown](https://python-markdown.github.io) engine by implementing a couple custom features for convenience. As such, it is unlikely to, but it may result in errors or unintended behaviour. `HTML` used within the Markdown will remain unchanged and render as `HTML` unless it is placed within `<code>` blocks using ``` `backticks` ```. The following are some examples of the what is rendered.
+[Markdown](https://daringfireball.net/projects/markdown/) is designed to "write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)." The `Custom-Deck` theme uses a customized version of the [Python-Markdown](https://python-markdown.github.io) engine by implementing a couple custom features using regular expressions for convenience. As such, it is unlikely to, but it may result in errors or unintended behaviour. `HTML` used within the Markdown will remain unchanged and render as `HTML` unless it is placed within `<code>` blocks using ``` `backticks` ```. The most notable exceptions to this are when non-standard syntax is used. The following are some examples of the what is rendered.
 
 ### Headings
 
-Headings from `<h1>` to `<h6>` are made by using the hashtag `#` . Simply use as many as you need to get from  `<h1>` to `<h6>`.
+Headings from `<h1>` to `<h6>` are made by using the hashtag `#` . Simply use as many as you need to get from  `<h1>` to `<h6>`. 
 
 # Heading 1
 ## Heading 2
@@ -12,6 +12,9 @@ Headings from `<h1>` to `<h6>` are made by using the hashtag `#` . Simply use as
 #### Heading 4
 ##### Heading 5
 ###### Heading 6
+
+## Non-standard Customization
+I've added an additional rendering effect where headers are given anchor IDs with the same name, except where spaces are replaced with dashes and commas are removed.
 
 ### Emphasis
 
@@ -27,22 +30,22 @@ With an exclamation point at the start, you can `![Embed an image](homepage/imag
 ![Embed image](homepage/images/landscape.jpeg)
 
 #### Non-standard Customizations
-By adding a vertical bar after the link, but before closing the parentheses, you can `![embed an image with width 200px](homepage/images/landscape.jpeg|200)`, to embed an image and specify the width:
-![Embeded image with width 200px](homepage/images/landscape.jpeg|200)
+By adding a vertical bar after the link, but before closing the parentheses, you can `![embed an image with width 200px]` `(homepage/images/landscape.jpeg|200)`, to embed an image and specify the width:
+![Embeded image with width 200px](homepage/images/landscape.jpeg|200) 
 
-And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this `¡[Button Link](/podcast/5/#t=0:47)` renders as a button link: ¡[Button Link](podcast/5/#t=0:47)
+And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this `¡[Button Link] (/podcast/5/#t=0:47)` renders as a button link: ¡[Button Link](podcast/5/#t=0:47)
 
 ### Text, Lists, and Quotes
 
 **Text** is just text. Paragraphs and new lines are wrapped in the `HTML` paragraph tags `<p>`. 
-**Quotes** are made if a line begins with `>` then it will be wrapped in `<blockquote>` tags. It should work work lists too.
+**Quotes** are made if a line begins with `>` then it will be wrapped in `<blockquote>` tags. 
 > This is a single line/paragraph quote.
 Additional lines that are not separated by an empty line will appear on the previous line, even if they don't begin with an angle bracket `>`.
 
 But, see how fancy it is with its automatic indentation! The style of the quote can be customized using `CSS`.
 
 #### Non-standard Customizations
-**Lists** are made if a line begins with a hyphen followed by a space, '`-`&nbsp;&nbsp;', then the text on those lines will be converted into an **unordered list**. Successive lines will be included in the same list. For example,
+**Lists** are rendered if a line begins with a hyphen followed by a space, '`-`&nbsp;&nbsp;', then the text on those lines will be converted into an **unordered list**. Successive lines will be included in the same list. For example,
 - This is a list with only one line.
 And
 - This is
@@ -55,8 +58,7 @@ And
 4. <— This number is 4.
 0. <— And this number is 0.
 
-
-
+Lists should work with block quotes too.
 > This is a multi-line quote that also contains two different kinds of lists, some *emphasis* **and** some `code`.
 > Note again that each new line is kept within the same paragraph tag.
 >
@@ -69,4 +71,4 @@ And
 > 2. Within the quote!
 > Finally this quote is attributed to no one.
 
-***Again, the Markdown rendering engine uses basic regular expressions. So if something isn't working like you expected it to, then maybe you expected too much of it.*** I didn't want to load a third-party library because I wanted to learn.
+***Again, the customizations to the Markdown rendering engine uses basic regular expressions. So if something isn't working like you expected it to, then maybe you expected too much of it.***
