@@ -12,14 +12,17 @@ from python.mdX import X
 ##################### Site Constants ########################
 #############################################################
 
-__CUSTOM_DECK__ = '__custom_deck__'
+__CUSTOM_DECK__ = '__starlight__'
 __CONFIG_FILE__ = 'config.json'
 __NUMBER_OF_COLORS__ = 5
+__CHAPTER_FILES__ = 'chapters.md'
+__TRANSCRIPT_FILES__ = 'transcript.md'
 
 class Mode(Enum):
     BUILD = 'build'
     CLEAN = 'clean'
     PASS = None
+
 
 __MODE__ = Mode.PASS
 if len(argv) > 1:
@@ -36,7 +39,7 @@ def parseMD(filename):
     with open(filename, 'r') as f:
         markdown_text = f.read()
         f.close()
-    md = markdown.Markdown(extensions=['full_yaml_metadata', X()])
+    md = markdown.Markdown(extensions=['full_yaml_metadata', 'footnotes', X()])
     html = md.convert(markdown_text)
     return html, md.Meta
 
@@ -48,6 +51,15 @@ def updateRelPaths(soup, path):
         elif element.name == 'img': element['src'] = relative_path_prefix + element['src']
         elif element.name == 'source': element['srcset'] = relative_path_prefix + element['srcset']
         else: pass
+    return soup
+
+def setActivePage(soup, page):
+    element = soup.find(id=page)
+    if 'class' in element.attrs: element['class'].append('active')
+    else: element['class'] = ['active']
+    element = soup.find(id=str(page)+'-drop')
+    if 'class' in element.attrs: element['class'].append('active')
+    else: element['class'] = ['active']
     return soup
 
 def innerHTML(string, element, replace=True):
@@ -78,8 +90,15 @@ def lazyImages(soup):
             element.attrs['loading'] = 'eager'
     return soup
 
+def reverseOL(soup):
+    elements = soup.find_all(attrs={'customdeck-reverse-ol': True})
+    for element in elements:
+        for child in element.find_all('ol'):
+            child.attrs['reversed'] = ''
+    return soup
+
 #############################################################
-################### Peripheral Content ######################
+##################### Config Details ########################
 #############################################################
 
 def loadConfig(soup, config_file):
@@ -97,12 +116,6 @@ def loadConfig(soup, config_file):
             else: element = innerHTML(placeholderValue, element)
     return soup
 
-def setActivePage(soup, page):
-    element = soup.find(id=page)
-    if 'class' in element.attrs: element['class'].append('active')
-    else: element['class'] = ['active']
-    return soup
-
 
 #############################################################
 ####################### Blog Posts #########################
@@ -116,24 +129,26 @@ def loadPosts(element, blog, path, config_file):
     posts = os.path.join(path, config[blog]['posts'])
     filenames = [file for root, dirs, files in os.walk(posts) if '.md' for file in files if '.md' in file]
     filenames.sort()
+    if config[blog]['direction'] == 'oldest': filenames = filenames[::-1]
     images = config[blog]['images']
+    color_wheel = list(range(__NUMBER_OF_COLORS__)) + list(range(__NUMBER_OF_COLORS__ - 1))[::-1][:-1]
     for index, markdown_file in enumerate(filenames):
         markdown_html, details = parseMD(os.path.join(posts, markdown_file))
-        date = details.date if details != None else markdown_file
-        thisColor = index % __NUMBER_OF_COLORS__
-        entry = f'<section class="card color{thisColor} padded margins" id="{date}">'
+        fname = details.date if details != None else markdown_file.replace('.md', '')
+        thisColor = color_wheel[int(index % len(color_wheel))]
+        entry = f'<section class="card color{thisColor} padded margins centred" id="{fname}">'
         post,image = '',''
         imageURL = os.path.join(images, markdown_file.split('.')[0] + '.jpeg')
         fullImageURL = os.path.join(images, markdown_file.split('.')[0] + '_full.jpeg')
         if os.path.exists(os.path.join(path, imageURL)):
-            post = f'<div id="{date}-text" class="twothirds">{markdown_html}</div>'
-            if os.path.exists(os.path.join(path, fullImageURL)): image = f'<div id="{date}-image" class="onethird centred"><a href="{fullImageURL}"><img src={imageURL} decoding="async" loading="lazy"></a></div>'
-            else: image = f'<div id="{date}-image" class="onethird horizontal"><img src={imageURL} decoding="async" loading="lazy"></div>'
+            post = f'<div id="{fname}-text" class="twothirds">{markdown_html}</div>'
+            if os.path.exists(os.path.join(path, fullImageURL)): image = f'<div id="{fname}-image" class="onethird centred"><a href="{fullImageURL}"><img src={imageURL} decoding="async" loading="lazy"></a></div>'
+            else: image = f'<div id="{fname}-image" class="onethird horizontal"><img src={imageURL} decoding="async" loading="lazy"></div>'
             # Alternate which side the image is on.
             if (index%2): entry = f'{entry}{post}{image}</section>'
             else: entry = f'{entry}{image}{post}</section>'
         else:
-            post = f'<div id="{date}-text" class="full">{markdown_html}</div>' 
+            post = f'<div id="{fname}-text" class="twothirds centred vertical">{markdown_html}</div>' 
             entry = f'{entry}{post}</section>'
         element = innerHTML(entry, element, replace=False)
     return element
@@ -173,6 +188,13 @@ def get_description(desc, subtitle):
 
 def escape_quotes(str):
     return str.replace("'", "\\'")
+
+
+def load_transcript(transcript_file):
+    if os.path.exists(transcript_file):
+        transcript_html, yaml = parseMD(transcript_file)
+        return transcript_html
+    else: return ''
 
 def load_chapters(chapter_file, id):
     if os.path.exists(chapter_file):
@@ -235,7 +257,8 @@ def insertRSSEpisode(soup, path):
     episodeID = f'{__CUSTOM_DECK__}{podcast}{episode_number}'
     mp3 = f'{podcast}{episode_number}.mp3'.lower()
     audio = audioHTML(episodeID, episode.enclosures[0]['url'], mp3)
-    html = f'''<h1>{podcast}</h1><h2>{episode.title}</h2><p><i>{(episode.published)[5:16]} - {calculateDurationInMinutes(episode.itunes_duration)} minutes</i></p><p>{episode.subtitle}</p><h3>Play or <a href="{mp3}" download>download</a> this episode ({round(float(episode.enclosures[0]['length'])/1e6, 1)} MB)</h3>{audio}{load_chapters(os.path.join(path, 'chapters.md'), episodeID)}<p>{get_description(episode.description, episode.subtitle)}</p><br>'''
+    html = f'''<h1>{podcast}</h1><h2>{episode.title}</h2><p><i>{(episode.published)[5:16]} - {calculateDurationInMinutes(episode.itunes_duration)} minutes</i></p><p>{episode.subtitle}</p><h3>Play or <a href="{mp3}" download>download</a> this episode ({round(float(episode.enclosures[0]['length'])/1e6, 1)} MB)</h3>{audio}{load_chapters(os.path.join(path, __CHAPTER_FILES__), episodeID)}<p>{get_description(episode.description, episode.subtitle)}</p><br>'''
+    transcript = f'''<div class="card color1 vertical padded">{load_transcript(__TRANSCRIPT_FILES__)}</div>'''
     element = innerHTML(html, element)
     return soup
 
@@ -289,6 +312,7 @@ def process(html_file):
     path = html_file.split('/')
     path = f"{'/'.join(path[:-1])}" if len(path) > 0 else ""
     with open(html_file, 'r') as file:
+        # print(html_file)
         soup = BeautifulSoup(file, 'html.parser')
         if __MODE__ == Mode.BUILD:
             soup = insertMD(soup, path)
@@ -297,6 +321,7 @@ def process(html_file):
             soup = insertRSSFeed(soup, path)
             soup = insertRSSEpisode(soup, path)
             soup = loadConfig(soup, __CONFIG_FILE__)
+            soup = reverseOL(soup)
             soup = lazyImages(soup)
         elif __MODE__ == Mode.CLEAN: soup = clean(soup)
         else: pass

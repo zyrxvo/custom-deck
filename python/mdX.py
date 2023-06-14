@@ -4,16 +4,12 @@ from markdown.preprocessors import Preprocessor
 from markdown.treeprocessors import Treeprocessor
 from markdown.postprocessors import Postprocessor
 
-class LB(Preprocessor):
-    """ Custom Lists and Buttons """
+class CB(Preprocessor):
+    """ Custom Buttons and Embeded Images """
     def run(self, lines):
         lines = '\n'.join(lines)
-        lines = re.sub(r'^-\ (.*)$', r'<ul><li>\1</li></ul>', lines, flags=re.MULTILINE)
-        lines = re.sub(r'<\/ul>\n<ul>', r'', lines, flags=re.MULTILINE)
-        lines = re.sub(r'^(\d+)\.\ (.*)$', r'<ol><li>\2</li></ol>', lines, flags=re.MULTILINE)
-        lines = re.sub(r'<\/ol>\n<ol>', r'', lines, flags=re.MULTILINE) 
         lines = re.sub(r'¡\[([^\]]+)\]\(([^)]+)\)', r"<div class='centre-button'><a href='\2'><button class='button'>\1</button></a></div>", lines)
-        lines = re.sub(r'!\[([^\]]+)\]\(([^)]+)\|(\d+)\)', r"<div><img src='\2' alt='\1' style='width: \3px;' decoding='async' loading='lazy'></div>", lines)
+        lines = re.sub(r'!\[(.*?)\]\((.*?)\|(.*?)\)', r"<figure class='centred vertical'> <img class='\3' decoding='async' loading='lazy' src='\2' alt='\1' /> <figcaption class='centred'><p>\1</p></figcaption></figure>", lines)
         return lines.split('\n')
 
 class Y(Treeprocessor):
@@ -25,17 +21,7 @@ class Y(Treeprocessor):
                 anchor_id = header_text.lower().replace(' ', '-').replace(',','')
                 element.set('id', anchor_id)
 
-class QL(Preprocessor):
-    """ Custom Lists Within BlockQuotes """
-    def run(self, text):
-        text = re.sub(r'^-\ (.*)$', r'<ul><li>\1</li></ul>', text, flags=re.MULTILINE)
-        text = re.sub(r'<\/ul>\n<ul>', r'', text, flags=re.MULTILINE)
-        text = re.sub(r'^(\d+)\.\ (.*)$', r'<ol><li>\2</li></ol>', text, flags=re.MULTILINE)
-        text = re.sub(r'<\/ol>\n<ol>', r'', text, flags=re.MULTILINE) 
-        return text
-
 class X(Extension):
     def extendMarkdown(self, md):
-        md.preprocessors.register(LB(), 'button_listings', 0)
+        md.preprocessors.register(CB(), 'button_listings', 0)
         md.treeprocessors.register(Y(md), 'header_anchor', 15)
-        md.postprocessors.register(QL(), 'quote_lists', 160)
