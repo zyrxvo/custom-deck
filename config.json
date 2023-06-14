@@ -15,7 +15,8 @@
         "heroquote": "Here are some short blog entries related to things that I've done and places I've been.",
         "heroimage": "images/blog_hero.jpeg",
         "posts": "posts/",
-        "images": "images/"
+        "images": "images/",
+        "direction": "newest"
     },
     "podcast": {
         "title": "Custom-Deck | Podcast",

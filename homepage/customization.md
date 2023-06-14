@@ -3,9 +3,11 @@
 ## Site Details
 
 The philosophy behind this theme is to make it as lightweight and fast as possible. To do this there is a focus on using only `HTML` and `CSS`. `JavaScript` is used sparingly to provide functionality for a few key features:
+
 - Dropdown menu on mobile
 - Light/dark mode
 - Saving podcast playback position
+
 `Python` is used to dynamically pre-load content into the `index.html` files of your site as `HMTL`. You can do this by running `python3 website.py build` from the root directory of your site. If you want to remove the content from the `HTML` of your site you can do this running `python3 website.py clean`.
 
 ### config.json
@@ -14,11 +16,13 @@ In the top-level folder there is a `config.json` file that provides some customi
 ### Content
 Changing the main layout and content of the site is done by editing the `HTML` files themselves. The basic `card` class can be used as full-width, half-width, two-thirds-width, and one-third-width cards with nested combinations, in case you wanted quarter-width, etc. 
 The content can then be dynamically pre-loaded into the `HTML` before publication. Using the following `HTML` attributes you can customize how what content is loaded and how it is loaded: 
+
 - `customdeck-include-markdown`
 - `customdeck-include-html`
 - `customdeck-include-blog`
 - `customdeck-include-rss`
 - `customdeck-include-rss-episode`
+
 You can more quickly create content by writing in [markdown](https://daringfireball.net/projects/markdown/) and simply inserting the markdown using the markdown rendering engine, see the [Example Markdown](#example-markdown) below.
 
 ### CSS
@@ -58,7 +62,7 @@ Building the site 'dynamically' and pre-loading the content before publishing no
 Almost all of the images are given the `loading="lazy"` flag to reduce network usage, especially when loading the blog posts. This flag helps to initially load pages more quickly by waiting until the images come close to or above the 'fold' of the page. The 'hero images' are given the `loading="eager"` flag in an attempt to reduce the content from jumping around while fetch requests are being made.
 
 ## Possible Issues
-- If a visitor loads an episode page using a TimeJump hash, it will overwrite their previously saved progress for the episode. This is because it is equivalent to them manually seeking through the episode themselves. This is intended behaviour but may be surprising, especially if the visitor refreshes the page with an old TimeJump has still in the URL.
+If a visitor loads an episode page using a TimeJump hash, it will overwrite their previously saved progress for the episode. This is because it is equivalent to them manually seeking through the episode themselves. This is intended behaviour but may be surprising, especially if the visitor refreshes the page with an old TimeJump has still in the URL.
 
 
 # TimeJump
@@ -69,15 +73,18 @@ This theme uses a slightly customized version of [TimeJump](https://github.com/d
 
 **Supported URL formats include:**
 Media Fragments w/ hash:
+
 - `http://mypodca.st/first-episode/#t=1:23:45`
 - `http://mypodca.st/first-episode/#t=23:45`
 - `http://mypodca.st/first-episode/#t=234`
 
 Media Fragments w/ query:
+
 - `http://mypodca.st/first-episode/?t=1:23:45`
 - `http://mypodca.st/first-episode/?t=23:45`
 - `http://mypodca.st/first-episode/?t=234`
 
 Quirks Mode (YouTube-style) w/ hash or query:
+
 - `http://mypodca.st/first-episode/?t=1h23m45s`
 - `http://mypodca.st/first-episode/#t=1m23s`   

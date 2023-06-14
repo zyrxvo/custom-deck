@@ -8,13 +8,14 @@ function initialize_stats(name, duration) {
     var obj = INTIAL_STATS;
     obj.duration = duration;
     localStorage.setItem(name, JSON.stringify(obj));
+    return obj;
 }
 
 // https://stackoverflow.com/a/9565178
 function setTime(id) {
     var audio = document.getElementById(id);
     var obj = JSON.parse(localStorage.getItem(id));
-    if (obj == null) { initialize_stats(id, audio.duration); }
+    if (obj == null) { obj = initialize_stats(id, audio.duration); }
     if (obj.duration != audio.duration) { obj.duration = audio.duration; }
     if (audio.currentTime != obj.playhead) { audio.currentTime = obj.playhead; }
     obj.playhead = audio.currentTime;
@@ -24,7 +25,7 @@ function setTime(id) {
 function gotoChapter(id, playhead, name) {
     var audio = document.getElementById(id);
     var obj = JSON.parse(localStorage.getItem(id));
-    if (obj == null) { initialize_stats(id, audio.duration); }
+    if (obj == null) { obj = initialize_stats(id, audio.duration); }
     if (obj.duration != audio.duration) { obj.duration = audio.duration; }
     audio.currentTime = parseFloat(playhead);
     try {audio.play();} catch (error) {console.error(error);}
@@ -41,7 +42,7 @@ function gotoChapter(id, playhead, name) {
 function trackTime(id, name) {
     var audio = document.getElementById(id);
     var obj = JSON.parse(localStorage.getItem(id));
-    if (obj == null) { initialize_stats(id, audio.duration); }
+    if (obj == null) { obj = initialize_stats(id, audio.duration); }
     if (obj.duration != audio.duration) { obj.duration = audio.duration; }
     var playhead = audio.currentTime;
     if (Math.abs(playhead - obj.playhead) < 1) {
@@ -77,7 +78,7 @@ function trackTime(id, name) {
 function completed(id, name) {
     var audio = document.getElementById(id);
     var obj = JSON.parse(localStorage.getItem(id));
-    if (obj == null) { initialize_stats(id, audio.duration); }
+    if (obj == null) { obj = initialize_stats(id, audio.duration); }
     if (obj.duration != audio.duration) { obj.duration = audio.duration; }
     obj.playhead = 0;
     // _paq.push(['trackEvent', 'Audio', 'Finish', name, obj.percent_completed]);
@@ -88,7 +89,7 @@ function completed(id, name) {
 function pressedPlay(id, name) {
     var audio = document.getElementById(id);
     var obj = JSON.parse(localStorage.getItem(id));
-    if (obj == null) { initialize_stats(id, audio.duration); }
+    if (obj == null) { obj = initialize_stats(id, audio.duration); }
     if (obj.duration != audio.duration) { obj.duration = audio.duration; }
     audio.currentTime = obj.playhead;
     if (obj.playhead < 1) {

@@ -3,6 +3,7 @@
 This is a public version of the custom theme I built myself for my own website, [zyrxvo.github.io](https://zyrxvo.github.io). A demo of this theme can be explored at [zyrxvo.github.io/custom-deck](https://zyrxvo.github.io/custom-deck).
 
 I created it because I wanted to explore how to do front-end web development but I didn't want to load large libraries just to present a static site. Thus, the theme can be used to create very lightweight sites that are almost exclusively `HTML` and `CSS`. This theme could easily be modified to remove all `JavaScript`. However, with `JavaScript` it has a few additional features.
+
 1. The ability to dismiss the dropdown navigation menu on touch screens.
 2. An optional light and dark mode button for those who love dark mode.
 3. A basic podcast player that keeps track of where you are in each episode.
