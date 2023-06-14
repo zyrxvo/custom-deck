@@ -2,41 +2,6 @@
 
 [Markdown](https://daringfireball.net/projects/markdown/) is designed to "write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)." The `Custom-Deck` theme uses a customized version of the [Python-Markdown](https://python-markdown.github.io) engine by implementing a couple custom features using regular expressions for convenience. The official syntax for the rendering engine is based off of the [original markdown syntax](https://daringfireball.net/projects/markdown/syntax). However, I added a couple customizations. As such, it is unlikely to, but it may result in errors or unintended behaviour. `HTML` used within the Markdown will remain unchanged and render as `HTML` unless it is placed within `<code>` blocks using ``` `backticks` ```. The most notable exceptions to this are when non-standard syntax is used. The following are some examples of the what is rendered.
 
-### Headings
-
-Headings from `<h1>` to `<h6>` are made by using the hashtag `#` . Simply use as many as you need to get from  `<h1>` to `<h6>`. 
-
-# [Heading 1] [heading-1]
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
-
-#### Non-standard Customization
-I've added an additional rendering effect where headers are given anchor IDs with the same name, except where spaces are replaced with dashes and commas are removed.
-
-### Emphasis
-
-Basic emphasis is available using asterisks or underscores around words or phrases. _One_ is *emphasized*, **two** is __bold__, and ***three*** is **_both_**. Basic `code` emphasis is made using single, surrounding ``` `backticks` ```. Combinations of these emphasizers may not render as expected.
-
-### Links
-
-With markdown you can easily make links using closing square brackets `[]` followed immediately by closing round parentheses `()`. For example, `[this is a link](README.md)` and links to an image or file and renders as: [this is a link](README.md) , `[another page](blog)` renders as a link to [another page](blog) on the site, and `[an external URL](https://www.example.com)` is [an external URL](https://www.example.com).
-
-**The most important consideration with relative links is that the link will be make with respect to where the markdown page will be rendered *not* where it is saved!**
-
-With an exclamation point at the start, you can `![Embed an image](homepage/images/landscape.jpeg "With an optional title")` to embed an image with alt-text "Embed an image":
-![Embed image](homepage/images/landscape.jpeg "With an optional title")
-
-#### Non-standard Customizations
-By adding a vertical bar after the link, but before closing the parentheses, you can `![embed an image with a caption and specify the class]` `(homepage/images/landscape.jpeg|onethird)`, to embed an image with a caption and specify the width (by using a `CSS` class):
-![Embeded image with width defined by class="onethird"](homepage/images/landscape.jpeg|onethird) 
-
-And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this `¡[Button Link] (/podcast/5/#t=0:47)` renders as a button link: ¡[Button Link](podcast/5/#t=0:47)
-
-***Again, the customizations to the Markdown rendering engine uses basic regular expressions. So if something isn't working like you expected it to, then maybe you expected too much of it.***
-
 ### Text, Lists, and Quotes
 
 **Text** is just text. Paragraphs and new lines are wrapped in the `HTML` paragraph tags `<p>`. 
@@ -107,3 +72,42 @@ Lists should work with block quotes too.
 > 2. Within the quote!
 > 
 > Finally this quote is attributed to no one.
+
+### Headings
+
+Headings from `<h1>` to `<h6>` are made by using the hashtag `#` . Simply use as many as you need to get from  `<h1>` to `<h6>`. 
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+#### Non-standard Customization
+I've added an additional rendering effect where headers are given anchor IDs with the same name, except where spaces are replaced with dashes and commas are removed.
+
+### Emphasis
+
+Basic emphasis is available using asterisks or underscores around words or phrases. _One_ is *emphasized*, **two** is __bold__, and ***three*** is **_both_**. Basic `code` emphasis is made using single, surrounding ``` `backticks` ```. Combinations of these emphasizers may not render as expected.
+
+### Links
+
+With markdown you can easily make links using closing square brackets `[]` followed immediately by closing round parentheses `()`. For example, `[this is a link](README.md)` and links to an image or file and renders as: [this is a link](README.md) , `[another page](blog)` renders as a link to [another page](blog) on the site, and `[an external URL](https://www.example.com)` is [an external URL](https://www.example.com).
+
+**The most important consideration with relative links is that the link will be make with respect to where the markdown page will be rendered *not* where it is saved!**
+
+With an exclamation point at the start, you can `![Embed an image](homepage/images/landscape.jpeg "With an optional title")` to embed an image with alt-text "Embed an image":
+![Embed image](homepage/images/landscape.jpeg "With an optional title")
+
+#### Non-standard Customizations
+By adding a vertical bar after the link, but before closing the parentheses, you can `![embed an image with a caption and specify the class]` `(homepage/images/landscape.jpeg|onethird)`, to embed an image with a caption and specify the width (by using a `CSS` class):
+![Embeded image with width defined by class="onethird"](homepage/images/landscape.jpeg|onethird) 
+
+And by using the inverted exclamation mark '¡' (Option+1 on a Mac), this `¡[Button Link] (/podcast/5/#t=0:47)` renders as a button link: ¡[Button Link](podcast/5/#t=0:47)
+
+Finally, by using a question mark, it will create an linked information box. Meaning `?[<h5>Information Box</h5><p>This is a custom information box to highlight some key information and provide an easy link to somewhere you would like to direct a visitor to go. It's like an advanced button link. In this case, I'm directing visitors to my website.</p>] (https://zyrxvo.github.io/)` becomes: 
+
+?[<h5>Information Box</h5><p>This is a custom information box to highlight some key information and provide an easy link to somewhere you would like to direct a visitor to go. It's like an advanced button link. In this case, I'm directing visitors to my website.</p>](https://zyrxvo.github.io/)
+
+***Again, the customizations to the Markdown rendering engine uses basic regular expressions. So if something isn't working like you expected it to, then maybe you expected too much of it.***

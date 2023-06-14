@@ -2,14 +2,14 @@ import re
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
 from markdown.treeprocessors import Treeprocessor
-from markdown.postprocessors import Postprocessor
 
 class CB(Preprocessor):
     """ Custom Buttons and Embeded Images """
     def run(self, lines):
         lines = '\n'.join(lines)
         lines = re.sub(r'¡\[([^\]]+)\]\(([^)]+)\)', r"<div class='centre-button'><a href='\2'><button class='button'>\1</button></a></div>", lines)
-        lines = re.sub(r'!\[(.*?)\]\((.*?)\|(.*?)\)', r"<figure class='centred vertical'> <img class='\3' decoding='async' loading='lazy' src='\2' alt='\1' /> <figcaption class='centred'><p>\1</p></figcaption></figure>", lines)
+        lines = re.sub(r'!\[(.*?)\]\((.*?)\|(.*?)\)', r"<figure><a class='padded centred' href='\2'><img class='imglink \3' decoding='async' loading='lazy' src='\2' alt='\1' /></a> <figcaption class='centred'><p>\1</p></figcaption></figure>", lines)
+        lines = re.sub(r'\?\[(.*?)\]\((.*?)\)', r'<div class="centred"><a class="infobox" data-content-name="InfoBox" data-content-piece="\2" data-content-target="\2" data-track-content="" href="\2" ><div class="centred vertical">\1</div></a></div>', lines)
         return lines.split('\n')
 
 class Y(Treeprocessor):
