@@ -31,4 +31,4 @@ jobs:
         with:
           type: now
           target_branch: gh-pages
-          github_token: ${{ secrets.BUILD }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
