@@ -1,5 +1,6 @@
 beautifulsoup4==4.12.2
 feedparser==6.0.10
+joblib==1.2.0
 Markdown==3.4.3
 markdown-full-yaml-metadata==2.2.1
 PyYAML==6.0
