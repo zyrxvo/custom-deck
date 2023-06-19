@@ -10,8 +10,8 @@
 :root {
 	--max-width: 1200px;
 	--base-font-size: 16px;
-	--base-h1-size: 2.5em;
-	--base-header-scale-factor: 1.25;
+	--base-h1-size: 2em;
+	--base-header-scale-factor: 1.148698354997035;
 	--button-border-radius: 0.375em;
 	--card-border-radius: 1em;
 	--base-line-height: 1.5;

@@ -6,6 +6,7 @@ from enum import Enum
 import feedparser
 from bs4 import BeautifulSoup
 import markdown
+import joblib
 from python.mdX import X
 
 #############################################################
@@ -246,7 +247,7 @@ def insertRSSEpisode(soup, path):
     with open(__CONFIG_FILE__, 'r') as f:
         config = json.load(f)
         f.close()
-    feed = os.path.join(path[:-1], config[rss]['rss'])
+    feed = os.path.join(*path.split('/')[:-1], config[rss]['rss'])
     data = feedparser.parse(feed)
     podcast = data.feed.title
     n = int(re.search(r'\d+', path).group())
@@ -345,6 +346,7 @@ def gitignore_directories():
     return ignore
 
 def buildSite(root_dir):
+    files_to_process = []
     gitignore = gitignore_directories()
     for root, dirs, files in os.walk(root_dir):
         for file in files:
@@ -353,7 +355,8 @@ def buildSite(root_dir):
                 ignore = False
                 for f in gitignore:
                     if f in html_file: ignore = True
-                if not ignore: process(html_file)
+                if not ignore: files_to_process.append(html_file)
+    joblib.Parallel(n_jobs=-1, verbose=0)(joblib.delayed(process)(files_to_process[i]) for i in range(len(files_to_process)))
 
 # Build the Site
 buildSite(os.getcwd())
