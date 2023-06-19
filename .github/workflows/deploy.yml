@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -26,11 +26,9 @@ jobs:
       - name: Generate HTML
         run: python website.py build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Merge main to gh-pages
+        uses: devmasx/merge-branch@master
         with:
+          type: now
+          target_branch: gh-pages
           github_token: ${{ secrets.BUILD }}
-          publish_dir: ./  # Replace with the directory where your generated HTML files are located
-          publish_branch: gh-pages
-          user_name: Garett Brown
-          user_email: zyrxvo.us@gmail.com
